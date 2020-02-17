@@ -1,3 +1,5 @@
+kind: pipeline
+name: defaultworkspace:
 base: /go
   path: src/github.com/josem-bmgf/master:
   - name: test
