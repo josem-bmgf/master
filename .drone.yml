@@ -1,6 +1,8 @@
 pipeline:
   build:
     image: node:latest
+    commands: npm cache clean
+    commands: sudo npm install -g npm
     commands: npm install
   test:
     image: node:latest
