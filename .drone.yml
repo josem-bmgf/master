@@ -4,6 +4,9 @@ pipeline:
     commands: npm cache clean
     commands: sudo npm install -g npm
     commands: npm install
+    commands:
+    - dotnet clean myWeb/myWeb.csproj
+    - dotnet build myWeb/myWeb.csproj
   #test:
 #  image: node:latest
   #  commands: npm run test
