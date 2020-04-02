@@ -1,18 +1,9 @@
-pipeline:
-  build:
-    image: node:latest
-    commands: npm cache clean
-    commands: sudo npm install -g npm
-    commands: npm install
-    
-    name: clean
-    image: mcr.microsoft.com/dotnet/core/sdk:3.0
-    commands:
-    - dotnet clean myWeb/myWeb.csproj
-    name: build
-    image: mcr.microsoft.com/dotnet/core/sdk:3.0
-    commands:
-    - dotnet build myWeb/myWeb.csproj
-  #test:
-#  image: node:latest
-  #  commands: npm run test
+kind: pipeline
+name: default
+
+steps:
+- name: test
+  image: golang
+  commands:
+  - go test
+  - go build
