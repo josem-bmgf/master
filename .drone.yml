@@ -1,9 +1,14 @@
 kind: pipeline
-name: default
+type: docker
+name: Build Project
 
-steps:
-- name: test
-  image: golang
-  commands:
-  - go test
-  - go build
+steps:    
+  - name: clean
+    image: mcr.microsoft.com/dotnet/sdk:latest
+    commands:
+      - dotnet clean myWeb/myWeb.csproj
+
+  - name: build
+    image: mcr.microsoft.com/dotnet/core/sdk:latest
+    commands:
+      - dotnet build myWeb/myWeb.csproj
