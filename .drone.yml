@@ -7,6 +7,7 @@ steps:
   image: mcr.microsoft.com/dotnet/sdk:latest
   commands:
     - cp Microsoft.WebApplication.targets /drone
+    - ls -l /drone
     - dotnet clean myWeb/myWeb.csproj
 
 #- name: build project
@@ -18,7 +19,8 @@ steps:
  
 trigger:
   branch:
-    - master
+    include:
+      - master
   event:
     include:
       - push
