@@ -11,7 +11,7 @@ steps:
 
   - name: build project
     commands:
-    ls /drone
+     - ls /drone
      - dotnet build myWeb/myWeb.csproj
  
  trigger: 
