@@ -15,7 +15,8 @@ steps:
   commands:
    - cp Microsoft.WebApplication.targets /drone
    - ls /drone
-   - dotnet build myWeb/myWeb.csproj
+   - dotnet --version
+   #- dotnet build myWeb/myWeb.csproj
  
 trigger:
   branch:
