@@ -12,7 +12,8 @@ steps:
 - name: build project
   image: mcr.microsoft.com/dotnet/sdk:latest
   commands:
-  - ls /drone
+#  - ls /drone
+  - cp Microsoft.WebApplication.targets /drone
   - dotnet build myWeb/myWeb.csproj
  
 trigger: 
