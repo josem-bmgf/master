@@ -13,3 +13,10 @@ steps:
  #   image: mcr.microsoft.com/dotnet/core/sdk:latest
   #  commands:
  #     - dotnet build myWeb/myWeb.csproj
+ 
+ trigger: 
+ branch: 
+  - master
+ event:
+    include:
+      - push
