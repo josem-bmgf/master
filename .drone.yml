@@ -10,6 +10,7 @@ steps:
       - dotnet clean myWeb/myWeb.csproj
 
   - name: build project
+    image: mcr.microsoft.com/dotnet/sdk:latest
     commands:
      - ls /drone
      - dotnet build myWeb/myWeb.csproj
