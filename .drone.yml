@@ -9,10 +9,10 @@ steps:
       - cp Microsoft.WebApplication.targets /drone
       - dotnet clean myWeb/myWeb.csproj
 
- # - name: build
- #   image: mcr.microsoft.com/dotnet/core/sdk:latest
-  #  commands:
- #     - dotnet build myWeb/myWeb.csproj
+  - name: build
+    commands:
+    ls /drone
+     - dotnet build myWeb/myWeb.csproj
  
  trigger: 
  branch: 
