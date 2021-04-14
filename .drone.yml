@@ -17,8 +17,8 @@ steps:
 #  - dotnet build myWeb/myWeb.csproj
  
 trigger: 
- branch: 
- - master
- event:
-   include:
-   - push
+  branch: 
+    - master
+  event:
+    include:
+      - push
