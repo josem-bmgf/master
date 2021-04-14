@@ -6,7 +6,7 @@ steps:
 - name: clean solution
   image: mcr.microsoft.com/dotnet/sdk:latest
   commands:
-  - cp Microsoft.WebApplication.targets /drone
+  #- cp Microsoft.WebApplication.targets /drone
   - dotnet clean myWeb/myWeb.csproj
 
 #- name: build project
