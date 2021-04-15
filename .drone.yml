@@ -17,7 +17,7 @@ steps:
    - ls /drone
    - dotnet --version
    - dotnet restore myWeb/myWeb.csproj
-   #- dotnet build myWeb/myWeb.csproj
+   - dotnet build myWeb/myWeb.csproj
  
 trigger:
   branch:
