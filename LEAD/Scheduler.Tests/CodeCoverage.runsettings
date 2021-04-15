@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+  <DataCollectionRunSettings>
+    <DataCollectors>
+      <DataCollector friendlyName="Code Coverage" uri="datacollector://Microsoft/CodeCoverage/2.0" assemblyQualifiedName="Microsoft.VisualStudio.Coverage.DynamicCoverageDataCollector, Microsoft.VisualStudio.TraceCollector, Version=11.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+        <Configuration>
+          <CodeCoverage>
+            <ModulePaths>
+              <Exclude>
+                <ModulePath>.*framework.dll$</ModulePath>
+                <ModulePath>.*tests.dll$</ModulePath>
+              </Exclude>
+            </ModulePaths>
+            <Functions>
+              <Exclude>
+                <Function>Scheduler.Api.Helpers.ActiveDirectoryHelper.*c\..*</Function>
+                <Function>Scheduler.Api.Helpers.SessionHelper.*c__.*\..*</Function>
+                <Function>Scheduler.Controllers.ErrorLogsController.*c\..*</Function>
+                <Function>Scheduler.Controllers.LookupController.*c\..*</Function>
+                <Function>Scheduler.Controllers.EngagementController.*c\..*</Function>
+                <Function>Scheduler.Controllers.EngagementController.*c__.*\..*</Function>
+                <Function>Scheduler.Helpers.EmailHelper.*c__.*\..*</Function>
+                <Function>Scheduler.Models\..*</Function>
+              </Exclude>
+            </Functions>
+            <UseVerifiableInstrumentation>True</UseVerifiableInstrumentation>
+            <AllowLowIntegrityProcesses>True</AllowLowIntegrityProcesses>
+            <CollectFromChildProcesses>True</CollectFromChildProcesses>
+            <CollectAspDotNet>False</CollectAspDotNet>
+          </CodeCoverage>
+        </Configuration>
+      </DataCollector>
+    </DataCollectors>
+  </DataCollectionRunSettings>
+</RunSettings>

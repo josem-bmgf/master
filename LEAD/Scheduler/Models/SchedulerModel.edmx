@@ -1,0 +1,3008 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LeadershipEngagementPlannerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RegionFk" Type="int" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Duration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsInternalEngagement" Type="bit" Nullable="false" />
+          <Property Name="Duration" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DurationInMinutes" Type="int" Nullable="false" />
+          <Property Name="DurationInDays" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Engagement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" />
+          <Property Name="DetailsRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="Objectives" Type="varchar(max)" Nullable="false" />
+          <Property Name="ObjectivesRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="ExecutiveSponsorFk" Type="int" Nullable="false" />
+          <Property Name="IsConfidential" Type="bit" Nullable="false" />
+          <Property Name="IsExternal" Type="bit" Nullable="false" />
+          <Property Name="RegionFk" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="PurposeFk" Type="int" Nullable="false" />
+          <Property Name="BriefOwnerFk" Type="int" Nullable="false" />
+          <Property Name="StaffFk" Type="int" Nullable="false" />
+          <Property Name="DurationFk" Type="int" Nullable="false" />
+          <Property Name="IsDateFlexible" Type="bit" Nullable="false" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+          <Property Name="DivisionFk" Type="int" Nullable="false" />
+          <Property Name="TeamFk" Type="int" Nullable="false" />
+          <Property Name="StrategicPriorityFk" Type="int" />
+          <Property Name="TeamRankingFk" Type="int" Nullable="false" />
+          <Property Name="PresidentRankingFk" Type="int" Nullable="false" />
+          <Property Name="PresidentComment" Type="varchar(max)" />
+          <Property Name="PresidentCommentRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="EntryCompleted" Type="bit" Nullable="false" />
+          <Property Name="PresidentReviewCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleReviewCompleted" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="EntryByFk" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedByFk" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="StatusFk" Type="int" Nullable="false" />
+          <Property Name="Location" Type="varchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="EngagementCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngagementFk" Type="int" Nullable="false" />
+          <Property Name="CountryFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EngagementSysUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngagementFk" Type="int" Nullable="false" />
+          <Property Name="SysUserFk" Type="int" Nullable="false" />
+          <Property Name="TypeFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EngagementYearQuarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngagementFk" Type="int" Nullable="false" />
+          <Property Name="YearQuarterFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RunDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Details" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Leader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SysGroupFk" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="ShortName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ADUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="IsExecutiveSponsor" Type="bit" Nullable="false" />
+          <Property Name="IsRequiredPrincipal" Type="bit" Nullable="false" />
+          <Property Name="IsAlternatePrincipal" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Principal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngagementFK" Type="int" Nullable="false" />
+          <Property Name="LeaderFK" Type="int" Nullable="false" />
+          <Property Name="TypeFK" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PrincipalType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Priority" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purpose">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IsInternalEngagement" Type="bit" Nullable="false" />
+          <Property Name="Purpose" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ranking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ranking" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RequesterInput" Type="bit" Nullable="false" />
+          <Property Name="PresidentReview" Type="bit" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EngagementFk" Type="int" Nullable="false" />
+          <Property Name="LeaderFk" Type="int" Nullable="false" />
+          <Property Name="DateFrom" Type="datetime" />
+          <Property Name="DateTo" Type="datetime" />
+          <Property Name="TripDirectorFk" Type="int" Nullable="false" />
+          <Property Name="SpeechWriterFk" Type="int" Nullable="false" />
+          <Property Name="CommunicationsLeadFk" Type="int" Nullable="false" />
+          <Property Name="BriefDueToGCEByDate" Type="date" />
+          <Property Name="BriefDueToBGC3ByDate" Type="date" />
+          <Property Name="ScheduleComment" Type="varchar(max)" />
+          <Property Name="ScheduleCommentRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="ScheduledByFk" Type="int" Nullable="false" />
+          <Property Name="ScheduledDate" Type="date" />
+          <Property Name="ApproveDecline" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ReviewComment" Type="varchar(max)" Nullable="false" />
+          <Property Name="ReviewCommentRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="ReviewCompletedByFk" Type="int" Nullable="false" />
+          <Property Name="ReviewCompletedDate" Type="date" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScheduleSysUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScheduleFk" Type="int" Nullable="false" />
+          <Property Name="SysUserFk" Type="int" Nullable="false" />
+          <Property Name="TypeFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="DisplaySortSequence" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GroupShortName" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="GroupDescription" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="GroupDisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="FoundationDomainTeam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="RequestingTeam" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysGroupUserPrivilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SysGroupFK" Type="int" Nullable="false" />
+          <Property Name="SysUserFK" Type="int" Nullable="false" />
+          <Property Name="SysAdmin" Type="bit" Nullable="false" />
+          <Property Name="AppAdmin" Type="bit" Nullable="false" />
+          <Property Name="GroupAdmin" Type="bit" Nullable="false" />
+          <Property Name="GroupEntry" Type="bit" Nullable="false" />
+          <Property Name="GroupApprover" Type="bit" Nullable="false" />
+          <Property Name="Scheduler" Type="bit" Nullable="false" />
+          <Property Name="ScheduleApprover" Type="bit" Nullable="false" />
+          <Property Name="BlackOutDateEntry" Type="bit" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="EntryByFk" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedByFk" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SysUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="FullName" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ADUser" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="DivisionFk" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="SysUserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SysGroupFk" Type="int" Nullable="false" />
+          <Property Name="Team" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Status" Type="bit" Nullable="false" />
+          <Property Name="DivisionFk" Type="int" />
+        </EntityType>
+        <EntityType Name="YearQuarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Year" Type="int" Nullable="false" />
+          <Property Name="Quarter" Type="tinyint" Nullable="false" />
+          <Property Name="Display" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Engagement1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdFk" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" Nullable="false" />
+          <Property Name="DetailsRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="Objectives" Type="varchar(max)" Nullable="false" />
+          <Property Name="ObjectivesRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="ExecutiveSponsorFk" Type="int" Nullable="false" />
+          <Property Name="IsConfidential" Type="bit" Nullable="false" />
+          <Property Name="IsExternal" Type="bit" Nullable="false" />
+          <Property Name="RegionFk" Type="int" Nullable="false" />
+          <Property Name="City" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="PurposeFk" Type="int" Nullable="false" />
+          <Property Name="BriefOwnerFk" Type="int" Nullable="false" />
+          <Property Name="StaffFk" Type="int" Nullable="false" />
+          <Property Name="DurationFk" Type="int" Nullable="false" />
+          <Property Name="IsDateFlexible" Type="bit" Nullable="false" />
+          <Property Name="DateStart" Type="date" Nullable="false" />
+          <Property Name="DateEnd" Type="date" Nullable="false" />
+          <Property Name="DivisionFk" Type="int" Nullable="false" />
+          <Property Name="TeamFk" Type="int" Nullable="false" />
+          <Property Name="StrategicPriorityFk" Type="int" Nullable="false" />
+          <Property Name="TeamRankingFk" Type="int" Nullable="false" />
+          <Property Name="PresidentRankingFk" Type="int" Nullable="false" />
+          <Property Name="PresidentComment" Type="varchar(max)" Nullable="false" />
+          <Property Name="PresidentCommentRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="EntryCompleted" Type="bit" Nullable="false" />
+          <Property Name="PresidentReviewCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleReviewCompleted" Type="bit" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="EntryByFk" Type="int" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedByFk" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'LEAD.rpt.vEngagementLeaderSchedule' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vEngagementLeaderSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="DetailsRtf" />
+            <PropertyRef Name="Objectives" />
+            <PropertyRef Name="ObjectivesRtf" />
+            <PropertyRef Name="ExecutiveSponsor" />
+            <PropertyRef Name="Visibility" />
+            <PropertyRef Name="EngagementType" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="Purpose" />
+            <PropertyRef Name="BriefOwner" />
+            <PropertyRef Name="Staff" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="DurationInMinutes" />
+            <PropertyRef Name="DurationInDays" />
+            <PropertyRef Name="DateFlexible" />
+            <PropertyRef Name="TeamInfo" />
+            <PropertyRef Name="Division" />
+            <PropertyRef Name="DivisionDescription" />
+            <PropertyRef Name="Team" />
+            <PropertyRef Name="StrategicPriority" />
+            <PropertyRef Name="TeamRanking" />
+            <PropertyRef Name="PresidentRanking" />
+            <PropertyRef Name="PresidentCommentRtf" />
+            <PropertyRef Name="StatusDisplaySortSequence" />
+            <PropertyRef Name="EntryDate" />
+            <PropertyRef Name="EntryBY" />
+            <PropertyRef Name="ModifiedDate" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ScheduleApprovalStatus" />
+            <PropertyRef Name="IsConfidential" />
+            <PropertyRef Name="IsExternal" />
+            <PropertyRef Name="EntryCompleted" />
+            <PropertyRef Name="PresidentReviewCompleted" />
+            <PropertyRef Name="ScheduleCompleted" />
+            <PropertyRef Name="ScheduleReviewCompleted" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Details" Type="varchar(max)" />
+          <Property Name="DetailsRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="Objectives" Type="varchar(max)" Nullable="false" />
+          <Property Name="ObjectivesRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="PrincipalRequired" Type="varchar(max)" />
+          <Property Name="PrincipalAlternate" Type="varchar(max)" />
+          <Property Name="ExecutiveSponsor" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Visibility" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="EngagementType" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="EngagementExtInt" Type="varchar(max)" />
+          <Property Name="Region" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Country" Type="varchar(max)" />
+          <Property Name="City" Type="varchar" MaxLength="128" />
+          <Property Name="Location" Type="varchar" MaxLength="128" />
+          <Property Name="Purpose" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="BriefOwner" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Staff" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="Duration" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DurationInMinutes" Type="int" Nullable="false" />
+          <Property Name="DurationInDays" Type="int" Nullable="false" />
+          <Property Name="DateFlexible" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="YearQuarter" Type="varchar(max)" />
+          <Property Name="DateStart" Type="date" />
+          <Property Name="DateEnd" Type="date" />
+          <Property Name="TeamInfo" Type="varchar" MaxLength="225" Nullable="false" />
+          <Property Name="Division" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DivisionDescription" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Team" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="StrategicPriority" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeamRanking" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PresidentRanking" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PresidentComment" Type="varchar(max)" />
+          <Property Name="PresidentCommentRtf" Type="varchar(max)" Nullable="false" />
+          <Property Name="Status" Type="varchar" MaxLength="50" />
+          <Property Name="StatusDisplaySortSequence" Type="int" Nullable="false" />
+          <Property Name="EntryDate" Type="datetime" Nullable="false" />
+          <Property Name="EntryBY" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedBy" Type="varchar" MaxLength="128" Nullable="false" />
+          <Property Name="ScheduleFromDate" Type="datetime" />
+          <Property Name="ScheduleToDate" Type="datetime" />
+          <Property Name="TripDirector" Type="varchar" MaxLength="128" />
+          <Property Name="SpeechWriter" Type="varchar" MaxLength="128" />
+          <Property Name="CommunicationsLead" Type="varchar" MaxLength="128" />
+          <Property Name="ScheduleBriefDueToGCEByDate" Type="date" />
+          <Property Name="ScheduleBriefDueToBGC3ByDate" Type="date" />
+          <Property Name="ScheduleComment" Type="varchar(max)" />
+          <Property Name="ScheduleCommentRtf" Type="varchar(max)" />
+          <Property Name="ScheduledBy" Type="varchar" MaxLength="128" />
+          <Property Name="ScheduledDate" Type="date" />
+          <Property Name="ScheduleApprovalStatus" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="ScheduleReviewComment" Type="varchar(max)" />
+          <Property Name="ScheduleReviewCommentRtf" Type="varchar(max)" />
+          <Property Name="ScheduleReviewCompletedBy" Type="varchar" MaxLength="128" />
+          <Property Name="ScheduleReviewCompletedDate" Type="date" />
+          <Property Name="LeaderFirstName" Type="varchar" MaxLength="25" />
+          <Property Name="LeaderLastName" Type="varchar" MaxLength="25" />
+          <Property Name="LeaderShortName" Type="varchar" MaxLength="10" />
+          <Property Name="LeaderADUser" Type="varchar" MaxLength="50" />
+          <Property Name="IsConfidential" Type="bit" Nullable="false" />
+          <Property Name="IsExternal" Type="bit" Nullable="false" />
+          <Property Name="EntryCompleted" Type="bit" Nullable="false" />
+          <Property Name="PresidentReviewCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleReviewCompleted" Type="bit" Nullable="false" />
+          <Property Name="ScheduleId" Type="int" />
+        </EntityType>
+        <Association Name="FK__Team__DivisionFk__23DE44F1">
+          <End Role="Division" Type="Self.Division" Multiplicity="0..1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="DivisionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Country_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Country" Type="Self.Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="RegionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Division">
+          <End Role="Division" Type="Self.Division" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="DivisionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Duration">
+          <End Role="Duration" Type="Self.Duration" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Duration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="DurationFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Engagement">
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="1" />
+          <End Role="Engagement1" Type="Self.Engagement1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement1">
+              <PropertyRef Name="IdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Leader">
+          <End Role="Leader" Type="Self.Leader" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="ExecutiveSponsorFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Priority">
+          <End Role="Priority" Type="Self.Priority" Multiplicity="0..1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priority">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="StrategicPriorityFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Purpose">
+          <End Role="Purpose" Type="Self.Purpose" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purpose">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="PurposeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Ranking_PresidentRanking">
+          <End Role="Ranking" Type="Self.Ranking" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ranking">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="PresidentRankingFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Ranking_TeamRanking">
+          <End Role="Ranking" Type="Self.Ranking" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ranking">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="TeamRankingFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Region">
+          <End Role="Region" Type="Self.Region" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="RegionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_BriefOwner">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="BriefOwnerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_EntryBy">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="EntryByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_ModifiedBy">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="ModifiedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_Staff">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="StaffFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Team">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="TeamFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementCountry_Country">
+          <End Role="Country" Type="Self.Country" Multiplicity="1" />
+          <End Role="EngagementCountry" Type="Self.EngagementCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementCountry">
+              <PropertyRef Name="CountryFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementCountry_Engagement">
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="1" />
+          <End Role="EngagementCountry" Type="Self.EngagementCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementCountry">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementSysUser_Engagement">
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="1" />
+          <End Role="EngagementSysUser" Type="Self.EngagementSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementSysUser">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementSysUser_SysUser">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="EngagementSysUser" Type="Self.EngagementSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementSysUser">
+              <PropertyRef Name="SysUserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementSysUser_SysUserType">
+          <End Role="SysUserType" Type="Self.SysUserType" Multiplicity="1" />
+          <End Role="EngagementSysUser" Type="Self.EngagementSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementSysUser">
+              <PropertyRef Name="TypeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementYearQuarter_Engagement">
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="1" />
+          <End Role="EngagementYearQuarter" Type="Self.EngagementYearQuarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementYearQuarter">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementYearQuarter_YearQuarter">
+          <End Role="YearQuarter" Type="Self.YearQuarter" Multiplicity="1" />
+          <End Role="EngagementYearQuarter" Type="Self.EngagementYearQuarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearQuarter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementYearQuarter">
+              <PropertyRef Name="YearQuarterFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ErrorLog_SysUser">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="ErrorLog" Type="Self.ErrorLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ErrorLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Leader_SysGroup">
+          <End Role="SysGroup" Type="Self.SysGroup" Multiplicity="1" />
+          <End Role="Leader" Type="Self.Leader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Leader">
+              <PropertyRef Name="SysGroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_Engagement">
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="1" />
+          <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="EngagementFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_Leader">
+          <End Role="Leader" Type="Self.Leader" Multiplicity="1" />
+          <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="LeaderFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_PrincipalType">
+          <End Role="PrincipalType" Type="Self.PrincipalType" Multiplicity="1" />
+          <End Role="Principal" Type="Self.Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrincipalType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="TypeFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Engagement">
+          <End Role="Engagement" Type="Self.Engagement" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Leader">
+          <End Role="Leader" Type="Self.Leader" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="LeaderFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_CommunicationsLead">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="CommunicationsLeadFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_ReviewCompletedBy">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ReviewCompletedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_ScheduledBy">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ScheduledByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_SpeechWriter">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="SpeechWriterFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_TripDirector">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TripDirectorFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleSysUser_Schedule">
+          <End Role="Schedule" Type="Self.Schedule" Multiplicity="1" />
+          <End Role="ScheduleSysUser" Type="Self.ScheduleSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleSysUser">
+              <PropertyRef Name="ScheduleFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleSysUser_SysUser">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="ScheduleSysUser" Type="Self.ScheduleSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleSysUser">
+              <PropertyRef Name="SysUserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleSysUser_SysUserType">
+          <End Role="SysUserType" Type="Self.SysUserType" Multiplicity="1" />
+          <End Role="ScheduleSysUser" Type="Self.ScheduleSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleSysUser">
+              <PropertyRef Name="TypeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysGroup">
+          <End Role="SysGroup" Type="Self.SysGroup" Multiplicity="1" />
+          <End Role="SysGroupUserPrivilege" Type="Self.SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="SysGroupFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysUser">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="SysGroupUserPrivilege" Type="Self.SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="SysUserFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysUser1">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="SysGroupUserPrivilege" Type="Self.SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="EntryByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysUser2">
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="1" />
+          <End Role="SysGroupUserPrivilege" Type="Self.SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="ModifiedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysUser_Division">
+          <End Role="Division" Type="Self.Division" Multiplicity="1" />
+          <End Role="SysUser" Type="Self.SysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysUser">
+              <PropertyRef Name="DivisionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_SysGroup">
+          <End Role="SysGroup" Type="Self.SysGroup" Multiplicity="1" />
+          <End Role="Team" Type="Self.Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="SysGroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="LeadershipEngagementPlannerModelStoreContainer">
+          <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Duration" EntityType="Self.Duration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engagement" EntityType="Self.Engagement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EngagementCountry" EntityType="Self.EngagementCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EngagementSysUser" EntityType="Self.EngagementSysUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EngagementYearQuarter" EntityType="Self.EngagementYearQuarter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leader" EntityType="Self.Leader" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Principal" EntityType="Self.Principal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PrincipalType" EntityType="Self.PrincipalType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Priority" EntityType="Self.Priority" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purpose" EntityType="Self.Purpose" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ranking" EntityType="Self.Ranking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Region" EntityType="Self.Region" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScheduleSysUser" EntityType="Self.ScheduleSysUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysGroup" EntityType="Self.SysGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysGroupUserPrivilege" EntityType="Self.SysGroupUserPrivilege" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysUser" EntityType="Self.SysUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SysUserType" EntityType="Self.SysUserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YearQuarter" EntityType="Self.YearQuarter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Engagement1" EntityType="Self.Engagement1" Schema="hst" Table="Engagement" store:Type="Tables" />
+          <EntitySet Name="vEngagementLeaderSchedule" EntityType="Self.vEngagementLeaderSchedule" store:Type="Views" store:Schema="rpt">
+            <DefiningQuery>SELECT 
+    [vEngagementLeaderSchedule].[Id] AS [Id], 
+    [vEngagementLeaderSchedule].[Title] AS [Title], 
+    [vEngagementLeaderSchedule].[Details] AS [Details], 
+    [vEngagementLeaderSchedule].[DetailsRtf] AS [DetailsRtf], 
+    [vEngagementLeaderSchedule].[Objectives] AS [Objectives], 
+    [vEngagementLeaderSchedule].[ObjectivesRtf] AS [ObjectivesRtf], 
+    [vEngagementLeaderSchedule].[PrincipalRequired] AS [PrincipalRequired], 
+    [vEngagementLeaderSchedule].[PrincipalAlternate] AS [PrincipalAlternate], 
+    [vEngagementLeaderSchedule].[ExecutiveSponsor] AS [ExecutiveSponsor], 
+    [vEngagementLeaderSchedule].[Visibility] AS [Visibility], 
+    [vEngagementLeaderSchedule].[EngagementType] AS [EngagementType], 
+    [vEngagementLeaderSchedule].[EngagementExtInt] AS [EngagementExtInt], 
+    [vEngagementLeaderSchedule].[Region] AS [Region], 
+    [vEngagementLeaderSchedule].[Country] AS [Country], 
+    [vEngagementLeaderSchedule].[City] AS [City], 
+    [vEngagementLeaderSchedule].[Location] AS [Location], 
+    [vEngagementLeaderSchedule].[Purpose] AS [Purpose], 
+    [vEngagementLeaderSchedule].[BriefOwner] AS [BriefOwner], 
+    [vEngagementLeaderSchedule].[Staff] AS [Staff], 
+    [vEngagementLeaderSchedule].[Duration] AS [Duration], 
+    [vEngagementLeaderSchedule].[DurationInMinutes] AS [DurationInMinutes], 
+    [vEngagementLeaderSchedule].[DurationInDays] AS [DurationInDays], 
+    [vEngagementLeaderSchedule].[DateFlexible] AS [DateFlexible], 
+    [vEngagementLeaderSchedule].[YearQuarter] AS [YearQuarter], 
+    [vEngagementLeaderSchedule].[DateStart] AS [DateStart], 
+    [vEngagementLeaderSchedule].[DateEnd] AS [DateEnd], 
+    [vEngagementLeaderSchedule].[TeamInfo] AS [TeamInfo], 
+    [vEngagementLeaderSchedule].[Division] AS [Division], 
+    [vEngagementLeaderSchedule].[DivisionDescription] AS [DivisionDescription], 
+    [vEngagementLeaderSchedule].[Team] AS [Team], 
+    [vEngagementLeaderSchedule].[StrategicPriority] AS [StrategicPriority], 
+    [vEngagementLeaderSchedule].[TeamRanking] AS [TeamRanking], 
+    [vEngagementLeaderSchedule].[PresidentRanking] AS [PresidentRanking], 
+    [vEngagementLeaderSchedule].[PresidentComment] AS [PresidentComment], 
+    [vEngagementLeaderSchedule].[PresidentCommentRtf] AS [PresidentCommentRtf], 
+    [vEngagementLeaderSchedule].[Status] AS [Status], 
+    [vEngagementLeaderSchedule].[StatusDisplaySortSequence] AS [StatusDisplaySortSequence], 
+    [vEngagementLeaderSchedule].[EntryDate] AS [EntryDate], 
+    [vEngagementLeaderSchedule].[EntryBY] AS [EntryBY], 
+    [vEngagementLeaderSchedule].[ModifiedDate] AS [ModifiedDate], 
+    [vEngagementLeaderSchedule].[ModifiedBy] AS [ModifiedBy], 
+    [vEngagementLeaderSchedule].[ScheduleFromDate] AS [ScheduleFromDate], 
+    [vEngagementLeaderSchedule].[ScheduleToDate] AS [ScheduleToDate], 
+    [vEngagementLeaderSchedule].[TripDirector] AS [TripDirector], 
+    [vEngagementLeaderSchedule].[SpeechWriter] AS [SpeechWriter], 
+    [vEngagementLeaderSchedule].[CommunicationsLead] AS [CommunicationsLead], 
+    [vEngagementLeaderSchedule].[ScheduleBriefDueToGCEByDate] AS [ScheduleBriefDueToGCEByDate], 
+    [vEngagementLeaderSchedule].[ScheduleBriefDueToBGC3ByDate] AS [ScheduleBriefDueToBGC3ByDate], 
+    [vEngagementLeaderSchedule].[ScheduleComment] AS [ScheduleComment], 
+    [vEngagementLeaderSchedule].[ScheduleCommentRtf] AS [ScheduleCommentRtf], 
+    [vEngagementLeaderSchedule].[ScheduledBy] AS [ScheduledBy], 
+    [vEngagementLeaderSchedule].[ScheduledDate] AS [ScheduledDate], 
+    [vEngagementLeaderSchedule].[ScheduleApprovalStatus] AS [ScheduleApprovalStatus], 
+    [vEngagementLeaderSchedule].[ScheduleReviewComment] AS [ScheduleReviewComment], 
+    [vEngagementLeaderSchedule].[ScheduleReviewCommentRtf] AS [ScheduleReviewCommentRtf], 
+    [vEngagementLeaderSchedule].[ScheduleReviewCompletedBy] AS [ScheduleReviewCompletedBy], 
+    [vEngagementLeaderSchedule].[ScheduleReviewCompletedDate] AS [ScheduleReviewCompletedDate], 
+    [vEngagementLeaderSchedule].[LeaderFirstName] AS [LeaderFirstName], 
+    [vEngagementLeaderSchedule].[LeaderLastName] AS [LeaderLastName], 
+    [vEngagementLeaderSchedule].[LeaderShortName] AS [LeaderShortName], 
+    [vEngagementLeaderSchedule].[LeaderADUser] AS [LeaderADUser], 
+    [vEngagementLeaderSchedule].[IsConfidential] AS [IsConfidential], 
+    [vEngagementLeaderSchedule].[IsExternal] AS [IsExternal], 
+    [vEngagementLeaderSchedule].[EntryCompleted] AS [EntryCompleted], 
+    [vEngagementLeaderSchedule].[PresidentReviewCompleted] AS [PresidentReviewCompleted], 
+    [vEngagementLeaderSchedule].[ScheduleCompleted] AS [ScheduleCompleted], 
+    [vEngagementLeaderSchedule].[ScheduleReviewCompleted] AS [ScheduleReviewCompleted], 
+    [vEngagementLeaderSchedule].[ScheduleId] AS [ScheduleId]
+    FROM [rpt].[vEngagementLeaderSchedule] AS [vEngagementLeaderSchedule]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Team__DivisionFk__23DE44F1" Association="Self.FK__Team__DivisionFk__23DE44F1">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Country_Region" Association="Self.FK_Country_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Country" EntitySet="Country" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Division" Association="Self.FK_Engagement_Division">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Duration" Association="Self.FK_Engagement_Duration">
+            <End Role="Duration" EntitySet="Duration" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Engagement" Association="Self.FK_Engagement_Engagement">
+            <End Role="Engagement" EntitySet="Engagement" />
+            <End Role="Engagement1" EntitySet="Engagement1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Leader" Association="Self.FK_Engagement_Leader">
+            <End Role="Leader" EntitySet="Leader" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Priority" Association="Self.FK_Engagement_Priority">
+            <End Role="Priority" EntitySet="Priority" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Purpose" Association="Self.FK_Engagement_Purpose">
+            <End Role="Purpose" EntitySet="Purpose" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Ranking_PresidentRanking" Association="Self.FK_Engagement_Ranking_PresidentRanking">
+            <End Role="Ranking" EntitySet="Ranking" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Ranking_TeamRanking" Association="Self.FK_Engagement_Ranking_TeamRanking">
+            <End Role="Ranking" EntitySet="Ranking" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Region" Association="Self.FK_Engagement_Region">
+            <End Role="Region" EntitySet="Region" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Status" Association="Self.FK_Engagement_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_BriefOwner" Association="Self.FK_Engagement_SysUser_BriefOwner">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_EntryBy" Association="Self.FK_Engagement_SysUser_EntryBy">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_ModifiedBy" Association="Self.FK_Engagement_SysUser_ModifiedBy">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_Staff" Association="Self.FK_Engagement_SysUser_Staff">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Team" Association="Self.FK_Engagement_Team">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Engagement" EntitySet="Engagement" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementCountry_Country" Association="Self.FK_EngagementCountry_Country">
+            <End Role="Country" EntitySet="Country" />
+            <End Role="EngagementCountry" EntitySet="EngagementCountry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementCountry_Engagement" Association="Self.FK_EngagementCountry_Engagement">
+            <End Role="Engagement" EntitySet="Engagement" />
+            <End Role="EngagementCountry" EntitySet="EngagementCountry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementSysUser_Engagement" Association="Self.FK_EngagementSysUser_Engagement">
+            <End Role="Engagement" EntitySet="Engagement" />
+            <End Role="EngagementSysUser" EntitySet="EngagementSysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementSysUser_SysUser" Association="Self.FK_EngagementSysUser_SysUser">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="EngagementSysUser" EntitySet="EngagementSysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementSysUser_SysUserType" Association="Self.FK_EngagementSysUser_SysUserType">
+            <End Role="SysUserType" EntitySet="SysUserType" />
+            <End Role="EngagementSysUser" EntitySet="EngagementSysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementYearQuarter_Engagement" Association="Self.FK_EngagementYearQuarter_Engagement">
+            <End Role="Engagement" EntitySet="Engagement" />
+            <End Role="EngagementYearQuarter" EntitySet="EngagementYearQuarter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementYearQuarter_YearQuarter" Association="Self.FK_EngagementYearQuarter_YearQuarter">
+            <End Role="YearQuarter" EntitySet="YearQuarter" />
+            <End Role="EngagementYearQuarter" EntitySet="EngagementYearQuarter" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ErrorLog_SysUser" Association="Self.FK_ErrorLog_SysUser">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="ErrorLog" EntitySet="ErrorLog" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Leader_SysGroup" Association="Self.FK_Leader_SysGroup">
+            <End Role="SysGroup" EntitySet="SysGroup" />
+            <End Role="Leader" EntitySet="Leader" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_Engagement" Association="Self.FK_Principal_Engagement">
+            <End Role="Engagement" EntitySet="Engagement" />
+            <End Role="Principal" EntitySet="Principal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_Leader" Association="Self.FK_Principal_Leader">
+            <End Role="Leader" EntitySet="Leader" />
+            <End Role="Principal" EntitySet="Principal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_PrincipalType" Association="Self.FK_Principal_PrincipalType">
+            <End Role="PrincipalType" EntitySet="PrincipalType" />
+            <End Role="Principal" EntitySet="Principal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Engagement" Association="Self.FK_Schedule_Engagement">
+            <End Role="Engagement" EntitySet="Engagement" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Leader" Association="Self.FK_Schedule_Leader">
+            <End Role="Leader" EntitySet="Leader" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_CommunicationsLead" Association="Self.FK_Schedule_SysUser_CommunicationsLead">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_ReviewCompletedBy" Association="Self.FK_Schedule_SysUser_ReviewCompletedBy">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_ScheduledBy" Association="Self.FK_Schedule_SysUser_ScheduledBy">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_SpeechWriter" Association="Self.FK_Schedule_SysUser_SpeechWriter">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_TripDirector" Association="Self.FK_Schedule_SysUser_TripDirector">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="Schedule" EntitySet="Schedule" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleSysUser_Schedule" Association="Self.FK_ScheduleSysUser_Schedule">
+            <End Role="Schedule" EntitySet="Schedule" />
+            <End Role="ScheduleSysUser" EntitySet="ScheduleSysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleSysUser_SysUser" Association="Self.FK_ScheduleSysUser_SysUser">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="ScheduleSysUser" EntitySet="ScheduleSysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleSysUser_SysUserType" Association="Self.FK_ScheduleSysUser_SysUserType">
+            <End Role="SysUserType" EntitySet="SysUserType" />
+            <End Role="ScheduleSysUser" EntitySet="ScheduleSysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysGroup" Association="Self.FK_SysGroupUserPrivilege_SysGroup">
+            <End Role="SysGroup" EntitySet="SysGroup" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivilege" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysUser" Association="Self.FK_SysGroupUserPrivilege_SysUser">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivilege" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysUser1" Association="Self.FK_SysGroupUserPrivilege_SysUser1">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivilege" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysUser2" Association="Self.FK_SysGroupUserPrivilege_SysUser2">
+            <End Role="SysUser" EntitySet="SysUser" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivilege" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysUser_Division" Association="Self.FK_SysUser_Division">
+            <End Role="Division" EntitySet="Division" />
+            <End Role="SysUser" EntitySet="SysUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_SysGroup" Association="Self.FK_Team_SysGroup">
+            <End Role="SysGroup" EntitySet="SysGroup" />
+            <End Role="Team" EntitySet="Team" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LeadershipEngagementPlannerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="LeadershipEngagementPlannerEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Countries" EntityType="LeadershipEngagementPlannerModel.Country" />
+          <EntitySet Name="Durations" EntityType="LeadershipEngagementPlannerModel.Duration" />
+          <EntitySet Name="Leaders" EntityType="LeadershipEngagementPlannerModel.Leader" />
+          <EntitySet Name="Purposes" EntityType="LeadershipEngagementPlannerModel.Purpose" />
+          <EntitySet Name="Rankings" EntityType="LeadershipEngagementPlannerModel.Ranking" />
+          <EntitySet Name="Regions" EntityType="LeadershipEngagementPlannerModel.Region" />
+          <EntitySet Name="Schedules" EntityType="LeadershipEngagementPlannerModel.Schedule" />
+          <EntitySet Name="SysUsers" EntityType="LeadershipEngagementPlannerModel.SysUser" />
+          <EntitySet Name="Teams" EntityType="LeadershipEngagementPlannerModel.Team" />
+          <EntitySet Name="YearQuarters" EntityType="LeadershipEngagementPlannerModel.YearQuarter" />
+          <AssociationSet Name="FK_Country_Region" Association="LeadershipEngagementPlannerModel.FK_Country_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Country" EntitySet="Countries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Leader" Association="LeadershipEngagementPlannerModel.FK_Schedule_Leader">
+            <End Role="Leader" EntitySet="Leaders" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_ReviewCompletedBy" Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ReviewCompletedBy">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_ScheduledBy" Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ScheduledBy">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <EntitySet Name="SysGroups" EntityType="LeadershipEngagementPlannerModel.SysGroup" />
+          <AssociationSet Name="FK_Leader_SysGroup" Association="LeadershipEngagementPlannerModel.FK_Leader_SysGroup">
+            <End Role="SysGroup" EntitySet="SysGroups" />
+            <End Role="Leader" EntitySet="Leaders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Team_SysGroup" Association="LeadershipEngagementPlannerModel.FK_Team_SysGroup">
+            <End Role="SysGroup" EntitySet="SysGroups" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <EntitySet Name="SysGroupUserPrivileges" EntityType="LeadershipEngagementPlannerModel.SysGroupUserPrivilege" />
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysGroup" Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysGroup">
+            <End Role="SysGroup" EntitySet="SysGroups" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivileges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysUser" Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivileges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysUser1" Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser1">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivileges" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysGroupUserPrivilege_SysUser2" Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser2">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="SysGroupUserPrivilege" EntitySet="SysGroupUserPrivileges" />
+          </AssociationSet>
+          <EntitySet Name="EngagementYearQuarters" EntityType="LeadershipEngagementPlannerModel.EngagementYearQuarter" />
+          <EntitySet Name="Principals" EntityType="LeadershipEngagementPlannerModel.Principal" />
+          <EntitySet Name="PrincipalTypes" EntityType="LeadershipEngagementPlannerModel.PrincipalType" />
+          <EntitySet Name="Status" EntityType="LeadershipEngagementPlannerModel.Status" />
+          <AssociationSet Name="FK_EngagementYearQuarter_YearQuarter" Association="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_YearQuarter">
+            <End Role="YearQuarter" EntitySet="YearQuarters" />
+            <End Role="EngagementYearQuarter" EntitySet="EngagementYearQuarters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_Leader" Association="LeadershipEngagementPlannerModel.FK_Principal_Leader">
+            <End Role="Leader" EntitySet="Leaders" />
+            <End Role="Principal" EntitySet="Principals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_PrincipalType" Association="LeadershipEngagementPlannerModel.FK_Principal_PrincipalType">
+            <End Role="PrincipalType" EntitySet="PrincipalTypes" />
+            <End Role="Principal" EntitySet="Principals" />
+          </AssociationSet>
+          <EntitySet Name="Divisions" EntityType="LeadershipEngagementPlannerModel.Division" />
+          <AssociationSet Name="FK_Schedule_SysUser_CommunicationsLead" Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_CommunicationsLead">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_SpeechWriter" Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_SpeechWriter">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_SysUser_TripDirector" Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_TripDirector">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Team__DivisionFk__76D69450" Association="LeadershipEngagementPlannerModel.FK__Team__DivisionFk__76D69450">
+            <End Role="Division" EntitySet="Divisions" />
+            <End Role="Team" EntitySet="Teams" />
+          </AssociationSet>
+          <EntitySet Name="EngagementCountries" EntityType="LeadershipEngagementPlannerModel.EngagementCountry" />
+          <AssociationSet Name="FK_EngagementCountry_Country" Association="LeadershipEngagementPlannerModel.FK_EngagementCountry_Country">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="EngagementCountry" EntitySet="EngagementCountries" />
+          </AssociationSet>
+          <EntitySet Name="Engagements" EntityType="LeadershipEngagementPlannerModel.Engagement" />
+          <AssociationSet Name="FK_Engagement_Division" Association="LeadershipEngagementPlannerModel.FK_Engagement_Division">
+            <End Role="Division" EntitySet="Divisions" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Duration" Association="LeadershipEngagementPlannerModel.FK_Engagement_Duration">
+            <End Role="Duration" EntitySet="Durations" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Leader" Association="LeadershipEngagementPlannerModel.FK_Engagement_Leader">
+            <End Role="Leader" EntitySet="Leaders" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Purpose" Association="LeadershipEngagementPlannerModel.FK_Engagement_Purpose">
+            <End Role="Purpose" EntitySet="Purposes" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Ranking_PresidentRanking" Association="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_PresidentRanking">
+            <End Role="Ranking" EntitySet="Rankings" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Ranking_TeamRanking" Association="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_TeamRanking">
+            <End Role="Ranking" EntitySet="Rankings" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Region" Association="LeadershipEngagementPlannerModel.FK_Engagement_Region">
+            <End Role="Region" EntitySet="Regions" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Status" Association="LeadershipEngagementPlannerModel.FK_Engagement_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_BriefOwner" Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_BriefOwner">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_EntryBy" Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_EntryBy">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_ModifiedBy" Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_ModifiedBy">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_SysUser_Staff" Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_Staff">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Engagement_Team" Association="LeadershipEngagementPlannerModel.FK_Engagement_Team">
+            <End Role="Team" EntitySet="Teams" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementCountry_Engagement" Association="LeadershipEngagementPlannerModel.FK_EngagementCountry_Engagement">
+            <End Role="Engagement" EntitySet="Engagements" />
+            <End Role="EngagementCountry" EntitySet="EngagementCountries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementYearQuarter_Engagement" Association="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_Engagement">
+            <End Role="Engagement" EntitySet="Engagements" />
+            <End Role="EngagementYearQuarter" EntitySet="EngagementYearQuarters" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Principal_Engagement" Association="LeadershipEngagementPlannerModel.FK_Principal_Engagement">
+            <End Role="Engagement" EntitySet="Engagements" />
+            <End Role="Principal" EntitySet="Principals" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Engagement" Association="LeadershipEngagementPlannerModel.FK_Schedule_Engagement">
+            <End Role="Engagement" EntitySet="Engagements" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <EntitySet Name="Hst_Engagement" EntityType="LeadershipEngagementPlannerModel.Hst_Engagement" />
+          <AssociationSet Name="FK_Engagement_Engagement" Association="LeadershipEngagementPlannerModel.FK_Engagement_Engagement">
+            <End Role="Engagement" EntitySet="Engagements" />
+            <End Role="Hst_Engagement" EntitySet="Hst_Engagement" />
+          </AssociationSet>
+          <EntitySet Name="ErrorLogs" EntityType="LeadershipEngagementPlannerModel.ErrorLog" />
+          <AssociationSet Name="FK_ErrorLog_SysUser" Association="LeadershipEngagementPlannerModel.FK_ErrorLog_SysUser">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="ErrorLog" EntitySet="ErrorLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SysUser_Division" Association="LeadershipEngagementPlannerModel.FK_SysUser_Division">
+            <End Role="Division" EntitySet="Divisions" />
+            <End Role="SysUser" EntitySet="SysUsers" />
+          </AssociationSet>
+          <EntitySet Name="vEngagementLeaderSchedules" EntityType="LeadershipEngagementPlannerModel.vEngagementLeaderSchedule" />
+          <EntitySet Name="EngagementSysUsers" EntityType="LeadershipEngagementPlannerModel.EngagementSysUser" />
+          <EntitySet Name="ScheduleSysUsers" EntityType="LeadershipEngagementPlannerModel.ScheduleSysUser" />
+          <EntitySet Name="SysUserTypes" EntityType="LeadershipEngagementPlannerModel.SysUserType" />
+          <AssociationSet Name="FK_EngagementSysUser_Engagement" Association="LeadershipEngagementPlannerModel.FK_EngagementSysUser_Engagement">
+            <End Role="Engagement" EntitySet="Engagements" />
+            <End Role="EngagementSysUser" EntitySet="EngagementSysUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementSysUser_SysUser" Association="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUser">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="EngagementSysUser" EntitySet="EngagementSysUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EngagementSysUser_SysUserType" Association="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUserType">
+            <End Role="SysUserType" EntitySet="SysUserTypes" />
+            <End Role="EngagementSysUser" EntitySet="EngagementSysUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleSysUser_Schedule" Association="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_Schedule">
+            <End Role="Schedule" EntitySet="Schedules" />
+            <End Role="ScheduleSysUser" EntitySet="ScheduleSysUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleSysUser_SysUser" Association="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUser">
+            <End Role="SysUser" EntitySet="SysUsers" />
+            <End Role="ScheduleSysUser" EntitySet="ScheduleSysUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScheduleSysUser_SysUserType" Association="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUserType">
+            <End Role="SysUserType" EntitySet="SysUserTypes" />
+            <End Role="ScheduleSysUser" EntitySet="ScheduleSysUsers" />
+          </AssociationSet>
+          <EntitySet Name="Priorities" EntityType="LeadershipEngagementPlannerModel.Priority" />
+          <AssociationSet Name="FK_Engagement_Priority" Association="LeadershipEngagementPlannerModel.FK_Engagement_Priority">
+            <End Role="Priority" EntitySet="Priorities" />
+            <End Role="Engagement" EntitySet="Engagements" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RegionFk" Type="Int32" Nullable="false" />
+          <Property Name="countryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Region" Relationship="LeadershipEngagementPlannerModel.FK_Country_Region" FromRole="Country" ToRole="Region" />
+          <NavigationProperty Name="EngagementCountries" Relationship="LeadershipEngagementPlannerModel.FK_EngagementCountry_Country" FromRole="Country" ToRole="EngagementCountry" />
+        </EntityType>
+        <EntityType Name="Duration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsInternalEngagement" Type="Boolean" Nullable="false" />
+          <Property Name="duration" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DurationInMinutes" Type="Int32" Nullable="false" />
+          <Property Name="DurationInDays" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Duration" FromRole="Duration" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="Leader">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysGroupFk" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ShortName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ADUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Schedules" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_Leader" FromRole="Leader" ToRole="Schedule" />
+          <NavigationProperty Name="SysGroup" Relationship="LeadershipEngagementPlannerModel.FK_Leader_SysGroup" FromRole="Leader" ToRole="SysGroup" />
+          <NavigationProperty Name="Principals" Relationship="LeadershipEngagementPlannerModel.FK_Principal_Leader" FromRole="Leader" ToRole="Principal" />
+          <Property Name="IsExecutiveSponsor" Type="Boolean" Nullable="false" />
+          <Property Name="IsRequiredPrincipal" Type="Boolean" Nullable="false" />
+          <Property Name="IsAlternatePrincipal" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Leader" FromRole="Leader" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="Purpose">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IsInternalEngagement" Type="Boolean" Nullable="false" />
+          <Property Name="purpose" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Purpose" FromRole="Purpose" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="Ranking">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ranking" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RequesterInput" Type="Boolean" Nullable="false" />
+          <Property Name="PresidentReview" Type="Boolean" Nullable="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_PresidentRanking" FromRole="Ranking" ToRole="Engagement" />
+          <NavigationProperty Name="Engagements1" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_TeamRanking" FromRole="Ranking" ToRole="Engagement" />
+          </EntityType>
+        <EntityType Name="Region">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="regionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Countries" Relationship="LeadershipEngagementPlannerModel.FK_Country_Region" FromRole="Region" ToRole="Country" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Region" FromRole="Region" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngagementFk" Type="Int32" Nullable="false" />
+          <Property Name="LeaderFk" Type="Int32" Nullable="false" />
+          <Property Name="DateFrom" Type="DateTime" Precision="3" />
+          <Property Name="DateTo" Type="DateTime" Precision="3" />
+          <Property Name="TripDirectorFk" Type="Int32" Nullable="false" />
+          <Property Name="SpeechWriterFk" Type="Int32" Nullable="false" />
+          <Property Name="CommunicationsLeadFk" Type="Int32" Nullable="false" />
+          <Property Name="BriefDueToGCEByDate" Type="DateTime" Precision="0" />
+          <Property Name="BriefDueToBGC3ByDate" Type="DateTime" Precision="0" />
+          <Property Name="ScheduleComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleCommentRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduledByFk" Type="Int32" Nullable="false" />
+          <Property Name="ScheduledDate" Type="DateTime" Precision="0" />
+          <Property Name="ApproveDecline" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ReviewComment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ReviewCommentRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ReviewCompletedByFk" Type="Int32" Nullable="false" />
+          <Property Name="ReviewCompletedDate" Type="DateTime" Precision="0" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Leader" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_Leader" FromRole="Schedule" ToRole="Leader" />
+          <NavigationProperty Name="ReviewCompletedBy" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ReviewCompletedBy" FromRole="Schedule" ToRole="SysUser" />
+          <NavigationProperty Name="ScheduledBy" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ScheduledBy" FromRole="Schedule" ToRole="SysUser" />
+          <NavigationProperty Name="CommunicationsLead" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_CommunicationsLead" FromRole="Schedule" ToRole="SysUser" />
+          <NavigationProperty Name="SpeechWriter" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_SpeechWriter" FromRole="Schedule" ToRole="SysUser" />
+          <NavigationProperty Name="TripDirector" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_TripDirector" FromRole="Schedule" ToRole="SysUser" />
+          <NavigationProperty Name="Engagement" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_Engagement" FromRole="Schedule" ToRole="Engagement" />
+          <NavigationProperty Name="ScheduleSysUsers" Relationship="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_Schedule" FromRole="Schedule" ToRole="ScheduleSysUser" />
+        </EntityType>
+        <EntityType Name="SysUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FullName" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ADUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Schedules" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ReviewCompletedBy" FromRole="SysUser" ToRole="Schedule" />
+          <NavigationProperty Name="Schedules1" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ScheduledBy" FromRole="SysUser" ToRole="Schedule" />
+          <NavigationProperty Name="SysGroupUserPrivileges" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser" FromRole="SysUser" ToRole="SysGroupUserPrivilege" />
+          <NavigationProperty Name="SysGroupUserPrivileges1" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser1" FromRole="SysUser" ToRole="SysGroupUserPrivilege" />
+          <NavigationProperty Name="SysGroupUserPrivileges2" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser2" FromRole="SysUser" ToRole="SysGroupUserPrivilege" />
+          <NavigationProperty Name="Schedules2" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_CommunicationsLead" FromRole="SysUser" ToRole="Schedule" />
+          <NavigationProperty Name="Schedules3" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_SpeechWriter" FromRole="SysUser" ToRole="Schedule" />
+          <NavigationProperty Name="Schedules4" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_TripDirector" FromRole="SysUser" ToRole="Schedule" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_BriefOwner" FromRole="SysUser" ToRole="Engagement" />
+          <NavigationProperty Name="Engagements1" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_EntryBy" FromRole="SysUser" ToRole="Engagement" />
+          <NavigationProperty Name="Engagements2" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_ModifiedBy" FromRole="SysUser" ToRole="Engagement" />
+          <NavigationProperty Name="Engagements3" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_Staff" FromRole="SysUser" ToRole="Engagement" />
+          <NavigationProperty Name="ErrorLogs" Relationship="LeadershipEngagementPlannerModel.FK_ErrorLog_SysUser" FromRole="SysUser" ToRole="ErrorLog" />
+          <Property Name="DivisionFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Division" Relationship="LeadershipEngagementPlannerModel.FK_SysUser_Division" FromRole="SysUser" ToRole="Division" />
+          <NavigationProperty Name="EngagementSysUsers" Relationship="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUser" FromRole="SysUser" ToRole="EngagementSysUser" />
+          <NavigationProperty Name="ScheduleSysUsers" Relationship="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUser" FromRole="SysUser" ToRole="ScheduleSysUser" />
+          <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysGroupFk" Type="Int32" Nullable="false" />
+          <Property Name="team" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SysGroup" Relationship="LeadershipEngagementPlannerModel.FK_Team_SysGroup" FromRole="Team" ToRole="SysGroup" />
+          <Property Name="DivisionFk" Type="Int32" />
+          <NavigationProperty Name="Division" Relationship="LeadershipEngagementPlannerModel.FK__Team__DivisionFk__76D69450" FromRole="Team" ToRole="Division" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Team" FromRole="Team" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="YearQuarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Year" Type="Int32" Nullable="false" />
+          <Property Name="Quarter" Type="Byte" Nullable="false" />
+          <Property Name="Display" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="EngagementYearQuarters" Relationship="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_YearQuarter" FromRole="YearQuarter" ToRole="EngagementYearQuarter" />
+        </EntityType>
+        <Association Name="FK_Country_Region">
+          <End Type="LeadershipEngagementPlannerModel.Region" Role="Region" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Country" Role="Country" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Country">
+              <PropertyRef Name="RegionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Leader">
+          <End Type="LeadershipEngagementPlannerModel.Leader" Role="Leader" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="LeaderFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_ReviewCompletedBy">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ReviewCompletedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_ScheduledBy">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="ScheduledByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SysGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GroupShortName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="GroupDescription" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GroupDisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="FoundationDomainTeam" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RequestingTeam" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Leaders" Relationship="LeadershipEngagementPlannerModel.FK_Leader_SysGroup" FromRole="SysGroup" ToRole="Leader" />
+          <NavigationProperty Name="Teams" Relationship="LeadershipEngagementPlannerModel.FK_Team_SysGroup" FromRole="SysGroup" ToRole="Team" />
+          <NavigationProperty Name="SysGroupUserPrivileges" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysGroup" FromRole="SysGroup" ToRole="SysGroupUserPrivilege" />
+        </EntityType>
+        <Association Name="FK_Leader_SysGroup">
+          <End Type="LeadershipEngagementPlannerModel.SysGroup" Role="SysGroup" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Leader" Role="Leader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Leader">
+              <PropertyRef Name="SysGroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Team_SysGroup">
+          <End Type="LeadershipEngagementPlannerModel.SysGroup" Role="SysGroup" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Team" Role="Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="SysGroupFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SysGroupUserPrivilege">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SysGroupFK" Type="Int32" Nullable="false" />
+          <Property Name="SysUserFK" Type="Int32" Nullable="false" />
+          <Property Name="SysAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="AppAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="GroupAdmin" Type="Boolean" Nullable="false" />
+          <Property Name="GroupEntry" Type="Boolean" Nullable="false" />
+          <Property Name="GroupApprover" Type="Boolean" Nullable="false" />
+          <Property Name="Scheduler" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleApprover" Type="Boolean" Nullable="false" />
+          <Property Name="BlackOutDateEntry" Type="Boolean" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntryByFk" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedByFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="SysGroup" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysGroup" FromRole="SysGroupUserPrivilege" ToRole="SysGroup" />
+          <NavigationProperty Name="SysUser" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser" FromRole="SysGroupUserPrivilege" ToRole="SysUser" />
+          <NavigationProperty Name="SysUser1" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser1" FromRole="SysGroupUserPrivilege" ToRole="SysUser" />
+          <NavigationProperty Name="SysUser2" Relationship="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser2" FromRole="SysGroupUserPrivilege" ToRole="SysUser" />
+        </EntityType>
+        <Association Name="FK_SysGroupUserPrivilege_SysGroup">
+          <End Type="LeadershipEngagementPlannerModel.SysGroup" Role="SysGroup" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.SysGroupUserPrivilege" Role="SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysGroup">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="SysGroupFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysUser">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.SysGroupUserPrivilege" Role="SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="SysUserFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysUser1">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.SysGroupUserPrivilege" Role="SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="EntryByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysGroupUserPrivilege_SysUser2">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.SysGroupUserPrivilege" Role="SysGroupUserPrivilege" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysGroupUserPrivilege">
+              <PropertyRef Name="ModifiedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EngagementYearQuarter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngagementFk" Type="Int32" Nullable="false" />
+          <Property Name="YearQuarterFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="YearQuarter" Relationship="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_YearQuarter" FromRole="EngagementYearQuarter" ToRole="YearQuarter" />
+          <NavigationProperty Name="Engagement" Relationship="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_Engagement" FromRole="EngagementYearQuarter" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="Principal">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngagementFK" Type="Int32" Nullable="false" />
+          <Property Name="LeaderFK" Type="Int32" Nullable="false" />
+          <Property Name="TypeFK" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Leader" Relationship="LeadershipEngagementPlannerModel.FK_Principal_Leader" FromRole="Principal" ToRole="Leader" />
+          <NavigationProperty Name="PrincipalType" Relationship="LeadershipEngagementPlannerModel.FK_Principal_PrincipalType" FromRole="Principal" ToRole="PrincipalType" />
+          <NavigationProperty Name="Engagement" Relationship="LeadershipEngagementPlannerModel.FK_Principal_Engagement" FromRole="Principal" ToRole="Engagement" />
+        </EntityType>
+        <EntityType Name="PrincipalType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Principals" Relationship="LeadershipEngagementPlannerModel.FK_Principal_PrincipalType" FromRole="PrincipalType" ToRole="Principal" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Status" FromRole="Status" ToRole="Engagement" />
+        </EntityType>
+        <Association Name="FK_EngagementYearQuarter_YearQuarter">
+          <End Type="LeadershipEngagementPlannerModel.YearQuarter" Role="YearQuarter" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementYearQuarter" Role="EngagementYearQuarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YearQuarter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementYearQuarter">
+              <PropertyRef Name="YearQuarterFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_Leader">
+          <End Type="LeadershipEngagementPlannerModel.Leader" Role="Leader" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Principal" Role="Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="LeaderFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_PrincipalType">
+          <End Type="LeadershipEngagementPlannerModel.PrincipalType" Role="PrincipalType" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Principal" Role="Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PrincipalType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="TypeFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Division">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Teams" Relationship="LeadershipEngagementPlannerModel.FK__Team__DivisionFk__76D69450" FromRole="Division" ToRole="Team" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Division" FromRole="Division" ToRole="Engagement" />
+          <NavigationProperty Name="SysUsers" Relationship="LeadershipEngagementPlannerModel.FK_SysUser_Division" FromRole="Division" ToRole="SysUser" />
+        </EntityType>
+        <Association Name="FK_Schedule_SysUser_CommunicationsLead">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="CommunicationsLeadFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_SpeechWriter">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="SpeechWriterFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_SysUser_TripDirector">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="TripDirectorFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Team__DivisionFk__76D69450">
+          <End Type="LeadershipEngagementPlannerModel.Division" Role="Division" Multiplicity="0..1" />
+          <End Type="LeadershipEngagementPlannerModel.Team" Role="Team" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Team">
+              <PropertyRef Name="DivisionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="EngagementCountry">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngagementFk" Type="Int32" Nullable="false" />
+          <Property Name="CountryFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="LeadershipEngagementPlannerModel.FK_EngagementCountry_Country" FromRole="EngagementCountry" ToRole="Country" />
+          <NavigationProperty Name="Engagement" Relationship="LeadershipEngagementPlannerModel.FK_EngagementCountry_Engagement" FromRole="EngagementCountry" ToRole="Engagement" />
+        </EntityType>
+        <Association Name="FK_EngagementCountry_Country">
+          <End Type="LeadershipEngagementPlannerModel.Country" Role="Country" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementCountry" Role="EngagementCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementCountry">
+              <PropertyRef Name="CountryFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Engagement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DetailsRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Objectives" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectivesRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutiveSponsorFk" Type="Int32" Nullable="false" />
+          <Property Name="IsConfidential" Type="Boolean" Nullable="false" />
+          <Property Name="IsExternal" Type="Boolean" Nullable="false" />
+          <Property Name="RegionFk" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PurposeFk" Type="Int32" Nullable="false" />
+          <Property Name="BriefOwnerFk" Type="Int32" Nullable="false" />
+          <Property Name="StaffFk" Type="Int32" Nullable="false" />
+          <Property Name="DurationFk" Type="Int32" Nullable="false" />
+          <Property Name="IsDateFlexible" Type="Boolean" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="DivisionFk" Type="Int32" Nullable="false" />
+          <Property Name="TeamFk" Type="Int32" Nullable="false" />
+          <Property Name="StrategicPriorityFk" Type="Int32" />
+          <Property Name="TeamRankingFk" Type="Int32" Nullable="false" />
+          <Property Name="PresidentRankingFk" Type="Int32" Nullable="false" />
+          <Property Name="PresidentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PresidentCommentRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EntryCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="PresidentReviewCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleReviewCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntryByFk" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedByFk" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="StatusFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Division" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Division" FromRole="Engagement" ToRole="Division" />
+          <NavigationProperty Name="Duration" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Duration" FromRole="Engagement" ToRole="Duration" />
+          <NavigationProperty Name="ExecutiveSponsor" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Leader" FromRole="Engagement" ToRole="Leader" />
+          <NavigationProperty Name="Purpose" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Purpose" FromRole="Engagement" ToRole="Purpose" />
+          <NavigationProperty Name="PresidentRanking" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_PresidentRanking" FromRole="Engagement" ToRole="Ranking" />
+          <NavigationProperty Name="TeamRanking" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_TeamRanking" FromRole="Engagement" ToRole="Ranking" />
+          <NavigationProperty Name="Region" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Region" FromRole="Engagement" ToRole="Region" />
+          <NavigationProperty Name="Status" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Status" FromRole="Engagement" ToRole="Status" />
+          <NavigationProperty Name="BriefOwner" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_BriefOwner" FromRole="Engagement" ToRole="SysUser" />
+          <NavigationProperty Name="EntryBy" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_EntryBy" FromRole="Engagement" ToRole="SysUser" />
+          <NavigationProperty Name="ModifiedBy" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_ModifiedBy" FromRole="Engagement" ToRole="SysUser" />
+          <NavigationProperty Name="Staff" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_Staff" FromRole="Engagement" ToRole="SysUser" />
+          <NavigationProperty Name="Team" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Team" FromRole="Engagement" ToRole="Team" />
+          <NavigationProperty Name="EngagementCountries" Relationship="LeadershipEngagementPlannerModel.FK_EngagementCountry_Engagement" FromRole="Engagement" ToRole="EngagementCountry" />
+          <NavigationProperty Name="EngagementYearQuarters" Relationship="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_Engagement" FromRole="Engagement" ToRole="EngagementYearQuarter" />
+          <NavigationProperty Name="Principals" Relationship="LeadershipEngagementPlannerModel.FK_Principal_Engagement" FromRole="Engagement" ToRole="Principal" />
+          <NavigationProperty Name="Schedules" Relationship="LeadershipEngagementPlannerModel.FK_Schedule_Engagement" FromRole="Engagement" ToRole="Schedule" />
+          <Property Name="Location" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Hst_Engagement" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Engagement" FromRole="Engagement" ToRole="Hst_Engagement" />
+          <NavigationProperty Name="EngagementSysUsers" Relationship="LeadershipEngagementPlannerModel.FK_EngagementSysUser_Engagement" FromRole="Engagement" ToRole="EngagementSysUser" />
+          <NavigationProperty Name="Priority" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Priority" FromRole="Engagement" ToRole="Priority" />
+        </EntityType>
+        <Association Name="FK_Engagement_Division">
+          <End Type="LeadershipEngagementPlannerModel.Division" Role="Division" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="DivisionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Duration">
+          <End Type="LeadershipEngagementPlannerModel.Duration" Role="Duration" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Duration">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="DurationFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Leader">
+          <End Type="LeadershipEngagementPlannerModel.Leader" Role="Leader" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Leader">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="ExecutiveSponsorFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Purpose">
+          <End Type="LeadershipEngagementPlannerModel.Purpose" Role="Purpose" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Purpose">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="PurposeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Ranking_PresidentRanking">
+          <End Type="LeadershipEngagementPlannerModel.Ranking" Role="Ranking" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ranking">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="PresidentRankingFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Ranking_TeamRanking">
+          <End Type="LeadershipEngagementPlannerModel.Ranking" Role="Ranking" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ranking">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="TeamRankingFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Region">
+          <End Type="LeadershipEngagementPlannerModel.Region" Role="Region" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Region">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="RegionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Status">
+          <End Type="LeadershipEngagementPlannerModel.Status" Role="Status" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="StatusFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_BriefOwner">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="BriefOwnerFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_EntryBy">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="EntryByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_ModifiedBy">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="ModifiedByFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_SysUser_Staff">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="StaffFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Engagement_Team">
+          <End Type="LeadershipEngagementPlannerModel.Team" Role="Team" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="TeamFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementCountry_Engagement">
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementCountry" Role="EngagementCountry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementCountry">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementYearQuarter_Engagement">
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementYearQuarter" Role="EngagementYearQuarter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementYearQuarter">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Principal_Engagement">
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Principal" Role="Principal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Principal">
+              <PropertyRef Name="EngagementFK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Engagement">
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Hst_Engagement">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdFk" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DetailsRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Objectives" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectivesRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutiveSponsorFk" Type="Int32" Nullable="false" />
+          <Property Name="IsConfidential" Type="Boolean" Nullable="false" />
+          <Property Name="IsExternal" Type="Boolean" Nullable="false" />
+          <Property Name="RegionFk" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="PurposeFk" Type="Int32" Nullable="false" />
+          <Property Name="BriefOwnerFk" Type="Int32" Nullable="false" />
+          <Property Name="StaffFk" Type="Int32" Nullable="false" />
+          <Property Name="DurationFk" Type="Int32" Nullable="false" />
+          <Property Name="IsDateFlexible" Type="Boolean" Nullable="false" />
+          <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DivisionFk" Type="Int32" Nullable="false" />
+          <Property Name="TeamFk" Type="Int32" Nullable="false" />
+          <Property Name="StrategicPriorityFk" Type="Int32" Nullable="false" />
+          <Property Name="TeamRankingFk" Type="Int32" Nullable="false" />
+          <Property Name="PresidentRankingFk" Type="Int32" Nullable="false" />
+          <Property Name="PresidentComment" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PresidentCommentRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EntryCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="PresidentReviewCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleReviewCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntryByFk" Type="Int32" Nullable="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedByFk" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Engagement" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Engagement" FromRole="Hst_Engagement" ToRole="Engagement" />
+        </EntityType>
+        <Association Name="FK_Engagement_Engagement">
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.Hst_Engagement" Role="Hst_Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hst_Engagement">
+              <PropertyRef Name="IdFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ErrorLog">
+          <Key>
+            <PropertyRef Name="LogID" />
+          </Key>
+          <Property Name="LogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RunDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SysUser" Relationship="LeadershipEngagementPlannerModel.FK_ErrorLog_SysUser" FromRole="ErrorLog" ToRole="SysUser" />
+        </EntityType>
+        <Association Name="FK_ErrorLog_SysUser">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.ErrorLog" Role="ErrorLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ErrorLog">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SysUser_Division">
+          <End Type="LeadershipEngagementPlannerModel.Division" Role="Division" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Division">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SysUser">
+              <PropertyRef Name="DivisionFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="vEngagementLeaderSchedule">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Title" />
+            <PropertyRef Name="DetailsRtf" />
+            <PropertyRef Name="Objectives" />
+            <PropertyRef Name="ObjectivesRtf" />
+            <PropertyRef Name="ExecutiveSponsor" />
+            <PropertyRef Name="Visibility" />
+            <PropertyRef Name="EngagementType" />
+            <PropertyRef Name="Region" />
+            <PropertyRef Name="Purpose" />
+            <PropertyRef Name="BriefOwner" />
+            <PropertyRef Name="Staff" />
+            <PropertyRef Name="Duration" />
+            <PropertyRef Name="DurationInMinutes" />
+            <PropertyRef Name="DurationInDays" />
+            <PropertyRef Name="DateFlexible" />
+            <PropertyRef Name="TeamInfo" />
+            <PropertyRef Name="Division" />
+            <PropertyRef Name="DivisionDescription" />
+            <PropertyRef Name="Team" />
+            <PropertyRef Name="StrategicPriority" />
+            <PropertyRef Name="TeamRanking" />
+            <PropertyRef Name="PresidentRanking" />
+            <PropertyRef Name="PresidentCommentRtf" />
+            <PropertyRef Name="StatusDisplaySortSequence" />
+            <PropertyRef Name="EntryDate" />
+            <PropertyRef Name="EntryBY" />
+            <PropertyRef Name="ModifiedDate" />
+            <PropertyRef Name="ModifiedBy" />
+            <PropertyRef Name="ScheduleApprovalStatus" />
+            <PropertyRef Name="IsConfidential" />
+            <PropertyRef Name="IsExternal" />
+            <PropertyRef Name="EntryCompleted" />
+            <PropertyRef Name="PresidentReviewCompleted" />
+            <PropertyRef Name="ScheduleCompleted" />
+            <PropertyRef Name="ScheduleReviewCompleted" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DetailsRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Objectives" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectivesRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PrincipalRequired" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PrincipalAlternate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ExecutiveSponsor" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Visibility" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="EngagementType" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="EngagementExtInt" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Location" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Purpose" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BriefOwner" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Staff" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="Duration" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DurationInMinutes" Type="Int32" Nullable="false" />
+          <Property Name="DurationInDays" Type="Int32" Nullable="false" />
+          <Property Name="DateFlexible" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="YearQuarter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DateStart" Type="DateTime" Precision="0" />
+          <Property Name="DateEnd" Type="DateTime" Precision="0" />
+          <Property Name="TeamInfo" Type="String" Nullable="false" MaxLength="225" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DivisionDescription" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Team" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StrategicPriority" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TeamRanking" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PresidentRanking" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PresidentComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="PresidentCommentRtf" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusDisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="EntryDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EntryBY" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ModifiedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedBy" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleFromDate" Type="DateTime" Precision="3" />
+          <Property Name="ScheduleToDate" Type="DateTime" Precision="3" />
+          <Property Name="TripDirector" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="SpeechWriter" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="CommunicationsLead" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleBriefDueToGCEByDate" Type="DateTime" Precision="0" />
+          <Property Name="ScheduleBriefDueToBGC3ByDate" Type="DateTime" Precision="0" />
+          <Property Name="ScheduleComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleCommentRtf" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduledBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduledDate" Type="DateTime" Precision="0" />
+          <Property Name="ScheduleApprovalStatus" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleReviewComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleReviewCommentRtf" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleReviewCompletedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleReviewCompletedDate" Type="DateTime" Precision="0" />
+          <Property Name="LeaderFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LeaderLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="LeaderShortName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LeaderADUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsConfidential" Type="Boolean" Nullable="false" />
+          <Property Name="IsExternal" Type="Boolean" Nullable="false" />
+          <Property Name="EntryCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="PresidentReviewCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleReviewCompleted" Type="Boolean" Nullable="false" />
+          <Property Name="ScheduleId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EngagementSysUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EngagementFk" Type="Int32" Nullable="false" />
+          <Property Name="SysUserFk" Type="Int32" Nullable="false" />
+          <Property Name="TypeFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Engagement" Relationship="LeadershipEngagementPlannerModel.FK_EngagementSysUser_Engagement" FromRole="EngagementSysUser" ToRole="Engagement" />
+          <NavigationProperty Name="SysUser" Relationship="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUser" FromRole="EngagementSysUser" ToRole="SysUser" />
+          <NavigationProperty Name="SysUserType" Relationship="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUserType" FromRole="EngagementSysUser" ToRole="SysUserType" />
+        </EntityType>
+        <EntityType Name="ScheduleSysUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ScheduleFk" Type="Int32" Nullable="false" />
+          <Property Name="SysUserFk" Type="Int32" Nullable="false" />
+          <Property Name="TypeFk" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Schedule" Relationship="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_Schedule" FromRole="ScheduleSysUser" ToRole="Schedule" />
+          <NavigationProperty Name="SysUser" Relationship="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUser" FromRole="ScheduleSysUser" ToRole="SysUser" />
+          <NavigationProperty Name="SysUserType" Relationship="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUserType" FromRole="ScheduleSysUser" ToRole="SysUserType" />
+        </EntityType>
+        <EntityType Name="SysUserType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EngagementSysUsers" Relationship="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUserType" FromRole="SysUserType" ToRole="EngagementSysUser" />
+          <NavigationProperty Name="ScheduleSysUsers" Relationship="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUserType" FromRole="SysUserType" ToRole="ScheduleSysUser" />
+        </EntityType>
+        <Association Name="FK_EngagementSysUser_Engagement">
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementSysUser" Role="EngagementSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Engagement">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementSysUser">
+              <PropertyRef Name="EngagementFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementSysUser_SysUser">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementSysUser" Role="EngagementSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementSysUser">
+              <PropertyRef Name="SysUserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EngagementSysUser_SysUserType">
+          <End Type="LeadershipEngagementPlannerModel.SysUserType" Role="SysUserType" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.EngagementSysUser" Role="EngagementSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EngagementSysUser">
+              <PropertyRef Name="TypeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleSysUser_Schedule">
+          <End Type="LeadershipEngagementPlannerModel.Schedule" Role="Schedule" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.ScheduleSysUser" Role="ScheduleSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Schedule">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleSysUser">
+              <PropertyRef Name="ScheduleFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleSysUser_SysUser">
+          <End Type="LeadershipEngagementPlannerModel.SysUser" Role="SysUser" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.ScheduleSysUser" Role="ScheduleSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleSysUser">
+              <PropertyRef Name="SysUserFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScheduleSysUser_SysUserType">
+          <End Type="LeadershipEngagementPlannerModel.SysUserType" Role="SysUserType" Multiplicity="1" />
+          <End Type="LeadershipEngagementPlannerModel.ScheduleSysUser" Role="ScheduleSysUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SysUserType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ScheduleSysUser">
+              <PropertyRef Name="TypeFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Priority">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="priority" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DisplaySortSequence" Type="Int32" Nullable="false" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Engagements" Relationship="LeadershipEngagementPlannerModel.FK_Engagement_Priority" FromRole="Priority" ToRole="Engagement" />
+        </EntityType>
+        <Association Name="FK_Engagement_Priority">
+          <End Type="LeadershipEngagementPlannerModel.Priority" Role="Priority" Multiplicity="0..1" />
+          <End Type="LeadershipEngagementPlannerModel.Engagement" Role="Engagement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Priority">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Engagement">
+              <PropertyRef Name="StrategicPriorityFk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="LeadershipEngagementPlannerModelStoreContainer" CdmEntityContainer="LeadershipEngagementPlannerEntities">
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Country">
+              <MappingFragment StoreEntitySet="Country">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="countryName" ColumnName="Country" />
+                <ScalarProperty Name="RegionFk" ColumnName="RegionFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Durations">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Duration">
+              <MappingFragment StoreEntitySet="Duration">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DurationInDays" ColumnName="DurationInDays" />
+                <ScalarProperty Name="DurationInMinutes" ColumnName="DurationInMinutes" />
+                <ScalarProperty Name="duration" ColumnName="Duration" />
+                <ScalarProperty Name="IsInternalEngagement" ColumnName="IsInternalEngagement" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leaders">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Leader">
+              <MappingFragment StoreEntitySet="Leader">
+                <ScalarProperty Name="IsAlternatePrincipal" ColumnName="IsAlternatePrincipal" />
+                <ScalarProperty Name="IsRequiredPrincipal" ColumnName="IsRequiredPrincipal" />
+                <ScalarProperty Name="IsExecutiveSponsor" ColumnName="IsExecutiveSponsor" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="ADUser" ColumnName="ADUser" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SysGroupFk" ColumnName="SysGroupFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Purposes">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Purpose">
+              <MappingFragment StoreEntitySet="Purpose">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="IsInternalEngagement" ColumnName="IsInternalEngagement" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rankings">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Ranking">
+              <MappingFragment StoreEntitySet="Ranking">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="PresidentReview" ColumnName="PresidentReview" />
+                <ScalarProperty Name="RequesterInput" ColumnName="RequesterInput" />
+                <ScalarProperty Name="ranking" ColumnName="Ranking" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Regions">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Region">
+              <MappingFragment StoreEntitySet="Region">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="regionName" ColumnName="Region" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ReviewCompletedDate" ColumnName="ReviewCompletedDate" />
+                <ScalarProperty Name="ReviewCompletedByFk" ColumnName="ReviewCompletedByFk" />
+                <ScalarProperty Name="ReviewCommentRtf" ColumnName="ReviewCommentRtf" />
+                <ScalarProperty Name="ReviewComment" ColumnName="ReviewComment" />
+                <ScalarProperty Name="ApproveDecline" ColumnName="ApproveDecline" />
+                <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+                <ScalarProperty Name="ScheduledByFk" ColumnName="ScheduledByFk" />
+                <ScalarProperty Name="ScheduleCommentRtf" ColumnName="ScheduleCommentRtf" />
+                <ScalarProperty Name="ScheduleComment" ColumnName="ScheduleComment" />
+                <ScalarProperty Name="BriefDueToBGC3ByDate" ColumnName="BriefDueToBGC3ByDate" />
+                <ScalarProperty Name="BriefDueToGCEByDate" ColumnName="BriefDueToGCEByDate" />
+                <ScalarProperty Name="CommunicationsLeadFk" ColumnName="CommunicationsLeadFk" />
+                <ScalarProperty Name="SpeechWriterFk" ColumnName="SpeechWriterFk" />
+                <ScalarProperty Name="TripDirectorFk" ColumnName="TripDirectorFk" />
+                <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+                <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+                <ScalarProperty Name="LeaderFk" ColumnName="LeaderFk" />
+                <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysUsers">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysUser">
+              <MappingFragment StoreEntitySet="SysUser">
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="ADUser" ColumnName="ADUser" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teams">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Team">
+              <MappingFragment StoreEntitySet="Team">
+                <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="team" ColumnName="Team" />
+                <ScalarProperty Name="SysGroupFk" ColumnName="SysGroupFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YearQuarters">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.YearQuarter">
+              <MappingFragment StoreEntitySet="YearQuarter">
+                <ScalarProperty Name="Display" ColumnName="Display" />
+                <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysGroups">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysGroup">
+              <MappingFragment StoreEntitySet="SysGroup">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RequestingTeam" ColumnName="RequestingTeam" />
+                <ScalarProperty Name="FoundationDomainTeam" ColumnName="FoundationDomainTeam" />
+                <ScalarProperty Name="GroupDisplaySortSequence" ColumnName="GroupDisplaySortSequence" />
+                <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+                <ScalarProperty Name="GroupShortName" ColumnName="GroupShortName" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysGroupUserPrivileges">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysGroupUserPrivilege">
+              <MappingFragment StoreEntitySet="SysGroupUserPrivilege">
+                <ScalarProperty Name="ModifiedByFk" ColumnName="ModifiedByFk" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EntryByFk" ColumnName="EntryByFk" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="BlackOutDateEntry" ColumnName="BlackOutDateEntry" />
+                <ScalarProperty Name="ScheduleApprover" ColumnName="ScheduleApprover" />
+                <ScalarProperty Name="Scheduler" ColumnName="Scheduler" />
+                <ScalarProperty Name="GroupApprover" ColumnName="GroupApprover" />
+                <ScalarProperty Name="GroupEntry" ColumnName="GroupEntry" />
+                <ScalarProperty Name="GroupAdmin" ColumnName="GroupAdmin" />
+                <ScalarProperty Name="AppAdmin" ColumnName="AppAdmin" />
+                <ScalarProperty Name="SysAdmin" ColumnName="SysAdmin" />
+                <ScalarProperty Name="SysUserFK" ColumnName="SysUserFK" />
+                <ScalarProperty Name="SysGroupFK" ColumnName="SysGroupFK" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EngagementYearQuarters">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.EngagementYearQuarter">
+              <MappingFragment StoreEntitySet="EngagementYearQuarter">
+                <ScalarProperty Name="YearQuarterFk" ColumnName="YearQuarterFk" />
+                <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Principals">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Principal">
+              <MappingFragment StoreEntitySet="Principal">
+                <ScalarProperty Name="TypeFK" ColumnName="TypeFK" />
+                <ScalarProperty Name="LeaderFK" ColumnName="LeaderFK" />
+                <ScalarProperty Name="EngagementFK" ColumnName="EngagementFK" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PrincipalTypes">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.PrincipalType">
+              <MappingFragment StoreEntitySet="PrincipalType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Divisions">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Division">
+              <MappingFragment StoreEntitySet="Division">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EngagementCountries">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.EngagementCountry">
+              <MappingFragment StoreEntitySet="EngagementCountry">
+                <ScalarProperty Name="CountryFk" ColumnName="CountryFk" />
+                <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Engagements">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Engagement">
+              <MappingFragment StoreEntitySet="Engagement">
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedByFk" ColumnName="ModifiedByFk" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EntryByFk" ColumnName="EntryByFk" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ScheduleReviewCompleted" ColumnName="ScheduleReviewCompleted" />
+                <ScalarProperty Name="ScheduleCompleted" ColumnName="ScheduleCompleted" />
+                <ScalarProperty Name="PresidentReviewCompleted" ColumnName="PresidentReviewCompleted" />
+                <ScalarProperty Name="EntryCompleted" ColumnName="EntryCompleted" />
+                <ScalarProperty Name="PresidentCommentRtf" ColumnName="PresidentCommentRtf" />
+                <ScalarProperty Name="PresidentComment" ColumnName="PresidentComment" />
+                <ScalarProperty Name="PresidentRankingFk" ColumnName="PresidentRankingFk" />
+                <ScalarProperty Name="TeamRankingFk" ColumnName="TeamRankingFk" />
+                <ScalarProperty Name="StrategicPriorityFk" ColumnName="StrategicPriorityFk" />
+                <ScalarProperty Name="TeamFk" ColumnName="TeamFk" />
+                <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="IsDateFlexible" ColumnName="IsDateFlexible" />
+                <ScalarProperty Name="DurationFk" ColumnName="DurationFk" />
+                <ScalarProperty Name="StaffFk" ColumnName="StaffFk" />
+                <ScalarProperty Name="BriefOwnerFk" ColumnName="BriefOwnerFk" />
+                <ScalarProperty Name="PurposeFk" ColumnName="PurposeFk" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="RegionFk" ColumnName="RegionFk" />
+                <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+                <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+                <ScalarProperty Name="ExecutiveSponsorFk" ColumnName="ExecutiveSponsorFk" />
+                <ScalarProperty Name="ObjectivesRtf" ColumnName="ObjectivesRtf" />
+                <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+                <ScalarProperty Name="DetailsRtf" ColumnName="DetailsRtf" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Hst_Engagement">
+            <EntityTypeMapping TypeName="IsTypeOf(LeadershipEngagementPlannerModel.Hst_Engagement)">
+              <MappingFragment StoreEntitySet="Engagement1">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ModifiedByFk" ColumnName="ModifiedByFk" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EntryByFk" ColumnName="EntryByFk" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="ScheduleReviewCompleted" ColumnName="ScheduleReviewCompleted" />
+                <ScalarProperty Name="ScheduleCompleted" ColumnName="ScheduleCompleted" />
+                <ScalarProperty Name="PresidentReviewCompleted" ColumnName="PresidentReviewCompleted" />
+                <ScalarProperty Name="EntryCompleted" ColumnName="EntryCompleted" />
+                <ScalarProperty Name="PresidentCommentRtf" ColumnName="PresidentCommentRtf" />
+                <ScalarProperty Name="PresidentComment" ColumnName="PresidentComment" />
+                <ScalarProperty Name="PresidentRankingFk" ColumnName="PresidentRankingFk" />
+                <ScalarProperty Name="TeamRankingFk" ColumnName="TeamRankingFk" />
+                <ScalarProperty Name="StrategicPriorityFk" ColumnName="StrategicPriorityFk" />
+                <ScalarProperty Name="TeamFk" ColumnName="TeamFk" />
+                <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="IsDateFlexible" ColumnName="IsDateFlexible" />
+                <ScalarProperty Name="DurationFk" ColumnName="DurationFk" />
+                <ScalarProperty Name="StaffFk" ColumnName="StaffFk" />
+                <ScalarProperty Name="BriefOwnerFk" ColumnName="BriefOwnerFk" />
+                <ScalarProperty Name="PurposeFk" ColumnName="PurposeFk" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="RegionFk" ColumnName="RegionFk" />
+                <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+                <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+                <ScalarProperty Name="ExecutiveSponsorFk" ColumnName="ExecutiveSponsorFk" />
+                <ScalarProperty Name="ObjectivesRtf" ColumnName="ObjectivesRtf" />
+                <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+                <ScalarProperty Name="DetailsRtf" ColumnName="DetailsRtf" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="IdFk" ColumnName="IdFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ErrorLogs">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.ErrorLog">
+              <MappingFragment StoreEntitySet="ErrorLog">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="RunDate" ColumnName="RunDate" />
+                <ScalarProperty Name="LogID" ColumnName="LogID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vEngagementLeaderSchedules">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.vEngagementLeaderSchedule">
+              <MappingFragment StoreEntitySet="vEngagementLeaderSchedule">
+                <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+                <ScalarProperty Name="ScheduleReviewCompleted" ColumnName="ScheduleReviewCompleted" />
+                <ScalarProperty Name="ScheduleCompleted" ColumnName="ScheduleCompleted" />
+                <ScalarProperty Name="PresidentReviewCompleted" ColumnName="PresidentReviewCompleted" />
+                <ScalarProperty Name="EntryCompleted" ColumnName="EntryCompleted" />
+                <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+                <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+                <ScalarProperty Name="LeaderADUser" ColumnName="LeaderADUser" />
+                <ScalarProperty Name="LeaderShortName" ColumnName="LeaderShortName" />
+                <ScalarProperty Name="LeaderLastName" ColumnName="LeaderLastName" />
+                <ScalarProperty Name="LeaderFirstName" ColumnName="LeaderFirstName" />
+                <ScalarProperty Name="ScheduleReviewCompletedDate" ColumnName="ScheduleReviewCompletedDate" />
+                <ScalarProperty Name="ScheduleReviewCompletedBy" ColumnName="ScheduleReviewCompletedBy" />
+                <ScalarProperty Name="ScheduleReviewCommentRtf" ColumnName="ScheduleReviewCommentRtf" />
+                <ScalarProperty Name="ScheduleReviewComment" ColumnName="ScheduleReviewComment" />
+                <ScalarProperty Name="ScheduleApprovalStatus" ColumnName="ScheduleApprovalStatus" />
+                <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+                <ScalarProperty Name="ScheduledBy" ColumnName="ScheduledBy" />
+                <ScalarProperty Name="ScheduleCommentRtf" ColumnName="ScheduleCommentRtf" />
+                <ScalarProperty Name="ScheduleComment" ColumnName="ScheduleComment" />
+                <ScalarProperty Name="ScheduleBriefDueToBGC3ByDate" ColumnName="ScheduleBriefDueToBGC3ByDate" />
+                <ScalarProperty Name="ScheduleBriefDueToGCEByDate" ColumnName="ScheduleBriefDueToGCEByDate" />
+                <ScalarProperty Name="CommunicationsLead" ColumnName="CommunicationsLead" />
+                <ScalarProperty Name="SpeechWriter" ColumnName="SpeechWriter" />
+                <ScalarProperty Name="TripDirector" ColumnName="TripDirector" />
+                <ScalarProperty Name="ScheduleToDate" ColumnName="ScheduleToDate" />
+                <ScalarProperty Name="ScheduleFromDate" ColumnName="ScheduleFromDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="EntryBY" ColumnName="EntryBY" />
+                <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+                <ScalarProperty Name="StatusDisplaySortSequence" ColumnName="StatusDisplaySortSequence" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PresidentCommentRtf" ColumnName="PresidentCommentRtf" />
+                <ScalarProperty Name="PresidentComment" ColumnName="PresidentComment" />
+                <ScalarProperty Name="PresidentRanking" ColumnName="PresidentRanking" />
+                <ScalarProperty Name="TeamRanking" ColumnName="TeamRanking" />
+                <ScalarProperty Name="StrategicPriority" ColumnName="StrategicPriority" />
+                <ScalarProperty Name="Team" ColumnName="Team" />
+                <ScalarProperty Name="DivisionDescription" ColumnName="DivisionDescription" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="TeamInfo" ColumnName="TeamInfo" />
+                <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+                <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+                <ScalarProperty Name="YearQuarter" ColumnName="YearQuarter" />
+                <ScalarProperty Name="DateFlexible" ColumnName="DateFlexible" />
+                <ScalarProperty Name="DurationInDays" ColumnName="DurationInDays" />
+                <ScalarProperty Name="DurationInMinutes" ColumnName="DurationInMinutes" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Staff" ColumnName="Staff" />
+                <ScalarProperty Name="BriefOwner" ColumnName="BriefOwner" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="EngagementExtInt" ColumnName="EngagementExtInt" />
+                <ScalarProperty Name="EngagementType" ColumnName="EngagementType" />
+                <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+                <ScalarProperty Name="ExecutiveSponsor" ColumnName="ExecutiveSponsor" />
+                <ScalarProperty Name="PrincipalAlternate" ColumnName="PrincipalAlternate" />
+                <ScalarProperty Name="PrincipalRequired" ColumnName="PrincipalRequired" />
+                <ScalarProperty Name="ObjectivesRtf" ColumnName="ObjectivesRtf" />
+                <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+                <ScalarProperty Name="DetailsRtf" ColumnName="DetailsRtf" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EngagementSysUsers">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.EngagementSysUser">
+              <MappingFragment StoreEntitySet="EngagementSysUser">
+                <ScalarProperty Name="TypeFk" ColumnName="TypeFk" />
+                <ScalarProperty Name="SysUserFk" ColumnName="SysUserFk" />
+                <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScheduleSysUsers">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.ScheduleSysUser">
+              <MappingFragment StoreEntitySet="ScheduleSysUser">
+                <ScalarProperty Name="TypeFk" ColumnName="TypeFk" />
+                <ScalarProperty Name="SysUserFk" ColumnName="SysUserFk" />
+                <ScalarProperty Name="ScheduleFk" ColumnName="ScheduleFk" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SysUserTypes">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysUserType">
+              <MappingFragment StoreEntitySet="SysUserType">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Priorities">
+            <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Priority">
+              <MappingFragment StoreEntitySet="Priority">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+                <ScalarProperty Name="priority" ColumnName="Priority" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

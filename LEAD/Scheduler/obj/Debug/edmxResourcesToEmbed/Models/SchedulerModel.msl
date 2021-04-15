@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LeadershipEngagementPlannerModelStoreContainer" CdmEntityContainer="LeadershipEngagementPlannerEntities">
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Country">
+        <MappingFragment StoreEntitySet="Country">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="countryName" ColumnName="Country" />
+          <ScalarProperty Name="RegionFk" ColumnName="RegionFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Durations">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Duration">
+        <MappingFragment StoreEntitySet="Duration">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DurationInDays" ColumnName="DurationInDays" />
+          <ScalarProperty Name="DurationInMinutes" ColumnName="DurationInMinutes" />
+          <ScalarProperty Name="duration" ColumnName="Duration" />
+          <ScalarProperty Name="IsInternalEngagement" ColumnName="IsInternalEngagement" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leaders">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Leader">
+        <MappingFragment StoreEntitySet="Leader">
+          <ScalarProperty Name="IsAlternatePrincipal" ColumnName="IsAlternatePrincipal" />
+          <ScalarProperty Name="IsRequiredPrincipal" ColumnName="IsRequiredPrincipal" />
+          <ScalarProperty Name="IsExecutiveSponsor" ColumnName="IsExecutiveSponsor" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="ADUser" ColumnName="ADUser" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="SysGroupFk" ColumnName="SysGroupFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Purposes">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Purpose">
+        <MappingFragment StoreEntitySet="Purpose">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="IsInternalEngagement" ColumnName="IsInternalEngagement" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rankings">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Ranking">
+        <MappingFragment StoreEntitySet="Ranking">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="PresidentReview" ColumnName="PresidentReview" />
+          <ScalarProperty Name="RequesterInput" ColumnName="RequesterInput" />
+          <ScalarProperty Name="ranking" ColumnName="Ranking" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regions">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Region">
+        <MappingFragment StoreEntitySet="Region">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="regionName" ColumnName="Region" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedules">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ReviewCompletedDate" ColumnName="ReviewCompletedDate" />
+          <ScalarProperty Name="ReviewCompletedByFk" ColumnName="ReviewCompletedByFk" />
+          <ScalarProperty Name="ReviewCommentRtf" ColumnName="ReviewCommentRtf" />
+          <ScalarProperty Name="ReviewComment" ColumnName="ReviewComment" />
+          <ScalarProperty Name="ApproveDecline" ColumnName="ApproveDecline" />
+          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+          <ScalarProperty Name="ScheduledByFk" ColumnName="ScheduledByFk" />
+          <ScalarProperty Name="ScheduleCommentRtf" ColumnName="ScheduleCommentRtf" />
+          <ScalarProperty Name="ScheduleComment" ColumnName="ScheduleComment" />
+          <ScalarProperty Name="BriefDueToBGC3ByDate" ColumnName="BriefDueToBGC3ByDate" />
+          <ScalarProperty Name="BriefDueToGCEByDate" ColumnName="BriefDueToGCEByDate" />
+          <ScalarProperty Name="CommunicationsLeadFk" ColumnName="CommunicationsLeadFk" />
+          <ScalarProperty Name="SpeechWriterFk" ColumnName="SpeechWriterFk" />
+          <ScalarProperty Name="TripDirectorFk" ColumnName="TripDirectorFk" />
+          <ScalarProperty Name="DateTo" ColumnName="DateTo" />
+          <ScalarProperty Name="DateFrom" ColumnName="DateFrom" />
+          <ScalarProperty Name="LeaderFk" ColumnName="LeaderFk" />
+          <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysUsers">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysUser">
+        <MappingFragment StoreEntitySet="SysUser">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ADUser" ColumnName="ADUser" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Teams">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Team">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="team" ColumnName="Team" />
+          <ScalarProperty Name="SysGroupFk" ColumnName="SysGroupFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="YearQuarters">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.YearQuarter">
+        <MappingFragment StoreEntitySet="YearQuarter">
+          <ScalarProperty Name="Display" ColumnName="Display" />
+          <ScalarProperty Name="Quarter" ColumnName="Quarter" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysGroups">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysGroup">
+        <MappingFragment StoreEntitySet="SysGroup">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="RequestingTeam" ColumnName="RequestingTeam" />
+          <ScalarProperty Name="FoundationDomainTeam" ColumnName="FoundationDomainTeam" />
+          <ScalarProperty Name="GroupDisplaySortSequence" ColumnName="GroupDisplaySortSequence" />
+          <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+          <ScalarProperty Name="GroupShortName" ColumnName="GroupShortName" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysGroupUserPrivileges">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysGroupUserPrivilege">
+        <MappingFragment StoreEntitySet="SysGroupUserPrivilege">
+          <ScalarProperty Name="ModifiedByFk" ColumnName="ModifiedByFk" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="EntryByFk" ColumnName="EntryByFk" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlackOutDateEntry" ColumnName="BlackOutDateEntry" />
+          <ScalarProperty Name="ScheduleApprover" ColumnName="ScheduleApprover" />
+          <ScalarProperty Name="Scheduler" ColumnName="Scheduler" />
+          <ScalarProperty Name="GroupApprover" ColumnName="GroupApprover" />
+          <ScalarProperty Name="GroupEntry" ColumnName="GroupEntry" />
+          <ScalarProperty Name="GroupAdmin" ColumnName="GroupAdmin" />
+          <ScalarProperty Name="AppAdmin" ColumnName="AppAdmin" />
+          <ScalarProperty Name="SysAdmin" ColumnName="SysAdmin" />
+          <ScalarProperty Name="SysUserFK" ColumnName="SysUserFK" />
+          <ScalarProperty Name="SysGroupFK" ColumnName="SysGroupFK" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EngagementYearQuarters">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.EngagementYearQuarter">
+        <MappingFragment StoreEntitySet="EngagementYearQuarter">
+          <ScalarProperty Name="YearQuarterFk" ColumnName="YearQuarterFk" />
+          <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Principals">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Principal">
+        <MappingFragment StoreEntitySet="Principal">
+          <ScalarProperty Name="TypeFK" ColumnName="TypeFK" />
+          <ScalarProperty Name="LeaderFK" ColumnName="LeaderFK" />
+          <ScalarProperty Name="EngagementFK" ColumnName="EngagementFK" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PrincipalTypes">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.PrincipalType">
+        <MappingFragment StoreEntitySet="PrincipalType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EngagementCountries">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.EngagementCountry">
+        <MappingFragment StoreEntitySet="EngagementCountry">
+          <ScalarProperty Name="CountryFk" ColumnName="CountryFk" />
+          <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Engagements">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Engagement">
+        <MappingFragment StoreEntitySet="Engagement">
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="StatusFk" ColumnName="StatusFk" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ModifiedByFk" ColumnName="ModifiedByFk" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="EntryByFk" ColumnName="EntryByFk" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="ScheduleReviewCompleted" ColumnName="ScheduleReviewCompleted" />
+          <ScalarProperty Name="ScheduleCompleted" ColumnName="ScheduleCompleted" />
+          <ScalarProperty Name="PresidentReviewCompleted" ColumnName="PresidentReviewCompleted" />
+          <ScalarProperty Name="EntryCompleted" ColumnName="EntryCompleted" />
+          <ScalarProperty Name="PresidentCommentRtf" ColumnName="PresidentCommentRtf" />
+          <ScalarProperty Name="PresidentComment" ColumnName="PresidentComment" />
+          <ScalarProperty Name="PresidentRankingFk" ColumnName="PresidentRankingFk" />
+          <ScalarProperty Name="TeamRankingFk" ColumnName="TeamRankingFk" />
+          <ScalarProperty Name="StrategicPriorityFk" ColumnName="StrategicPriorityFk" />
+          <ScalarProperty Name="TeamFk" ColumnName="TeamFk" />
+          <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="IsDateFlexible" ColumnName="IsDateFlexible" />
+          <ScalarProperty Name="DurationFk" ColumnName="DurationFk" />
+          <ScalarProperty Name="StaffFk" ColumnName="StaffFk" />
+          <ScalarProperty Name="BriefOwnerFk" ColumnName="BriefOwnerFk" />
+          <ScalarProperty Name="PurposeFk" ColumnName="PurposeFk" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="RegionFk" ColumnName="RegionFk" />
+          <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+          <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+          <ScalarProperty Name="ExecutiveSponsorFk" ColumnName="ExecutiveSponsorFk" />
+          <ScalarProperty Name="ObjectivesRtf" ColumnName="ObjectivesRtf" />
+          <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+          <ScalarProperty Name="DetailsRtf" ColumnName="DetailsRtf" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Hst_Engagement">
+      <EntityTypeMapping TypeName="IsTypeOf(LeadershipEngagementPlannerModel.Hst_Engagement)">
+        <MappingFragment StoreEntitySet="Engagement1">
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="ModifiedByFk" ColumnName="ModifiedByFk" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="EntryByFk" ColumnName="EntryByFk" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="ScheduleReviewCompleted" ColumnName="ScheduleReviewCompleted" />
+          <ScalarProperty Name="ScheduleCompleted" ColumnName="ScheduleCompleted" />
+          <ScalarProperty Name="PresidentReviewCompleted" ColumnName="PresidentReviewCompleted" />
+          <ScalarProperty Name="EntryCompleted" ColumnName="EntryCompleted" />
+          <ScalarProperty Name="PresidentCommentRtf" ColumnName="PresidentCommentRtf" />
+          <ScalarProperty Name="PresidentComment" ColumnName="PresidentComment" />
+          <ScalarProperty Name="PresidentRankingFk" ColumnName="PresidentRankingFk" />
+          <ScalarProperty Name="TeamRankingFk" ColumnName="TeamRankingFk" />
+          <ScalarProperty Name="StrategicPriorityFk" ColumnName="StrategicPriorityFk" />
+          <ScalarProperty Name="TeamFk" ColumnName="TeamFk" />
+          <ScalarProperty Name="DivisionFk" ColumnName="DivisionFk" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="IsDateFlexible" ColumnName="IsDateFlexible" />
+          <ScalarProperty Name="DurationFk" ColumnName="DurationFk" />
+          <ScalarProperty Name="StaffFk" ColumnName="StaffFk" />
+          <ScalarProperty Name="BriefOwnerFk" ColumnName="BriefOwnerFk" />
+          <ScalarProperty Name="PurposeFk" ColumnName="PurposeFk" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="RegionFk" ColumnName="RegionFk" />
+          <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+          <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+          <ScalarProperty Name="ExecutiveSponsorFk" ColumnName="ExecutiveSponsorFk" />
+          <ScalarProperty Name="ObjectivesRtf" ColumnName="ObjectivesRtf" />
+          <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+          <ScalarProperty Name="DetailsRtf" ColumnName="DetailsRtf" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="IdFk" ColumnName="IdFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="RunDate" ColumnName="RunDate" />
+          <ScalarProperty Name="LogID" ColumnName="LogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vEngagementLeaderSchedules">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.vEngagementLeaderSchedule">
+        <MappingFragment StoreEntitySet="vEngagementLeaderSchedule">
+          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+          <ScalarProperty Name="ScheduleReviewCompleted" ColumnName="ScheduleReviewCompleted" />
+          <ScalarProperty Name="ScheduleCompleted" ColumnName="ScheduleCompleted" />
+          <ScalarProperty Name="PresidentReviewCompleted" ColumnName="PresidentReviewCompleted" />
+          <ScalarProperty Name="EntryCompleted" ColumnName="EntryCompleted" />
+          <ScalarProperty Name="IsExternal" ColumnName="IsExternal" />
+          <ScalarProperty Name="IsConfidential" ColumnName="IsConfidential" />
+          <ScalarProperty Name="LeaderADUser" ColumnName="LeaderADUser" />
+          <ScalarProperty Name="LeaderShortName" ColumnName="LeaderShortName" />
+          <ScalarProperty Name="LeaderLastName" ColumnName="LeaderLastName" />
+          <ScalarProperty Name="LeaderFirstName" ColumnName="LeaderFirstName" />
+          <ScalarProperty Name="ScheduleReviewCompletedDate" ColumnName="ScheduleReviewCompletedDate" />
+          <ScalarProperty Name="ScheduleReviewCompletedBy" ColumnName="ScheduleReviewCompletedBy" />
+          <ScalarProperty Name="ScheduleReviewCommentRtf" ColumnName="ScheduleReviewCommentRtf" />
+          <ScalarProperty Name="ScheduleReviewComment" ColumnName="ScheduleReviewComment" />
+          <ScalarProperty Name="ScheduleApprovalStatus" ColumnName="ScheduleApprovalStatus" />
+          <ScalarProperty Name="ScheduledDate" ColumnName="ScheduledDate" />
+          <ScalarProperty Name="ScheduledBy" ColumnName="ScheduledBy" />
+          <ScalarProperty Name="ScheduleCommentRtf" ColumnName="ScheduleCommentRtf" />
+          <ScalarProperty Name="ScheduleComment" ColumnName="ScheduleComment" />
+          <ScalarProperty Name="ScheduleBriefDueToBGC3ByDate" ColumnName="ScheduleBriefDueToBGC3ByDate" />
+          <ScalarProperty Name="ScheduleBriefDueToGCEByDate" ColumnName="ScheduleBriefDueToGCEByDate" />
+          <ScalarProperty Name="CommunicationsLead" ColumnName="CommunicationsLead" />
+          <ScalarProperty Name="SpeechWriter" ColumnName="SpeechWriter" />
+          <ScalarProperty Name="TripDirector" ColumnName="TripDirector" />
+          <ScalarProperty Name="ScheduleToDate" ColumnName="ScheduleToDate" />
+          <ScalarProperty Name="ScheduleFromDate" ColumnName="ScheduleFromDate" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="EntryBY" ColumnName="EntryBY" />
+          <ScalarProperty Name="EntryDate" ColumnName="EntryDate" />
+          <ScalarProperty Name="StatusDisplaySortSequence" ColumnName="StatusDisplaySortSequence" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PresidentCommentRtf" ColumnName="PresidentCommentRtf" />
+          <ScalarProperty Name="PresidentComment" ColumnName="PresidentComment" />
+          <ScalarProperty Name="PresidentRanking" ColumnName="PresidentRanking" />
+          <ScalarProperty Name="TeamRanking" ColumnName="TeamRanking" />
+          <ScalarProperty Name="StrategicPriority" ColumnName="StrategicPriority" />
+          <ScalarProperty Name="Team" ColumnName="Team" />
+          <ScalarProperty Name="DivisionDescription" ColumnName="DivisionDescription" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="TeamInfo" ColumnName="TeamInfo" />
+          <ScalarProperty Name="DateEnd" ColumnName="DateEnd" />
+          <ScalarProperty Name="DateStart" ColumnName="DateStart" />
+          <ScalarProperty Name="YearQuarter" ColumnName="YearQuarter" />
+          <ScalarProperty Name="DateFlexible" ColumnName="DateFlexible" />
+          <ScalarProperty Name="DurationInDays" ColumnName="DurationInDays" />
+          <ScalarProperty Name="DurationInMinutes" ColumnName="DurationInMinutes" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Staff" ColumnName="Staff" />
+          <ScalarProperty Name="BriefOwner" ColumnName="BriefOwner" />
+          <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Region" ColumnName="Region" />
+          <ScalarProperty Name="EngagementExtInt" ColumnName="EngagementExtInt" />
+          <ScalarProperty Name="EngagementType" ColumnName="EngagementType" />
+          <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+          <ScalarProperty Name="ExecutiveSponsor" ColumnName="ExecutiveSponsor" />
+          <ScalarProperty Name="PrincipalAlternate" ColumnName="PrincipalAlternate" />
+          <ScalarProperty Name="PrincipalRequired" ColumnName="PrincipalRequired" />
+          <ScalarProperty Name="ObjectivesRtf" ColumnName="ObjectivesRtf" />
+          <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+          <ScalarProperty Name="DetailsRtf" ColumnName="DetailsRtf" />
+          <ScalarProperty Name="Details" ColumnName="Details" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EngagementSysUsers">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.EngagementSysUser">
+        <MappingFragment StoreEntitySet="EngagementSysUser">
+          <ScalarProperty Name="TypeFk" ColumnName="TypeFk" />
+          <ScalarProperty Name="SysUserFk" ColumnName="SysUserFk" />
+          <ScalarProperty Name="EngagementFk" ColumnName="EngagementFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ScheduleSysUsers">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.ScheduleSysUser">
+        <MappingFragment StoreEntitySet="ScheduleSysUser">
+          <ScalarProperty Name="TypeFk" ColumnName="TypeFk" />
+          <ScalarProperty Name="SysUserFk" ColumnName="SysUserFk" />
+          <ScalarProperty Name="ScheduleFk" ColumnName="ScheduleFk" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SysUserTypes">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.SysUserType">
+        <MappingFragment StoreEntitySet="SysUserType">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priorities">
+      <EntityTypeMapping TypeName="LeadershipEngagementPlannerModel.Priority">
+        <MappingFragment StoreEntitySet="Priority">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DisplaySortSequence" ColumnName="DisplaySortSequence" />
+          <ScalarProperty Name="priority" ColumnName="Priority" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

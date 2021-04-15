@@ -1,0 +1,198 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>LeadershipEngagementPlan.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{b88037bf-9a90-452b-bb49-e30de1f70312}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>LeadershipEngagementPlan.Database</RootNamespace>
+    <AssemblyName>LeadershipEngagementPlan.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="hst\" />
+    <Folder Include="hst\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="rpt\" />
+    <Folder Include="rpt\Views\" />
+    <Folder Include="app\" />
+    <Folder Include="app\Views\" />
+    <Folder Include="dbo\Functions\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="app\Stored Procedures\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\YearQuarter.sql" />
+    <Build Include="dbo\Tables\Team.sql" />
+    <Build Include="dbo\Tables\SysUser.sql" />
+    <Build Include="dbo\Tables\SysGroupUserPrivilege.sql" />
+    <Build Include="dbo\Tables\SysGroup.sql" />
+    <Build Include="dbo\Tables\Schedule.sql" />
+    <Build Include="dbo\Tables\Region.sql" />
+    <Build Include="dbo\Tables\Ranking.sql" />
+    <Build Include="dbo\Tables\Purpose.sql" />
+    <Build Include="dbo\Tables\Priority.sql" />
+    <Build Include="dbo\Tables\Leader.sql" />
+    <Build Include="dbo\Tables\Engagement.sql" />
+    <Build Include="dbo\Tables\Duration.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="hst\Tables\SysGroupUserPrivilege.sql" />
+    <Build Include="hst\Tables\Engagement.sql" />
+    <Build Include="hst\Tables\Schedule.sql" />
+    <Build Include="dbo\Views\vSchedule.sql" />
+    <Build Include="dbo\Views\vEngagementLeaderSchedule.sql" />
+    <Build Include="dbo\Views\vEngagement.sql" />
+    <Build Include="rpt\Views\vEngagementLeaderSchedule.sql" />
+    <Build Include="app\Views\vEngagement.sql" />
+    <Build Include="app\Views\vEngagementLeaderSchedule.sql" />
+    <Build Include="app\Views\vSchedule.sql" />
+    <Build Include="dbo\Functions\ufnProperCase.sql" />
+    <Build Include="dbo\Functions\ufnGetYearQuaterList.sql" />
+    <Build Include="dbo\Functions\ufnGetLeaderList.sql" />
+    <Build Include="dbo\Functions\ufnGetEngagementIdsByPrincipal.sql" />
+    <Build Include="dbo\Functions\ufnGetEngagementIdsByAlternatePrincipal.sql" />
+    <Build Include="dbo\Functions\ufnSplitString.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Add_Seed_Records.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_Year.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_TeamBySysGroup.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_Ranking.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_Purpose.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_Priority.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_Principals.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_Duration.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_CountryAvailable.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Get_AllDivision.sql" />
+    <Build Include="dbo\Stored Procedures\usp_Engagement_Report.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertEngagementSetDeleteFlag.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertUserGroupPrivilege.sql" />
+    <Build Include="app\Stored Procedures\uspGetYearQuarter.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertYearQuarter.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertApproveEngagement.sql" />
+    <Build Include="app\Stored Procedures\uspGetCountryByRegion.sql" />
+    <Build Include="app\Stored Procedures\uspGetRegion.sql" />
+    <Build Include="app\Stored Procedures\uspGetScheduleForLeadersForADay.sql" />
+    <Build Include="app\Stored Procedures\uspGetPrincipals.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertEngagement.sql" />
+    <Build Include="app\Stored Procedures\uspGetRegionWithAll.sql" />
+    <Build Include="app\Stored Procedures\uspGetDivisionWithAll.sql" />
+    <Build Include="app\Stored Procedures\uspGetUserGroupPrivilege.sql" />
+    <Build Include="app\Stored Procedures\uspGetUserName.sql" />
+    <Build Include="app\Stored Procedures\uspGetDBConnection.sql" />
+    <Build Include="app\Stored Procedures\uspGetDivisionById.sql" />
+    <Build Include="app\Stored Procedures\uspGetSysUserSysGroupPrivilege.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertSetScheduleReviewCompleted.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertSetScheduleCompleted.sql" />
+    <Build Include="app\Stored Procedures\uspGetScheduleIdByEngagementLeader.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertScheduleSetDeleteFlag.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertApproveSchedule.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertSchedule.sql" />
+    <Build Include="app\Stored Procedures\uspGetPurposeWithAll.sql" />
+    <Build Include="app\Stored Procedures\uspGetEngagementLeaderScheduleList.sql" />
+    <Build Include="app\Stored Procedures\uspGetPriority.sql" />
+    <Build Include="app\Stored Procedures\uspGetSchedule.sql" />
+    <Build Include="app\Stored Procedures\uspGetUserId.sql" />
+    <Build Include="app\Stored Procedures\uspSetBlackoutDates.sql" />
+    <Build Include="app\Stored Procedures\uspGetEngagementListForSchedule.sql" />
+    <Build Include="app\Stored Procedures\uspGetBlackoutDates.sql" />
+    <Build Include="app\Stored Procedures\uspGetPrincipalsSingleSelect.sql" />
+    <Build Include="app\Stored Procedures\uspGetTeamBySysGroupFk.sql" />
+    <Build Include="app\Stored Procedures\uspGetDivision.sql" />
+    <Build Include="app\Stored Procedures\uspGetRankingByUserType.sql" />
+    <Build Include="app\Stored Procedures\uspGetDuration.sql" />
+    <Build Include="app\Stored Procedures\uspGetScheduledDates.sql" />
+    <Build Include="app\Stored Procedures\uspGetEngagementList.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertTeam.sql" />
+    <Build Include="app\Stored Procedures\uspGetSysUser.sql" />
+    <Build Include="app\Stored Procedures\uspGetSysUserByType.sql" />
+    <Build Include="app\Stored Procedures\uspGetPurpose.sql" />
+    <Build Include="Security\rpt.sql" />
+    <Build Include="Security\hst.sql" />
+    <Build Include="Security\app.sql" />
+    <Build Include="hst\Tables\Principal.sql" />
+    <Build Include="dbo\Tables\Principal.sql" />
+    <Build Include="dbo\Tables\PrincipalType.sql" />
+    <Build Include="dbo\Functions\ufnGetPrincipalIdsByEngagementId.sql" />
+    <Build Include="dbo\Functions\ufnGetPrincipalNamesByEngagementId.sql" />
+    <Build Include="dbo\Tables\Status.sql" />
+    <Build Include="dbo\Tables\EngagementYearQuarter.sql" />
+    <Build Include="dbo\Functions\ufnGetOldestYearQuarterByEngagementId.sql" />
+    <Build Include="dbo\Functions\ufnGetAllYearQuarterByEngagementId.sql" />
+    <Build Include="hst\Tables\EngagementYearQuarter.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertCountry.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertRegion.sql" />
+    <Build Include="app\Stored Procedures\uspUpsertSysUser.sql" />
+    <Build Include="dbo\Functions\ufnRemoveLastCharacter.sql" />
+    <Build Include="dbo\Functions\ufnSplitCommaDelimitedColumnsFromEngagement.sql" />
+    <Build Include="dbo\Tables\Division.sql" />
+    <Build Include="dbo\Tables\EngagementCountry.sql" />
+    <Build Include="hst\Tables\EngagementCountry.sql" />
+    <Build Include="dbo\Functions\ufnGetCountriesByEngagementId.sql" />
+    <Build Include="dbo\Tables\ErrorLog.sql" />
+    <Build Include="dbo\Functions\ufnGetSysUserNameByEngagementId.sql" />
+    <Build Include="dbo\Functions\ufnGetSysUserNameByScheduleId.sql" />
+    <Build Include="dbo\Functions\ufnGetSysUserIdByEngagementId.sql" />
+    <Build Include="dbo\Functions\ufnGetSysUserIdByScheduleId.sql" />
+    <Build Include="dbo\Tables\EngagementSysUser.sql" />
+    <Build Include="dbo\Tables\ScheduleSysUser.sql" />
+    <Build Include="dbo\Tables\SysUserType.sql" />
+    <Build Include="dbo\Stored Procedures\uspMigrateEngagementSysUser.sql" />
+    <Build Include="dbo\Stored Procedures\uspMigrateScheduleSysUser.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="LeadershipEngagementPlan.Database.refactorlog" />
+  </ItemGroup>
+</Project>

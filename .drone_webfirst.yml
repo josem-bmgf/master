@@ -1,0 +1,36 @@
+## Building up yml file for build
+
+kind: pipeline
+type: docker
+name: Pull Request Checker
+
+#steps:
+#- name: Get Web Build Tools
+#  image: mcr.microsoft.com/dotnet/core/sdk
+#  commands:
+#  - export PATH="$PATH:/root/.dotnet/tools"
+#  - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
+
+steps:
+- name: Clean Project
+  image: mcr.microsoft.com/dotnet/sdk:latest  #mcr.microsoft.com/dotnet/sdk
+  commands:
+  - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
+  - cp Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
+  - dotnet clean LEAD/Scheduler/Scheduler.csproj
+
+- name: Build Project
+  image: mcr.microsoft.com/dotnet/sdk:latest  #mcr.microsoft.com/dotnet/sdk
+  commands:
+  - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
+  - cp Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
+  - dotnet restore LEAD/Scheduler/Scheduler.csproj
+  - dotnet build LEAD/Scheduler/Scheduler.csproj
+
+trigger:
+  branch:
+      - dev_lead_josem
+  event:
+    include:
+      - pull_request
+      - push

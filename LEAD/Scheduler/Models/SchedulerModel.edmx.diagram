@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="381056185a174653a3534c8d6cd08dd3" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Country" Width="1.5" PointX="4.375" PointY="28.25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Duration" Width="1.5" PointX="4.375" PointY="19.125" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Leader" Width="1.5" PointX="4.375" PointY="15.5" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Purpose" Width="1.5" PointX="4.375" PointY="9.75" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Ranking" Width="1.5" PointX="4.375" PointY="25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Region" Width="1.5" PointX="2.125" PointY="28.25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Schedule" Width="1.5" PointX="8.875" PointY="4.125" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.SysUser" Width="1.5" PointX="4.375" PointY="5.25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Team" Width="1.5" PointX="4.375" PointY="12.75" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.YearQuarter" Width="1.5" PointX="9.375" PointY="0.75" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Country_Region" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_Leader" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ReviewCompletedBy" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_ScheduledBy" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.SysGroup" Width="1.5" PointX="0.75" PointY="10.5" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Leader_SysGroup" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Team_SysGroup" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.SysGroupUserPrivilege" Width="1.5" PointX="9.625" PointY="11.125" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysGroup" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser1" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_SysGroupUserPrivilege_SysUser2" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.EngagementYearQuarter" Width="1.5" PointX="12" PointY="6" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Principal" Width="1.5" PointX="12.25" PointY="10.875" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.PrincipalType" Width="1.5" PointX="10" PointY="17.25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Status" Width="1.5" PointX="4.75" PointY="2.5" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_YearQuarter" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Principal_Leader" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Principal_PrincipalType" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Division" Width="1.5" PointX="11.625" PointY="0.875" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_CommunicationsLead" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_SpeechWriter" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_SysUser_TripDirector" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK__Team__DivisionFk__76D69450" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.EngagementCountry" Width="1.5" PointX="11.875" PointY="14" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementCountry_Country" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Engagement" Width="1.5" PointX="6.875" PointY="1.5" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Division" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Duration" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Leader" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Purpose" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_PresidentRanking" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Ranking_TeamRanking" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Region" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Status" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_BriefOwner" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_EntryBy" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_ModifiedBy" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_SysUser_Staff" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Team" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementCountry_Engagement" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementYearQuarter_Engagement" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Principal_Engagement" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Schedule_Engagement" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Hst_Engagement" Width="1.5" PointX="9.125" PointY="20.375" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Engagement" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.ErrorLog" Width="1.5" PointX="6.625" PointY="14.625" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_ErrorLog_SysUser" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_SysUser_Division" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.vEngagementLeaderSchedule" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.EngagementSysUser" Width="1.5" PointX="17.125" PointY="10.25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.ScheduleSysUser" Width="1.5" PointX="17.125" PointY="6.25" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.SysUserType" Width="1.5" PointX="14.875" PointY="16.5" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementSysUser_Engagement" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUser" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_EngagementSysUser_SysUserType" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_Schedule" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUser" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_ScheduleSysUser_SysUserType" />
+        <EntityTypeShape EntityType="LeadershipEngagementPlannerModel.Priority" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="LeadershipEngagementPlannerModel.FK_Engagement_Priority" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

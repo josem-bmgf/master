@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/kendo/kendo.common.min.css" />
+    <link rel="stylesheet" href="~/Content/kendo/kendo.default.min.css" />
+    <link rel="stylesheet" href="~/Content/kendo/kendo.default.mobile.min.css" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/kendo/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/kendo.all.js"></script>
+    <script src="~/Scripts/kendo/kendo.timezones.min.js"></script>
+    <script src="~/Scripts/kendo/jszip.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+        <div class="container" style="background-color:#ffffff">
+            <div class="navbar-header" >
+                @Html.ActionLink("Leadership Engagement Activity Dashboard", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+            <ul class="ul-navigation">
+                <li id="engagementsHeader" class="li-navigation">@Html.ActionLink("Engagements", "Engagement", "Home", new { area = "" }, new { @class = "panel-headingx isNotForReporting" })</li>
+                <li id="reportsHeader" class="li-navigation">@Html.ActionLink("Reports", "Report", "Home", new { area = "" }, new { @class = "panel-headingx" })</li>
+                @*<li id="administrationHeader" class="li-navigation">@Html.ActionLink("Administration", "Administration", "Home", new { area = "" }, new { @class = "panel-headingx isNotForReporting" })</li>*@
+                @*<li class="li-navigation" style="float:right"><a href="https://bmgf.sharepoint.com/sites/learning/GeneralHelp/How%20Do%20I%20Use%20LEAD.docx" target="_blank">How To</a></li>*@
+                <li class="li-navigation"><a href="https://bmgf.sharepoint.com/sites/learning/GeneralHelp/How%20Do%20I%20Use%20LEAD.docx" target="_blank">How To</a></li>
+            </ul>
+        </div>
+    
+    <div class="container body-content" style="padding-top:60px;">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 1999 - @DateTime.Now.Year Bill & Melinda Gates Foundation. All Rights Reserved. </p>
+        </footer>
+    </div>
+
+     
+</body>
+</html>

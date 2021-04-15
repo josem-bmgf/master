@@ -1,0 +1,29 @@
+<environment>
+   <imports>
+     <import file="C:\Deployments\LEAD\EnvironmentInjector\Environments\Base_Variables_Prod.xml" />
+     <import file="C:\Deployments\LEAD\EnvironmentInjector\Environments\Base_Package_LEAD_Test.xml" />      
+   </imports>
+<!--This section overrides Base_Variables.xml inputted above -->
+   <variables>
+     <variable name="ENVIRONMENT_FILE">Production_Test.xml</variable>
+     <variable name="ENVIRONMENT_PREFIX">PROD</variable>
+     <variable name="DEPLOYMENT_SHARE">C:\Projects\GatesFoundation\LEAD</variable>
+     <variable name="ENVIRONMENT_PREFIX_"></variable>
+     <variable name="DEBUG_COMPILATION_MODE">false</variable>
+     <variable name="BUILD_CONFIGURATION">Release</variable>
+     <variable name="LEAD_DNS">LEAD</variable>
+     <variable name="LEAD_SQL_SERVER">SQLCLSGPSB01LS1</variable>
+     <variable name="LeadReviewerGroupLEAD">IT Avanade Managed Service – Support Applications</variable>
+     <variable name="RequestLiasonLEAD">mark.duay@gatesfoundation.org</variable>
+     <variable name="LIPreReadsGroupLEAD">ITADAP-EnhancementTeam-OFFSHORE@gatesfoundation.org</variable>
+     <variable name="DefaultEmailAddressLEAD">ITADAP-EnhancementTeam-OFFSHORE@gatesfoundation.org</variable>
+     <variable name="LeadSchedulerDomainGroupLEAD">DG_QA_OpsMaintTest_NonFTE</variable>
+     <variable name="Division_1007LEAD">june.angoluan@gatesfoundation.org;adrian.alamares@gatesfoundation.org;teffany.albis@gatesfoundation.org</variable>
+     <variable name="Division_1001LEAD">june.angoluan@gatesfoundation.org;adrian.alamares@gatesfoundation.org;krizzel.vivas@gatesfoundation.org</variable>
+     <variable name="Division_1002LEAD">mark.duay@gatesfoundation.org;marwin.magpantay@gatesfoundation.org</variable>
+     <variable name="Division_1003LEAD">june.angoluan@gatesfoundation.org;adrian.alamares@gatesfoundation.org;teffany.albis@gatesfoundation.org</variable>
+     <variable name="Division_1010LEAD">rochelle.donato@gatesfoundation.org;krizzel.vivas@gatesfoundation.org</variable>
+     <variable name="Division_1005LEAD">rochelle.donato@gatesfoundation.org;marwin.magpantay@gatesfoundation.org</variable>
+     <variable name="LEAD_ALLOWED_ROLES">$(DOMAIN1)\app_lead_admin,$(DOMAIN1)\app_lead_approver,$(DOMAIN1)\app_lead_all,$(DOMAIN1)\app_lead_report,$(DOMAIN1)\app_lead_scheduler,$(DOMAIN1)\app_lead_multidivision</variable>
+   </variables>
+</environment>
