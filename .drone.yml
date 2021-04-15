@@ -6,14 +6,14 @@ steps:
 - name: clean solution
   image: mcr.microsoft.com/dotnet/sdk:latest
   commands:
-    - cp /BuildTools/Microsoft.WebApplication.targets /drone
+    - cp BuildTools/Microsoft.WebApplication.targets /drone
     - ls -l /drone
     - dotnet clean myWeb/myWeb.csproj
 
 - name: build project
   image: mcr.microsoft.com/dotnet/sdk:latest
   commands:
-   - cp /BuildTools/Microsoft.WebApplication.targets /drone
+   - cp BuildTools/Microsoft.WebApplication.targets /drone
    - ls /drone
    - dotnet --version
    #- dotnet build myWeb/myWeb.csproj
