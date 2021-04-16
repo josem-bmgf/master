@@ -26,18 +26,6 @@ steps:
   - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   - ls -l /usr/share/dotnet/sdk/5.0.202
   #- dotnet build LEAD/Scheduler/Scheduler.csproj
-  RUN powershell " `
-    $ErrorActionPreference = 'Stop'; `
-    $ProgressPreference = 'SilentlyContinue'; `
-    @('4.0', '4.5.2', '4.6.2', '4.7.2', '4.8') `
-    | %{ `
-        Invoke-WebRequest `
-            -UseBasicParsing `
-            -Uri https://dotnetbinaries.blob.core.windows.net/referenceassemblies/v${_}.zip `
-            -OutFile referenceassemblies.zip; `
-        Expand-Archive referenceassemblies.zip -DestinationPath \"${Env:ProgramFiles(x86)}\Reference Assemblies\Microsoft\Framework\.NETFramework\"; `
-        Remove-Item -Force referenceassemblies.zip; `
-    }"
 
 
 trigger:
