@@ -10,7 +10,7 @@ steps:
   image: mcr.microsoft.com/dotnet/core/sdk
   commands:
   # - export PATH="$PATH:/root/.dotnet/tools"
-  - dotnet add package NuGet.Frameworks --version 4.5.2
+  - dotnet add LEAD/Scheduler/Scheduler.csproj package NuGet.Frameworks --version 4.5.2
   # - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
 
 # - name: Clean Project
