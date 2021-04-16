@@ -4,14 +4,14 @@ kind: pipeline
 type: docker
 name: Pull Request Checker
 
-#steps:
-#- name: Get Web Build Tools
-#  image: mcr.microsoft.com/dotnet/core/sdk
-#  commands:
-#  - export PATH="$PATH:/root/.dotnet/tools"
-#  - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
-
 steps:
+
+- name: Get Web Build Tools
+  image: mcr.microsoft.com/dotnet/core/sdk
+  commands:
+  - export PATH="$PATH:/root/.dotnet/tools"
+  - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
+
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/sdk
   commands:
