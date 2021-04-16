@@ -13,19 +13,19 @@ name: Pull Request Checker
 
 steps:
 - name: Clean Project
-  image: mcr.microsoft.com/dotnet/sdk:latest
+  image: mcr.microsoft.com/dotnet/sdk
   commands:
   - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   - dotnet clean LEAD/Scheduler/Scheduler.csproj
 
 - name: Build Project
-  image: mcr.microsoft.com/dotnet/sdk:latest
+  image: mcr.microsoft.com/dotnet/sdk
   commands:
   - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   - ls -l /usr/share/dotnet/sdk/5.0.202
-  #- dotnet build LEAD/Scheduler/Scheduler.csproj
+  - dotnet build LEAD/Scheduler/Scheduler.csproj
 
 
 trigger:
