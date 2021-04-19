@@ -12,7 +12,7 @@ steps:
   # - export PATH="$PATH:/root/.dotnet/tools"
   - mkdir -p /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
   - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
-  - dotnet list LEAD/Scheduler/Scheduler.csproj package EntityFramework
+  - dotnet add package LEAD/Scheduler/packages.config
   # - dotnet add LEAD/Scheduler/Scheduler.csproj package NuGet.Frameworks --version 4.5.2 --package-directory /LEAD/packages
   # - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
 
