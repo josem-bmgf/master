@@ -13,8 +13,8 @@ steps:
   # - mkdir -p /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
   # - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
   - dotnet --list-sdks
-  - wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-  - dpkg -i packages-microsoft-prod.deb
+  # - wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  # - dpkg -i packages-microsoft-prod.deb
   - apt-get update; 
   - apt-get install -y apt-transport-https
   - apt-get update
