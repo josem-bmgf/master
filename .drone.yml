@@ -13,8 +13,15 @@ steps:
   # - mkdir -p /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
   # - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
   - dotnet --list-sdks
-  - wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-  - sudo dpkg -i packages-microsoft-prod.deb
+  - RUN wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  - RUN dpkg -i packages-microsoft-prod.deb
+  - RUN apt-get update; 
+  - RUN  apt-get install -y apt-transport-https
+  - RUN  apt-get update
+  - RUN  apt-get install -y dotnet-sdk-5.0
+  
+  
+  
   # - dotnet add LEAD/Scheduler/Scheduler.csproj package LEAD/Scheduler/packages.config
   # - dotnet add LEAD/Scheduler/Scheduler.csproj package NuGet.Frameworks --version 4.5.2 --package-directory /LEAD/packages
   # - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
