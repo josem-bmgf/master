@@ -6,41 +6,41 @@ name: Pull Request Checker
 
 steps:
 
-- name: Get Web Build Tools
-  image: mcr.microsoft.com/dotnet/core/sdk
-  commands:
+# - name: Get Web Build Tools
+  # image: mcr.microsoft.com/dotnet/core/sdk
+  # commands:
   # - export PATH="$PATH:/root/.dotnet/tools"
   # - mkdir -p /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
   # - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/3.1.408/Microsoft/VisualStudio/v16.0/WebApplications
-  - dotnet --list-sdks
-  - wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-  - dpkg -i packages-microsoft-prod.deb
-  - apt-get update; 
-  - apt-get install -y apt-transport-https
-  - apt-get update
-  - apt-get install -y dotnet-sdk-5.0
-  - dotnet --list-sdks
+  # - dotnet --list-sdks
+  # - wget https://packages.microsoft.com/config/debian/10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  # - dpkg -i packages-microsoft-prod.deb
+  # - apt-get update; 
+  # - apt-get install -y apt-transport-https
+  # - apt-get update
+  # - apt-get install -y dotnet-sdk-5.0
+  # - dotnet --list-sdks
   
   
   # - dotnet add LEAD/Scheduler/Scheduler.csproj package LEAD/Scheduler/packages.config
   # - dotnet add LEAD/Scheduler/Scheduler.csproj package NuGet.Frameworks --version 4.5.2 --package-directory /LEAD/packages
   # - dotnet tool install -g Microsoft.VisualStudio.Workload.WebBuildTools
 
-# - name: Clean Project
-  # image: mcr.microsoft.com/dotnet/sdk
-  # commands:
+- name: Clean Project
+  image: nostradini/practice:mybuildtool    #mcr.microsoft.com/dotnet/sdk
+  commands:
   # - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   # - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
-  # - dotnet clean LEAD/Scheduler/Scheduler.csproj
+  - dotnet clean LEAD/Scheduler/Scheduler.csproj
 
-# - name: Build Project
-  # image: mcr.microsoft.com/dotnet/sdk
-  # commands:
+- name: Build Project
+  image: nostradini/practice:mybuildtool    #mcr.microsoft.com/dotnet/sdk
+  commands:
   # - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   # - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   # - ls -l /usr/share/dotnet/sdk/5.0.202
   # - dotnet restore LEAD/Scheduler/Scheduler.csproj
-  # - dotnet build LEAD/Scheduler/Scheduler.csproj
+  - dotnet build LEAD/Scheduler/Scheduler.csproj
 
 
 trigger:
