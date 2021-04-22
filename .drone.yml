@@ -40,7 +40,8 @@ steps:
   - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
   - ls -l /usr/share/dotnet/sdk/5.0.202
   - cd LEAD/Scheduler
-  - nuget restore
+  - dotnet --list-sdks
+  - dotnet nuget restore
   - xbuild LEAD/Scheduler/Scheduler.csproj
 
 
