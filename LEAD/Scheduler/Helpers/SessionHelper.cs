@@ -4,8 +4,9 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.Linq;
+    using System.Threading.Tasks;
     using System.Web;
-
+    using Scheduler.Helpers;
     using Scheduler.Models;
 
     public static class SessionHelper
@@ -127,22 +128,32 @@
         }
         #endregion
 
-        public static void ValidateUser(string username)
+
+        public static async Task ValidateUser(string username)
         {
-            //string leadAdminGroup = ConfigurationManager.AppSettings["LeadAdminDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadAdminDomainGroup"].ToLower() : null;
-            //string leadAllGroup = ConfigurationManager.AppSettings["LeadAllDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadAllDomainGroup"].ToLower() : null;
-            //string leadApproverGroup = ConfigurationManager.AppSettings["LeadApproverDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadApproverDomainGroup"].ToLower() : null;
-            //string leadReportUserGroup = ConfigurationManager.AppSettings["LeadReportUserDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadReportUserDomainGroup"].ToLower() : null;
-            //string leadMultiDivisionGroup = ConfigurationManager.AppSettings["LeadMultiDivisionGroup"] != null ? ConfigurationManager.AppSettings["LeadMultiDivisionGroup"].ToLower() : null;
-            //List<string> domaingroups = ActiveDirectoryHelper.GetDomainGroups(username);
+            string leadAdminGroup = ConfigurationManager.AppSettings["LeadAdminDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadAdminDomainGroup"].ToLower() : null;
+            string leadAllGroup = ConfigurationManager.AppSettings["LeadAllDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadAllDomainGroup"].ToLower() : null;
+            string leadApproverGroup = ConfigurationManager.AppSettings["LeadApproverDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadApproverDomainGroup"].ToLower() : null;
+            string leadReportUserGroup = ConfigurationManager.AppSettings["LeadReportUserDomainGroup"] != null ? ConfigurationManager.AppSettings["LeadReportUserDomainGroup"].ToLower() : null;
+            string leadMultiDivisionGroup = ConfigurationManager.AppSettings["LeadMultiDivisionGroup"] != null ? ConfigurationManager.AppSettings["LeadMultiDivisionGroup"].ToLower() : null;
+            List<string> domaingroups = await GraphAADHelper.GetGroupsAssignedAsync();
+            IsLeadAdmin = domaingroups.Exists(s => s == leadAdminGroup);
+            IsLeadAll = domaingroups.Exists(s => s == leadAllGroup);
+            IsLeadApprover = domaingroups.Exists(s => s == leadApproverGroup);
+            IsLeadReportUser = domaingroups.Exists(s => s == leadReportUserGroup);
+            IsLeadMultiDivisionUser = domaingroups.Exists(s => s == leadMultiDivisionGroup);
 
-            IsLeadAdmin = true; // domaingroups.Exists(s => s == leadAdminGroup);
-            IsLeadAll = true; // domaingroups.Exists(s => s == leadAllGroup);
-            IsLeadApprover = true; // domaingroups.Exists(s => s == leadApproverGroup);
-            IsLeadReportUser = true; // domaingroups.Exists(s => s == leadReportUserGroup);
-            IsLeadMultiDivisionUser = true; // domaingroups.Exists(s => s == leadMultiDivisionGroup);
+            SysUser = GetUser(username);
+        }
 
-            SysUser = db.SysUsers.Where(su => su.Email == username).FirstOrDefault();
+        public static SysUser GetUser(string username)
+        {
+            SysUser = db.SysUsers.Where(u => u.Email == username).FirstOrDefault();
+            if(SysUser == null)
+            {
+              SysUser = db.SysUsers.Where(u => u.ADUser == username).FirstOrDefault();
+            }
+             return SysUser;
         }
 
         public static void LogError(string errorMessage)

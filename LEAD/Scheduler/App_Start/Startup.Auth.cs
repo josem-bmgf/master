@@ -8,6 +8,11 @@ using Microsoft.Owin.Security.Notifications;
 using System.Threading.Tasks;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.Owin.Host.SystemWeb;
+using Microsoft.Identity.Client;
+using System.Security.Claims;
+using System.Web;
+using Scheduler.Helpers;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Scheduler
 {
@@ -18,6 +23,10 @@ namespace Scheduler
         private static string tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
         private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["ida:PostLogoutRedirectUri"];
         private static string authority = aadInstance + tenantId;
+
+        private static string appSecret = ConfigurationManager.AppSettings["ida:AppSecret"];
+        private static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
+        private static string graphScopes = ConfigurationManager.AppSettings["ida:AppScopes"];
 
         public void ConfigureAuth(IAppBuilder app)
         {
@@ -34,10 +43,15 @@ namespace Scheduler
                     ClientId = clientId,
                     Authority = authority,
                     PostLogoutRedirectUri = postLogoutRedirectUri,
-
-                    Notifications = new OpenIdConnectAuthenticationNotifications
+                    TokenValidationParameters = new TokenValidationParameters
                     {
-                        AuthenticationFailed = OnAuthenticationFailed
+                        ValidateIssuer = false
+                    },
+                        Notifications = new OpenIdConnectAuthenticationNotifications
+                    {
+                        AuthenticationFailed = OnAuthenticationFailed,
+                        AuthorizationCodeReceived = OnAuthorizationCodeReceivedAsync
+
                     }
                 });
         }
@@ -62,6 +76,44 @@ namespace Scheduler
             }
 
             return value;
+        }
+
+        private async Task OnAuthorizationCodeReceivedAsync(AuthorizationCodeReceivedNotification notification)
+        {
+            notification.HandleCodeRedemption();
+
+            var idClient = ConfidentialClientApplicationBuilder.Create(clientId)
+                .WithRedirectUri(redirectUri)
+                .WithClientSecret(appSecret)
+                .Build();
+
+            var signedInUser = new ClaimsPrincipal(notification.AuthenticationTicket.Identity);
+            var tokenStore = new SessionTokenStore(idClient.UserTokenCache, HttpContext.Current, signedInUser);
+
+            try
+            {
+                string[] scopes = graphScopes.Split(' ');
+
+                var result = await idClient.AcquireTokenByAuthorizationCode(
+                    scopes, notification.Code).WithAuthority(authority).ExecuteAsync();
+
+                var userDetails = await GraphAADHelper.GetUserDetailsAsync(result.AccessToken);
+
+                tokenStore.SaveUserDetails(userDetails);
+                notification.HandleCodeRedemption(null, result.IdToken);
+            }
+            catch (MsalException ex)
+            {
+                string message = "AcquireTokenByAuthorizationCodeAsync threw an exception";
+                notification.HandleResponse();
+                notification.Response.Redirect($"/Home/Error?message={message}&debug={ex.Message}");
+            }
+            catch (Microsoft.Graph.ServiceException ex)
+            {
+                string message = "GetUserDetailsAsync threw an exception";
+                notification.HandleResponse();
+                notification.Response.Redirect($"/Home/Error?message={message}&debug={ex.Message}");
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Scheduler.Controllers
         public IHttpActionResult GetEngagements(int source)
         {
            // Get logged in user's divisionFk
-            string userLoggedIn = ActiveDirectoryHelper.UserLoggedIn(User.Identity.Name);
+            string userLoggedIn = SessionHelper.GetUser(User.Identity.Name).ADUser;
             int divisionFk = db.SysUsers.Where(u => u.ADUser == userLoggedIn).Select(u => u.DivisionFk).FirstOrDefault();
 
             IQueryable<Engagement> engagements = db.Engagements;
@@ -284,7 +284,7 @@ namespace Scheduler.Controllers
             {
                 if (engagement != null)
                 {
-                    string userLoggedIn = ActiveDirectoryHelper.UserLoggedIn(User.Identity.Name);
+                    string userLoggedIn = SessionHelper.GetUser(User.Identity.Name).ADUser;
                     engagement = SetPostEngagementValues(engagement, userLoggedIn);
                     SetEngagementPrincipals(engagement);
                     SetEngagementYearQuarter(engagement);

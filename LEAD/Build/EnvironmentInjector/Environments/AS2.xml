@@ -1,0 +1,14 @@
+<environment>
+   <imports>
+     <import file="C:\Deployments\LEAD\EnvironmentInjector\Environments\Base_Variables_Dev.xml" />
+     <import file="C:\Deployments\LEAD\EnvironmentInjector\Environments\Base_Package_LEAD.xml" />
+   </imports>
+
+   <variables>
+     <variable name="ENVIRONMENT_FILE">AS2.xml</variable>
+     <variable name="ENVIRONMENT_PREFIX">AS2</variable>
+     <variable name="DEBUG_COMPILATION_MODE">True</variable>
+     <variable name="BUILD_CONFIGURATION">Debug</variable>
+     <variable name="LEAD_SQL_SERVER">DEVSQLGPSBv01</variable>
+   </variables>
+</environment>

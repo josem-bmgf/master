@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Threading.Tasks;
+using System.Web.Mvc;
 using Scheduler.Api.Helpers;
 using Scheduler.Helpers;
 
@@ -8,13 +9,13 @@ namespace Scheduler.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            SessionHelper.ValidateUser(User.Identity.Name);
+            await SessionHelper.ValidateUser(User.Identity.Name);
             return View();
         }
 
-        //[AuthorizedDomainGroups(DomainGroups = "IsLeadAll,IsLeadAdmin,IsLeadApprover,IsLeadMultiDivisionUser")]
+        [AuthorizedDomainGroups(DomainGroups = "IsLeadAll,IsLeadAdmin,IsLeadApprover,IsLeadMultiDivisionUser")]
         public ActionResult Engagement()
         {
             return View();
@@ -36,7 +37,7 @@ namespace Scheduler.Controllers
             return View();
         }
 
-        //[AuthorizedDomainGroups(DomainGroups = "IsLeadAdmin")]
+        [AuthorizedDomainGroups(DomainGroups = "IsLeadAdmin")]
         public ActionResult Administration()
         {
             return View();

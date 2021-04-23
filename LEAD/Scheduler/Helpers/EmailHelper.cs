@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Net.Mail;
 using Scheduler.Api.Helpers;
-using System.DirectoryServices.AccountManagement;
+using System.Threading.Tasks;
 
 namespace Scheduler.Helpers
 {
@@ -82,14 +82,14 @@ namespace Scheduler.Helpers
             }
         }
 
-        private static void SetMailRecipients(MailMessage message, List<string> mailto, string requestorUsername, int division)
+        private static async void SetMailRecipients(MailMessage message, List<string> mailto, string requestorUsername, int division)
         {
             string DefaultEmailAddress = ConfigurationManager.AppSettings["DefaultEmailAddress"].ToString();
             foreach (string recipients in mailto)
             {
                 if (recipients.ToLower() == "requestor")
                 {
-                    string requestorEmailAddress = !string.IsNullOrEmpty(requestorUsername) ? GetEmailAddress(requestorUsername) : null;
+                    string requestorEmailAddress = !string.IsNullOrEmpty(requestorUsername) ? SessionHelper.GetUser(requestorUsername).Email : null;
                     string to = !string.IsNullOrEmpty(requestorEmailAddress) && IsValidEmail(requestorEmailAddress) ? requestorEmailAddress : DefaultEmailAddress;
                     message.To.Add(new MailAddress(to));
                 }
@@ -116,12 +116,12 @@ namespace Scheduler.Helpers
                 else
                 {
                     //Check if designated recipient is an Active Directory group
-                    List<string> members = ActiveDirectoryHelper.GetMembersOfAnAdGroup(recipients);
+                    List<string> members = await GraphAADHelper.GetMembersOfGroup(recipients);
                     if (members != null && members.Count > 0)
                     {
                         foreach (string userName in members)
                         {
-                            string emailAddress = !string.IsNullOrEmpty(userName) ? GetEmailAddress(userName) : null;
+                            string emailAddress = !string.IsNullOrEmpty(userName) ? userName : null;
                             if (!string.IsNullOrEmpty(emailAddress))
                             {
                                 message.To.Add(new MailAddress(emailAddress));
@@ -181,11 +181,10 @@ namespace Scheduler.Helpers
             if (string.IsNullOrEmpty(username)) return null;
 
             // Search from active directory and get UserPrincipalName (email address)
-            UserPrincipal userprincipal = ActiveDirectoryHelper.GetUserPrincipal(username.ToLower());
-            if (userprincipal != null) emailAddress = userprincipal.UserPrincipalName;
+            //UserPrincipal userprincipal = ActiveDirectoryHelper.GetUserPrincipal(username.ToLower());
+            //if (userprincipal != null) emailAddress = userprincipal.UserPrincipalName;
 
             return emailAddress;
-
         }
 
         private static string CreateEmailBody(string templatePath, Engagement engagement, Schedule schedule)

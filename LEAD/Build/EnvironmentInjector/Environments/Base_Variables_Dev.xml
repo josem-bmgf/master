@@ -1,0 +1,27 @@
+<environment>
+  <variables>
+    <variable name="ENVIRONMENT_PREFIX_">$(ENVIRONMENT_PREFIX)_</variable>
+
+    <variable name="DOMAIN1">DEV</variable>
+    <variable name="DOMAIN2">DMZDEV</variable>
+    <variable name="DOMAIN3">EXTACCTDEV</variable>
+
+    <variable name="LEAD_DNS">$(ENVIRONMENT_PREFIX)LEAD</variable>
+    <variable name="LEAD_ENTITIES_CONNECTIONSTRING">metadata=res://*/Models.SchedulerModel.csdl|res://*/Models.SchedulerModel.ssdl|res://*/Models.SchedulerModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=$(LEAD_SQL_SERVER);initial catalog=LEAD;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;</variable>
+    <variable name="DEPLOYMENT_SHARE">C:\Deployments\LEAD</variable>
+    <variable name="DomainLEAD">dev</variable>
+    <variable name="SMTPClientLEAD">intmail.dev.gatesfoundation.org</variable>
+    <variable name="LEADSenderMail">no-reply@dev.gatesfoundation.org</variable>
+    <variable name="LeadReviewerGroupLEAD">APP_LEAD_REVIEWERS</variable>
+    <variable name="RequestLiasonLEAD">JohnLouie.Chan@dev.gatesfoundation.org</variable>
+    <variable name="LIPreReadsGroupLEAD">JohnKirk.Encarnacion@dev.gatesfoundation.org</variable>
+    <variable name="LeadSchedulerDomainGroupLEAD">LEAD_SCHEDULER</variable>
+    <variable name="DefaultEmailAddressLEAD">app_lead_scheduler@dev.gatesfoundation.org</variable>
+    <variable name="Division_1007LEAD">app_lead_reviewer@dev.gatesfoundation.org;app_lead_scheduler@dev.gatesfoundation.org</variable>
+    <variable name="Division_1001LEAD">app_lead_scheduler@dev.gatesfoundation.org</variable>
+    <variable name="Division_1002LEAD">app_lead_user@dev.gatesfoundation.org</variable>
+    <variable name="Division_1003LEAD">app_lead_reviewer@dev.gatesfoundation.org;app_lead_scheduler@dev.gatesfoundation.org</variable>
+    <variable name="Division_1010LEAD">app_lead_user@dev.gatesfoundation.org</variable>
+    <variable name="Division_1005LEAD">app_lead_reviewer@dev.gatesfoundation.org</variable>
+  </variables>
+</environment>
