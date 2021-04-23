@@ -2,7 +2,85 @@
 
 kind: pipeline
 type: docker
-name: Pull Request Checker
+name: Pull Request Checkerkind: pipeline
+name: DH2 Project Build
+
+platform:
+  os: windows
+  arch: amd64
+
+clone:
+    disable: true
+
+platform:
+  os: windows
+  arch: amd64
+
+
+steps:     
+ - name: Remove DH2-CI Subfolders
+   failure: ignore
+   commands:
+     - Start-Process powershell -Verb runAs
+     - Remove-Item -path 'C:\DH2-CI\*' -Recurse -Force -EA SilentlyContinue
+     
+  
+  
+ - name: Clone Project
+   commands:
+     - cd C:\DH2-CI
+     - git clone https://github.com/gatesfoundation/S-BI-Agile-DH2.git
+     - cd C:\DH2-CI\S-BI-Agile-DH2
+     - git checkout development
+     
+    
+ - name: Start Project build
+   failure: ignore
+   commands:
+     - Powershell.exe -File C:\DH2-CI\S-BI-Agile-DH2\BuildAndDeploy\Build\BuildSolution.ps1
+     
+     
+ - name: Copy Binaries/Bits
+   commands:
+     - $baseFileName = "Master_EDW_Release_"
+     - $dateAndTimeFormat = (Get-Date).ToString('yyyyMMdd_HH:mm:tt')
+     - $ext = ".txt"
+     - $masterFileName = "$baseFileName" + "" + $dateAndTimeFormat + "" +  "$ext"
+     - echo $masterFileName
+     - cd C:\DH2-CI\S-BI-Agile-DH2\BuildAndDeploy\TFS\Build
+     - Powershell.exe -Command .\CopyBits.ps1 $masterFileName "C:\DH2-CI\Binaries\Master_EDW_Release_Version2012.txt" C:\DH2-CI\S-BI-Agile-DH2 C:\DH2-CI\Binaries
+     
+     
+ - name: Generate Incremental Scripts (From Repo)
+   commands:
+     - cd C:\DH2-CI\S-BI-Agile-DH2\BuildAndDeploy\TFS\Build
+     - Start-Process powershell -Verb runAs
+     - Powershell.exe -Command .\GenerateINC.ps1 C:\DH2-CI\S-BI-Agile-DH2 C:\DH2-CI\Binaries  
+     
+     
+ - name: Generate script for deployment (From SQL Server)
+   commands:
+     - Copy-Item "C:\IncrementalScripts\*" "C:\DH2-CI\Binaries\Release" -Force -Recurse
+     - cd C:\DH2-CI\Binaries\Release
+     - Start-Process powershell -Verb runAs
+     - Powershell.exe -Command .\DeployEDW.ps1 DEV false false
+
+
+ - name: Stop Existing Powershell Process
+   failure: ignore
+   commands:
+     - taskkill /F /IM powershell.exe
+
+      
+     
+node:
+  keyA: DevBuildServer
+    
+    
+trigger:
+  branch:
+    include:
+    - development
 
 steps:
 
