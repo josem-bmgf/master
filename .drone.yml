@@ -26,7 +26,7 @@ steps:
   
  - name: Clone Lead Project
    commands:
-     - d:
+    # - d:
      - cd \Repos\master
      - git clone https://github.com/josem-bmgf/master.git
      - cd \master
