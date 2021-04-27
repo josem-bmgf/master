@@ -22,8 +22,7 @@ steps:
    commands:
      - Start-Process powershell -Verb runAs
      - Remove-Item -path 'D:\Repos\master\*' -Recurse -Force -EA SilentlyContinue
-     
-  
+       
   
  - name: Clone Lead Project
    commands:
@@ -54,4 +53,4 @@ node:
 trigger:
   branch:
     include:
-    - dev_lead_josem
+    - gitlearning
