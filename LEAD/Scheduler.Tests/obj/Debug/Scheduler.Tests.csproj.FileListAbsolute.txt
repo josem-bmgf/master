@@ -1,4 +1,0 @@
-C:\Users\josemdevprd\Documents\GitHub\S-CC-LEAD\LEAD\Scheduler.Tests\obj\Debug\Scheduler.Tests.csprojAssemblyReference.cache
-C:\Users\josemdevprd\Documents\GitHub\S-CC-LEAD\LEAD\Scheduler.Tests\obj\Debug\Scheduler.Tests.csproj.CoreCompileInputs.cache
-C:\Users\josemdevprd\Documents\GitHub\master\LEAD\Scheduler.Tests\obj\Debug\Scheduler.Tests.csprojAssemblyReference.cache
-C:\Users\josemdevprd\Documents\GitHub\master\LEAD\Scheduler.Tests\obj\Debug\Scheduler.Tests.csproj.CoreCompileInputs.cache
