@@ -1,0 +1,36 @@
+
+kind: pipeline
+type: docker
+name: Pull Request Checker
+
+steps:
+
+# - name: Get Web Build Tools
+  # image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  # commands:
+  # - export PATH="$PATH:/root/.dotnet/tools"
+  
+ - name: Clean Project
+   image: mcr.microsoft.com/dotnet/core/sdk:3.1
+   commands:
+    - dotnet clean LEAD/Scheduler/Scheduler.csproj
+
+- name: Build Project
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  commands:
+  - mkdir -p /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
+  - cp buildtools/Microsoft.WebApplication.targets /usr/share/dotnet/sdk/5.0.202/Microsoft/VisualStudio/v16.0/WebApplications
+  - ls -l /usr/share/dotnet/sdk/5.0.202
+  - cd LEAD/Scheduler
+  - dotnet --list-sdks
+  - dotnet nuget restore
+  - xbuild LEAD/Scheduler/Scheduler.csproj
+
+
+trigger:
+  branch:
+      - gitlearning
+  event:
+    include:
+      - pull_request
+      - push
