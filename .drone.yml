@@ -11,14 +11,14 @@ steps:
   # - export PATH="$PATH:/root/.dotnet/tools"
  
 - name: Run Package Manager
-    image: mcr.microsoft.com/dotnet/core/sdk:3.1
-    commands:    
-    - npm intall
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  commands:    
+  - npm intall
  
 - name: Clean Project
-   image: mcr.microsoft.com/dotnet/core/sdk:3.1
-   commands:
-    - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.sln
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  commands:
+   - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.sln
 
 - name: Build Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
