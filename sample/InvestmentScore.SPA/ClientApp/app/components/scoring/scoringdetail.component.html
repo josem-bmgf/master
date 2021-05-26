@@ -1,0 +1,397 @@
+﻿<div class="ui-growl-container">
+    <p-growl [(value)]="msgs"></p-growl>
+
+    <table *ngIf="investment" class="table table-striped">
+        <colgroup>
+            <col span="1" style="width: 12%;">
+            <col span="1" style="width: 10%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 20%;">
+            <col span="1" style="width: 3%;">
+            <col span="1" style="width: 3%;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th class="col-md-2">Scored By</th>
+                <th>Year</th>
+                <th>
+                    Impact<br />
+                    Performance
+                    <a class='glyphicon glyphicon-info-sign tooltip-hover-info'>
+                        <span>
+                            <b>Blue –</b> Investment exceeds stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                            <b>Green –</b> Investment meets stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                            <b>Yellow –</b> Investment partially meets stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                            <b>Red –</b> Investment does not meet stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                            <b>Black –</b> Too soon to evaluate investment’s progress (<6 months active)
+                        </span>
+                    </a>
+                </th>
+                <th>
+                    Execution Performance
+                    <a class='glyphicon glyphicon-info-sign tooltip-hover-info'>
+                        <span>
+                            <b>Blue –</b> Investment is exceeding stated milestones and performing exceptionally well <br> <br>
+                            <b>Green –</b> Investment is meeting all stated milestones and performing well <br> <br>
+                            <b>Yellow –</b> Investment is meeting some milestones, but is slightly off track. Progress is being made against stated results, but there are performance or timing concerns. There is a reasonable plan to get back on track <br> <br>
+                            <b>Red –</b> Investment is failing to meet stated milestones and is in need of major adjustments. We have concerns about the grantee's ability to get back on track. We are engaging heavily to make improvements <br> <br>
+                            <b>Black –</b> Too soon to evaluate investment’s progress (<6 months active)
+                        </span>
+                    </a>
+                </th>
+                <th>
+                    Reinvestment<br />
+                    Prospects
+                    <a class='glyphicon glyphicon-info-sign tooltip-hover-info'>
+                        <span id="score-tooltip">
+                            <b>Will Reinvest –</b> We will reinvest in this grant and the investment is within 2 years of the end date <br> <br>
+                            <b>Expect To Reinvest –</b> We expect to reinvest in this grant and the investment is within 2 years of the end date <br> <br>
+                            <b>May Reinvest –</b> We may reinvest in this investment, under certain conditions, and the investment is within 2 years of the end date <br> <br>
+                            <b>Will Not Reinvest –</b> Will not reinvest in this investment <br> <br>
+                            <b>Too Soon To Evaluate –</b> Too soon to evaluate reinvestment prospects. Default to Black for investments >2 years from end date
+                        </span>
+                    </a>
+                </th>
+                <th colspan="2">
+                    <div class="btn-location">
+                        <button id="btnAddScore" *ngIf="!this.isScored()" type="button" class="btn btn-info btn-sm" (click)="addScore()" data-toggle="modal" data-target="#scoringModal" disabled="disabled">Add New</button>
+                        <script *ngIf="!this.isScored()" type="text/javascript">
+                            var btnAddScore = document.getElementById('btnAddScore');
+                            if (btnAddScore != null) {
+                                btnAddScore.setAttribute("disabled", "disabled");
+                                btnAddScore.innerHTML = "Loading";
+                            }
+                        </script>
+                    </div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="master-row" *ngFor="let score of investment.scores">
+                <td>{{getScoredBy(score)}}</td>
+                <td>{{score.scoreYear}}</td>
+                <td>{{getScoreNameOnly(score.performanceAgainstStrategy, score.isExcluded)}}</td>
+                <td>{{getScoreNameOnly(score.performanceAgainstMilestones, score.isExcluded)}}</td>
+                <td>{{getScoreNameOnly(score.reinvestmentProspects, score.isExcluded)}}</td>
+                <td *ngIf="!isScoredOnEndOfSeason(score.scoreYear, score.isArchived)"><button type="button" class="btn btn-info btn-sm btn-score-table " (click)="editScore(score.id)" data-toggle="modal" data-target="#scoringModal">View</button></td>
+                <td *ngIf="isScoredOnEndOfSeason(score.scoreYear, score.isArchived)"><button type="button" class="btn btn-info btn-sm btn-score-table" [ngClass]="{'btn-current-score' : score.scoreYear == this.currentYear || score.scoreYear == this.previousYear }" (click)="editScore(score.id)" data-toggle="modal" data-target="#scoringModal">Edit</button></td>
+                <td><button type="button" *ngIf="isScoredOnEndOfSeason(score.scoreYear, score.isArchived)" class="btn btn-info btn-sm btn-light-blue btn-score-table" (click)="deleteScore(score)" data-toggle="modal" data-target="#scoringModalDelete">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="row">
+        <!-- Modal -->
+        <div *ngIf="showScoringModal" id="scoringModal" class="modal fade" data-backdrop="static" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4 class="modal-title pull-left">Add/Edit Score</h4>
+                                <div class="pull-right">
+                                    <button type="button" class="btn btn-info btn-sm" [disabled]="isSaveDisabledWhenExcluded()" (click)="saveScore(selectedScore)" data-dismiss="modal">Save</button>
+                                    <!--<button type="button" class="btn btn-info btn-sm" [disabled]="isSaveDisabled()" (click)="saveScore(selectedScore)" data-dismiss="modal">Save & Close</button>-->
+                                    <button type="button" class="btn btn-info btn-sm btn-light-blue" data-dismiss="modal" (click)="cancelScore()">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="selectedScore">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h4>Investment ID: {{investment.idCombined}}</h4>
+                                </div>
+                                <div class="col-md-4 col-md-offset-4">
+                                    <div class="form-inline">
+                                        <div class="form-group pull-right">
+                                            <div *ngIf="isScoringDisabled() || isEditingScore" class="col-sm-12 form-label">
+                                                Year: {{selectedScore.scoreYear}}
+                                            </div>
+                                            <div *ngIf="!isScoringDisabled() && !isEditingScore" class="col-sm-12 form-label">
+                                                Year:
+                                                <select [(ngModel)]="selectedScore.scoreYear"
+                                                        class="modal-form-control form-control">
+                                                    <option [ngValue]="y" *ngFor="let y of optionsScoreYear">{{y}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" [hidden]="hideIsExcluded">
+                                <div class="col-md-12">
+                                    <label>
+                                        <input type="checkbox" [(ngModel)]="selectedScore.isExcluded" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled()" />
+                                        Exclude Investment
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Please score this investment across the following dimensions:</h4>
+                                </div>
+                            </div><br /><br />
+                            <div class="row">
+                                <div class="col-md-5 form-label">
+                                    Impact Performance <font color="red">*</font>
+                                    <span>
+                                        <a class='glyphicon glyphicon-info-sign tooltip-hover-info'>
+                                            <span>
+                                                <b>Blue –</b> Investment exceeds stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                                                <b>Green –</b> Investment meets stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                                                <b>Yellow –</b> Investment partially meets stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                                                <b>Red –</b> Investment does not meet stated targets for outcomes aligned to strategy goals or projected impact <br> <br>
+                                                <b>Black –</b> Too soon to evaluate investment’s progress (<6 months active)
+                                            </span>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="col-md-7">
+
+                                    <select [(ngModel)]="selectedScore.performanceAgainstStrategy" *ngIf="selectedScore.isArchived"
+                                            class="modal-form-control form-control" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled() || disableControlsWhenExcluded()">
+                                        <option [ngValue]="selectedScore.performanceAgainstStrategy">{{selectedScore.performanceAgainstStrategy}}</option>
+                                    </select>
+
+                                    <select [(ngModel)]="selectedScore.performanceAgainstStrategy" *ngIf="!selectedScore.isArchived"
+                                            class="modal-form-control form-control" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled() || disableControlsWhenExcluded()">
+                                        <option [ngValue]="undefined">Select Score</option>
+                                        <option [ngValue]="i.name" *ngFor="let i of optionsPerformanceAgainstStrategy">{{i.name}}</option>
+                                    </select>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-5 form-label">
+                                    Execution Performance <font color="red">*</font>
+                                    <span>
+                                        <a class='glyphicon glyphicon-info-sign tooltip-hover-info'>
+                                            <span>
+                                                <b>Blue –</b> Investment is exceeding stated milestones and performing exceptionally well <br> <br>
+                                                <b>Green –</b> Investment is meeting all stated milestones and performing well <br> <br>
+                                                <b>Yellow –</b> Investment is meeting some milestones, but is slightly off track. Progress is being made against stated results, but there are performance or timing concerns. There is a reasonable plan to get back on track <br> <br>
+                                                <b>Red –</b> Investment is failing to meet stated milestones and is in need of major adjustments. We have concerns about the grantee's ability to get back on track. We are engaging heavily to make improvements <br> <br>
+                                                <b>Black –</b> Too soon to evaluate investment’s progress (<6 months active)
+                                            </span>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="col-md-7">
+                                    <select [(ngModel)]="selectedScore.performanceAgainstMilestones" *ngIf="selectedScore.isArchived"
+                                            class="modal-form-control form-control" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled() || disableControlsWhenExcluded()">
+                                        <option [ngValue]="selectedScore.performanceAgainstMilestones">{{selectedScore.performanceAgainstMilestones}}</option>
+                                    </select>
+
+                                    <select [(ngModel)]="selectedScore.performanceAgainstMilestones" *ngIf="!selectedScore.isArchived"
+                                            class="modal-form-control form-control" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled() || disableControlsWhenExcluded()">
+                                        <option [ngValue]="undefined">Select Score</option>
+                                        <option [ngValue]="i.name" *ngFor="let i of optionsPerformanceAgainstExecution">{{i.name}}</option>
+                                    </select>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-5 form-label">
+                                    Reinvestment Prospects <font color="red">*</font>
+                                    <span>
+                                        <a class='glyphicon glyphicon-info-sign tooltip-hover-info'>
+                                            <span>
+                                                <b>Will Reinvest –</b> We will reinvest in this grant and the investment is within 2 years of the end date <br> <br>
+                                                <b>Expect To Reinvest –</b> We expect to reinvest in this grant and the investment is within 2 years of the end date <br> <br>
+                                                <b>May Reinvest –</b> We may reinvest in this investment, under certain conditions, and the investment is within 2 years of the end date <br> <br>
+                                                <b>Will Not Reinvest –</b> Will not reinvest in this investment <br> <br>
+                                                <b>Too Soon To Evaluate –</b> Too soon to evaluate reinvestment prospects. Default to Black for investments >2 years from end date
+                                            </span>
+                                        </a>
+                                    </span>
+                                </div>
+                                <div class="col-md-7">
+                                    <select [(ngModel)]="selectedScore.reinvestmentProspects" *ngIf="selectedScore.isArchived"
+                                            class="modal-form-control form-control" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled() || disableControlsWhenExcluded()">
+                                        <option [ngValue]="selectedScore.reinvestmentProspects">{{selectedScore.reinvestmentProspects}}</option>
+                                    </select>
+
+                                    <select [(ngModel)]="selectedScore.reinvestmentProspects" *ngIf="!selectedScore.isArchived"
+                                            class="modal-form-control form-control" [disabled]="selectedScore.excludeFromScoring || isScoringDisabled() || disableControlsWhenExcluded()">
+                                        <option [ngValue]="undefined">Select Score</option>
+                                        <option [ngValue]="i.name" *ngFor="let i of optionsReinvestmentProspects">{{i.name}}</option>
+                                    </select>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-5 help-text">
+                                    <p><b>Rationale <font color="red">*</font> </b>: Address the following in your rationale narrative</p>
+                                    <p class="text-justify">
+                                        <b>1</b>  Performance Ratings: If blue, why and what factors are driving positive performance.
+                                        If yellow or red, why, and next steps to get the grant on-track.
+                                    </p>
+                                    <p class="text-justify"><b>2</b>  If applicable, explain the rationale behind your assessment of reinvestment prospects.</p>
+                                </div>
+                                <div class="col-md-7 charCounter">
+                                    <textarea class="modal-form-control form-control" rows="6" id="comment" [(ngModel)]="selectedScore.rationale" maxlength="{{getMaxLength('rationale')}}" [disabled]="isScoringDisabled() || disableControlsWhenExcluded()"></textarea>
+                                    <p class="help-text" *ngIf="selectedScore.rationale === undefined else elseBlock">Characters remaining:   <span>{{getMaxLength('rationale')}}</span></p>
+                                    <p class="help-text" *ngIf="isOverLimitRationale()"><font color="red"><span class="glyphicon glyphicon-warning-sign"></span>The formatting chosen will result in your text being cut off in the investment reports. The field is constrained to 17 lines and 1000 characters.</font></p>
+                                    <ng-template #elseBlock>
+                                        <p class="help-text">Characters remaining:   <span [ngClass]="{ 'charCountRed' :  this.flagCharacterCountIndicator('rationale', this.selectedScore.rationale) }">{{getMaxLength('rationale') - selectedScore.rationale.length}}</span></p>
+                                    </ng-template>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-5 text-justify help-text"><b>Key Results & Data <font color="red">*</font> </b>: Describe what's working well, what's not, and include supporting data to explain why.</div>
+
+                                <div class="col-md-7 charCounter">
+
+                                    <textarea class="modal-form-control form-control" rows="6" id="keycomment" [(ngModel)]="selectedScore.keyResultsData" maxlength="{{getMaxLength('key-results-data')}}" [disabled]="isScoringDisabled() || disableControlsWhenExcluded()"></textarea>
+                                    <p class="help-text" *ngIf="selectedScore.keyResultsData === undefined else elseKeyBlock">Characters remaining:   <span>{{getMaxLength('key-results-data')}}</span></p>
+                                    <p class="help-text" *ngIf="isOverLimitKeyResults()"><font color="red"><span class="glyphicon glyphicon-warning-sign"></span>Text input constraint reached. Preview report to view truncated content.</font></p>
+                                    <ng-template #elseKeyBlock>
+                                        <p class="help-text">Characters remaining:   <span [ngClass]="{ 'charCountRed' : this.flagCharacterCountIndicator('key-results-data', this.selectedScore.keyResultsData)}">{{getMaxLength('key-results-data') - selectedScore.keyResultsData.length}}</span></p>
+                                    </ng-template>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-5 form-label">(Optional) Funding Team(s) Input</div>
+                                <div class="col-md-7 charCounter">
+                                    <textarea class="modal-form-control form-control" rows="6" id="fundcomment" [(ngModel)]="selectedScore.fundingTeamInput" maxlength="{{getMaxLength('funding-team-input')}}" [disabled]="isScoringDisabled() || disableControlsWhenExcluded()"></textarea>
+                                    <p class="help-text" *ngIf="selectedScore.fundingTeamInput === undefined || selectedScore.fundingTeamInput === null else elseFundBlock">Characters remaining:   <span>{{getMaxLength('funding-team-input')}}</span></p>
+                                    <p class="help-text" *ngIf="isOverLimitFundingTeam()"><font color="red"><span class="glyphicon glyphicon-warning-sign"></span>Text input constraint reached. Preview report to view truncated content.</font></p>
+                                    <ng-template #elseFundBlock>
+                                        <p class="help-text">Characters remaining:   <span [ngClass]="{ 'charCountRed' : this.flagCharacterCountIndicator('funding-team-input', this.selectedScore.fundingTeamInput)}">{{getMaxLength('funding-team-input') - selectedScore.fundingTeamInput.length}}</span></p>
+                                    </ng-template>
+                                </div>
+                            </div><br />
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-label">On Behalf of:</div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="input-group">
+                                        <p-autoComplete [(ngModel)]="onBehalfOf"
+                                                        [suggestions]="filteredUsers"
+                                                        (completeMethod)="filterUsers($event)"
+                                                        (onSelect)="updateOnBehalfOf($event, 'onSelect')"
+                                                        (onBlur)="updateOnBehalfOf($event, 'onBlur')"
+                                                        (onChange)="updateOnBehalfOf($event, 'onChange')"
+                                                        field="displayName"
+                                                        [size]="30"
+                                                        placeholder="   Type name of user..."
+                                                        [minLength]="1"
+                                                        [disabled]="isScoringDisabled() || disableControlsWhenExcluded()"
+                                                        [style]="{'width':'100%'}"
+                                                        [inputStyle]="{'width':'100%','height':'34px'}">
+                                        </p-autoComplete>
+                                    </div>
+                                </div>
+                            </div>
+                            <br />
+
+                        </div>
+                        <div class="modal-footer">
+                            <ol class="breadcrumb">
+                                <li>
+                                    <label>Created/Modified By:</label> {{ selectedScore.modifiedBy }}
+                                </li>
+                                <li>
+                                    <label>Created/Modified On:</label> {{ getModifiedDate(selectedScore) | date:'MM/dd/yyyy'}}
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Modal -->
+        <div *ngIf="showScoringModalDelete" id="scoringModalDelete" class="modal fade" data-backdrop="static" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Score</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div *ngIf="selectedScore" style="align-content:center;">
+                            <div class="row">
+                                <div class="col-md-7"><label>Do you want to delete this Score?</label></div>
+                            </div>
+                            <div class="row">
+                                <br />
+                                <div class="col-md-6">
+                                    <label>Created/Modified By :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        {{selectedScore.user}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <br />
+                                <div class="col-md-6">
+                                    <label>Year :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        {{selectedScore.scoreYear}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <br />
+                                <div class="col-md-6">
+                                    <label>Impact Performance :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        {{selectedScore.performanceAgainstStrategy}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <br />
+                                <div class="col-md-6">
+                                    <label>Execution Performance :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        {{selectedScore.performanceAgainstMilestones}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <br />
+                                <div class="col-md-6">
+                                    <label>Reinvestment Prospects :</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="input-group">
+                                        {{selectedScore.reinvestmentProspects}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-md-7">
+                            <button type="button" class="btn btn-info btn-sm" (click)="confirmDeleteScore()" data-dismiss="modal">Yes</button>
+                            <button type="button" class="btn btn-info btn-sm btn-light-blue" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script type="text/javascript">
+    var btnAddScore = document.getElementById('btnAddScore');
+    if (btnAddScore != null) {
+        btnAddScore.removeAttribute("disabled");
+        btnAddScore.innerHTML = "Loading";
+    }
+</script>

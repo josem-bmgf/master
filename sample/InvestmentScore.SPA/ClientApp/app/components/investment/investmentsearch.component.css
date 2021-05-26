@@ -1,0 +1,5 @@
+﻿.search-results {
+    height: calc(100vh - 115px);
+    overflow-y: auto;
+    padding:0;
+}

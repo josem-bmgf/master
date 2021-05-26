@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>InvestmentScore.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{5eba4efd-5cbb-41d7-86f1-afdff7a87418}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>InvestmentScore.Database</RootNamespace>
+    <AssemblyName>InvestmentScore.Database</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Views\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="dbo\Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\Taxonomy_Values.sql" />
+    <Build Include="dbo\Tables\Taxonomy_Items.sql" />
+    <Build Include="dbo\Tables\Taxonomy_Categories.sql" />
+    <Build Include="dbo\Tables\Scores.sql" />
+    <Build Include="dbo\Tables\Reports.sql" />
+    <Build Include="dbo\Tables\Investment_Payment.sql" />
+    <Build Include="dbo\Tables\Investment.sql" />
+    <Build Include="dbo\Views\vTaxonomy.sql" />
+    <Build Include="dbo\Views\vTaxonomyTotals.sql" />
+    <Build Include="dbo\Views\vInvestmentScoringReporting.sql" />
+    <Build Include="dbo\Views\vInvestment.sql" />
+    <Build Include="dbo\Stored Procedures\usp_RefreshInvestmentData.sql" />
+    <Build Include="dbo\Stored Procedures\usp_UpsertTaxonomyAnswer.sql" />
+    <Build Include="dbo\Tables\STGUser.sql" />
+    <Build Include="dbo\Tables\Dimension_Categories.sql" />
+    <Build Include="dbo\Tables\Dimension_Values.sql" />
+    <Build Include="dbo\Stored Procedures\usp_GetTaxonomyByInvestmentId.sql" />
+    <Build Include="dbo\Stored Procedures\usp_CreateTaxonomyReportingView.sql" />
+    <Build Include="dbo\Tables\Report_Categories.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetFilterByGroupListparam.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentDetails.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentDivision.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestments.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentStrategy.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentSummary.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetOrderByparam.sql" />
+    <Build Include="dbo\Functions\ufn_Split.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentDetailsUI.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentDetailsTopBottom.sql" />
+    <Build Include="dbo\Views\vInvestmentAll.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetTop5Bot5Investments.sql" />
+    <Build Include="dbo\Tables\Excluded_Investments.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentDetails_SumRep.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentSummary_SumRep.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetInvestmentInitiative.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetExcludedDivision.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetExcludedInvestment.sql" />
+    <Build Include="dbo\Stored Procedures\sp_GetExcludedStrategy.sql" />
+    <Build Include="dbo\Views\vInvestmentScores.sql" />
+    <Build Include="dbo\Views\vInvestmentScoringReporting_preMigration.sql" />
+  </ItemGroup>
+</Project>

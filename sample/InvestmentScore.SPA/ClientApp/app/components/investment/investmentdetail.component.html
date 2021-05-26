@@ -1,0 +1,92 @@
+﻿<div id="investment-details">
+    <div *ngIf="investment">
+        <!--<div id="PreviewDetailedSlideReportURL"><a href="{{PreviewDetailedSlideReportURL + investment.idCombined}}" target="_blank">Investment Detail Preview</a></div>-->
+        <h3>{{investment.invGranteeVendorName}}</h3>
+        <div class="pull-right">
+            <div class="col-md-12">
+                <span>
+                    <input id="excludeCheckBox" type="checkbox" [checked]="excludeChecked" [(ngModel)]="investment.isExcludedFromTOI" (click)="showExcludeModal = true" data-toggle="modal" data-target="#excludeModal">
+                    Exclude Investment
+                </span>
+            </div>
+        </div>
+        <h4>{{investment.invTitle}}</h4>
+        <span>{{investment.invDescription}}</span>
+        <p></p>
+        <div class="row">
+            <div class="col-md-3"><label>Investment ID:</label></div>
+            <div class="col-md-3">{{investment.idCombined}}</div>
+            <div class="col-md-3"><label>Investment Type:</label></div>
+            <div class="col-md-3">{{investment.invType}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><label>Investment Owner:</label></div>
+            <div class="col-md-3">{{investment.invOwner}}</div>
+            <div class="col-md-3"><label>Investment Manager:</label></div>
+            <div class="col-md-3">{{investment.invManager}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><label>Start Date:</label></div>
+            <div class="col-md-3">{{investment.invStartDate}}</div>
+            <div class="col-md-3"><label>End Date:</label></div>
+            <div class="col-md-3">{{investment.invEndDate}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><label>Approved Investment Amount:</label></div>
+            <div class="col-md-3">${{investment.totalInvestmentAmount}}</div>
+            <div class="col-md-3"><label>Paid Amount:</label></div>
+            <div class="col-md-3">${{investment.amtPaidToDate}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><label>Investment Status:</label></div>
+            <div class="col-md-3">{{investment.invStatus}}</div>
+            <div class="col-md-3"><label>Managing Team:</label></div>
+            <div class="col-md-3">{{investment.managingTeamLevel2}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-3"></div>
+            <div class="col-md-3"><label>Funding Team(s):</label></div>
+            <div class="col-md-3">{{investment.fundingTeams}}</div>
+        </div>
+        <div class="row">
+            <!-- Modal -->
+            <div *ngIf="showExcludeModal" id="excludeModal" class="modal fade" data-backdrop="static" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" (click)="investment.isExcludedFromTOI = !investment.isExcludedFromTOI" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{investment.isExcludedFromTOI === false ? "Include Investment" : "Exclude Investment"}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div style="align-content:center;">
+                                <div class="row">
+                                    <div class="col-md-12"><label>Do you want to  {{investment.isExcludedFromTOI === false ? "include this Investment in" : "exclude this Investment from"}} TOI (Theory of Influence) reports?</label></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="col-md-7">
+                                <button type="button" class="btn btn-info btn-sm" (click)="confirmExclude()" data-dismiss="modal">Yes</button>
+                                <button type="button" class="btn btn-info btn-sm btn-light-blue" data-dismiss="modal" (click)="investment.isExcludedFromTOI = !investment.isExcludedFromTOI">No</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <p-tabView>
+            <!--<p-tabPanel header="Scoring">
+            <scoring-detail [investment]="investment"></scoring-detail>
+        </p-tabPanel>-->
+            <p-tabPanel *ngFor="let category of categories" header="{{category.label}}">
+                <investment-taxonomy [category]="category" [investmentId]="investment.id"></investment-taxonomy>
+            </p-tabPanel>
+            <p-tabPanel header="Scoring">
+                <p><b>The investment scoring functionality and associated reports are being moved to INVEST and will not be available in the Investment Scoring Tool from June 6th at XX:XXpm PST - June 16th at XX:Xxam PST to support this transition. Investment Scoring data can still be viewed in the <a href="https://app.powerbi.com/groups/me/apps/37766309-ffc2-408d-9275-da2507d84e08/reports/9d2cbe9e-d9cb-49b1-b461-83caad1f1dd4/ReportSection1fcf36e516c87cba720c" target="_blank" rel="noopener noreferrer" style="color: #337ab7 !important">Partner & Performance Report</a> and the <a href="https://portfolio.gatesfoundation.org/" target="_blank" rel="noopener noreferrer" style="color: #337ab7 !important">Portfolio Overview Dashboard</a> during this time. Please contact <a href="mailto:IME@gatesfoundation.org" target="_blank" rel="noopener noreferrer" style="color: #337ab7 !important">IME@gatesfoundation.org</a> with questions.</b></p>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
+</div>

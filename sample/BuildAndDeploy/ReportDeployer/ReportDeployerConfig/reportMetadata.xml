@@ -1,0 +1,1886 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ROOT>
+	<FOLDER name="Data Sources"
+			description=""
+			isHidden="True"
+			isActive="True"
+			path="/Data Sources"
+			isDeleted="False"
+			inheritSecurity="true">
+	</FOLDER>
+	<DATASOURCE name="Consumer"
+			  connection="Data Source=DEVDWSQLv05;Initial Catalog=Consumer"
+			  datasourceFolderPath="/Data Sources"
+			  isHidden="False"
+			  isActive="True"
+			  isDeleted="False"
+        UserName=""
+        UserPass=""
+        isWinCredential="True" />
+	<DATASOURCE name="ConsumerRLS"
+			  connection="Data Source=DEVDWSQLv05;Initial Catalog=Consumer"
+			  datasourceFolderPath="/Data Sources"
+			  isHidden="False"
+			  isActive="True"
+			  isDeleted="False"
+        UserName=""
+        UserPass=""
+        isWinCredential="False" />
+	<DATASOURCE name="RDC"
+			  connection="Data Source=DEVSQLv04;Initial Catalog=RDC"
+			  datasourceFolderPath="/Data Sources"
+			  isHidden="False"
+			  isActive="True"
+			  isDeleted="False"
+        UserName=""
+        UserPass=""
+        isWinCredential="False" />
+	<DATASOURCE name="ReportServer2008"
+		connection="Data Source=DEVSQLV08;Initial Catalog=ReportServer2008"
+		datasourceFolderPath="/Data Sources"
+		isHidden="False"
+		isActive="True"
+		isDeleted="False"
+		UserName=""
+		UserPass=""
+		isWinCredential="False" />
+	<DATASOURCE name="ContractManagement"
+		connection="Data Source=DEVSQLV08;Initial Catalog=ContractManagement"
+		datasourceFolderPath="/Data Sources"
+		isHidden="False"
+		isActive="True"
+		isDeleted="False"
+		UserName="DEV\BMGFReport"
+		UserPass="Password1"
+		isWinCredential="True" />
+	<FOLDER name="Budget to Actual and Other Financial Reports"
+			description="Data is available for cost centers to which you have been granted security access. Reports are available at any time. New data is added on a monthly basis on the 11th business day each month."
+			isHidden="False"
+			isActive="True"
+			path="/Budget to Actual and Other Financial Reports"
+			isDeleted="False"
+			inheritSecurity="true">
+		<REPORT name="Budget to Actual"
+					  description="YTD comparison of actual expenditures to budget with drill down to transaction detail."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget To Actual - Excel Only"
+					  description="Summary of grants containing payout information by year and by commitment level, including existing commitments from prior years, new commitments in current year, and new potential opportunities by their forecasted approval year."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget To Actual by Month"
+					  description="Month comparison of actual expenditures to budget with drill down to transaction detail."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget To Actual by Month - Excel Only"
+					  description="Month comparison of actual expenditures to budget with drill down to transaction detail. Excel version."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Transaction Detail"
+					  description="Provides a list of transactions based on user selection. Options include search by cost center, account, project and vendor"
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget to Actual - Transaction Detail"
+					  description="***HIDDEN*** Budget to actual sub-report."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget to Actual by Month Cost Center Detail"
+					  description="***HIDDEN*** Budget to actual sub-report."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget to Actual by Month Cost Center Detail - Excel Only"
+					  description="***HIDDEN*** Budget to actual sub-report. Excel version."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget to Actual Cost Center Detail"
+					  description="***HIDDEN*** Budget to actual sub-report."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<REPORT name="Budget to Actual Cost Center Detail - Excel Only"
+					  description="***HIDDEN*** Budget to actual sub-report. Excel version."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ConsumerRLS"
+					  datasourceName2=""/>
+		<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+		<SECURITY name="Authenticated Users" role="Browser" />
+		<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+		<SECURITY name="Administrators" role="Content Manager" />
+		<!--SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+		<!--SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+	</FOLDER>
+	<FOLDER name="Contracts"
+			description="Contract Reports"
+			isHidden="False"
+			isActive="True"
+			path="/Contracts"
+			isDeleted="False"
+			inheritSecurity="true">			
+			<REPORT name="Contract Data Export Report New"
+				  description="Export of all contract Data."
+				  technicalDescription=""
+				  isHidden="True"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>
+			<REPORT name="Contract Data Export Report New - Confidential"
+				  description=""
+				  technicalDescription=""
+				  isHidden="True"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>				  
+			<REPORT name="Contract Detail Report"
+				  description="Displays all of the contract information including a list of payments made."
+				  technicalDescription=""
+				  isHidden="True"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>					  
+			<REPORT name="Contract List Report"
+				  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+				  technicalDescription=""
+				  isHidden="False"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>
+			<REPORT name="Contract List Report - Confidential"
+				  description=""
+				  technicalDescription=""
+				  isHidden="False"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>				  
+			<REPORT name="Contract List Report - Old Format"
+				  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+				  technicalDescription=""
+				  isHidden="False"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>					  
+			<REPORT name="Contract Payment Reconciliation Report -Detailed-New Format"
+				  description="The main objective of the reconciliation report is to highlight any discrepancies between the recording of contract payments in Contract Management and Great"
+				  technicalDescription=""
+				  isHidden="False"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>
+			<REPORT name="Contract Request List Report"
+				  description="Contract Request List Report"
+				  technicalDescription=""
+				  isHidden="False"
+				  isActive="True"
+				  isDeleted="False"
+				  datasourceName1="ContractManagement"
+				  datasourceName2=""/>				  
+		<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+		<SECURITY name="Authenticated Users" role="Browser" />
+		<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+		<SECURITY name="Administrators" role="Content Manager" />
+		<!--SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+		<!--SECURITY name="DG_DH2_Tester" role="Content Manager" />-->				 
+	</FOLDER>
+	<FOLDER name="Global Development Division"
+			description="Reports for the Global Development Division."
+			isHidden="False"
+			isActive="True"
+			path="/Global Development Division"
+			isDeleted="False"
+			inheritSecurity="true">
+		<FOLDER name="Contract"
+				description="Contract Management reports."
+				isHidden="False"
+				isActive="True"
+				path="/Global Development Division/Contract"
+				isDeleted="False"
+				inheritSecurity="true">			
+				<REPORT name="Contract Data Export Report New"
+					  description="Export of all contract Data."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+				<REPORT name="Contract Detail Report"
+					  description="Displays all of the contract information including a list of payments made."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>					  
+				<REPORT name="Contract List Report"
+					  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+				<REPORT name="Contract List Report - Old Format"
+					  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>					  
+				<REPORT name="Contract Request List Report"
+					  description="Contract Request List Report"
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->					  
+		</FOLDER>
+		<FOLDER name="GD Special Initiatives"
+				description="Global Development Special Initiatives reports."
+				isHidden="False"
+				isActive="True"
+				path="/Global Development Division/GD Special Initiatives"
+				isDeleted="False"
+				inheritSecurity="true">				
+			<FOLDER name="Contract"
+					description="GD Special Initiatives contract reports."
+					isHidden="False"
+					isActive="True"
+					path="/Global Development Division/GD Special Initiatives/Contract"
+					isDeleted="False"
+					inheritSecurity="true">
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->							  
+			</FOLDER>
+		</FOLDER>
+		<FOLDER name="Global Libraries"
+				description="Global Development - Global Libraries reports."
+				isHidden="False"
+				isActive="True"
+				path="/Global Development Division/Global Libraries"
+				isDeleted="False"
+				inheritSecurity="true">					
+			<FOLDER name="Contract"
+					description="Global Librairies contract reports."
+					isHidden="False"
+					isActive="True"
+					path="/Global Development Division/Global Libraries/Contract"
+					isDeleted="False"
+					inheritSecurity="true">				
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>
+		</FOLDER>
+	</FOLDER>	
+	<FOLDER name="Global Health Division"
+			description="Reports for the Global Health Division."
+			isHidden="False"
+			isActive="True"
+			path="/Global Health Division"
+			isDeleted="False"
+			inheritSecurity="true">
+		<FOLDER name="Contract"
+				description="Contract Management reports."
+				isHidden="False"
+				isActive="True"
+				path="/Global Health Division/Contract"
+				isDeleted="False"
+				inheritSecurity="true">				
+				<REPORT name="Contract Data Export Report New"
+					  description="Export of all contract Data."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+				<REPORT name="Contract Detail Report"
+					  description="Displays all of the contract information including a list of payments made."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>					  
+				<REPORT name="Contract List Report"
+					  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+				<REPORT name="Contract List Report - Old Format"
+					  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>					  
+				<REPORT name="Contract Request List Report"
+					  description="Contract Request List Report"
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->					  
+		</FOLDER>
+	</FOLDER>	
+	<FOLDER name="Operations Division"
+			description="Reports for the Operations Division."
+			isHidden="False"
+			isActive="True"
+			path="/Operations Division"
+			isDeleted="False"
+			inheritSecurity="true">
+		<FOLDER name="Advocacy"
+				description="Advocacy reports."
+				isHidden="False"
+				isActive="True"
+				path="/Operations Division/Advocacy"
+				isDeleted="False"
+				inheritSecurity="true">			
+			<FOLDER name="Contract"
+					description="Contract Management reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Advocacy/Contract"
+					isDeleted="False"
+					inheritSecurity="true">						
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>
+		</FOLDER>		
+		<FOLDER name="Impact Planning and Improvement"
+				description="Impact Planning and Improvement reports."
+				isHidden="False"
+				isActive="True"
+				path="/Operations Division/Impact Planning and Improvement"
+				isDeleted="False"
+				inheritSecurity="true">					
+			<FOLDER name="Contract"
+					description="Impact Planning and Improvement contract reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Impact Planning and Improvement/Contract"
+					isDeleted="False"
+					inheritSecurity="true">							
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>
+		</FOLDER>
+		<FOLDER name="Operations"
+				description="Operations reports."
+				isHidden="False"
+				isActive="True"
+				path="/Operations Division/Operations"
+				isDeleted="False"
+				inheritSecurity="true">			
+			<FOLDER name="Finance"
+					description="Finance reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Finance"
+					isDeleted="False"
+					inheritSecurity="true">						
+				<FOLDER name="Contract"
+						description="Contract Management reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Finance/Contract"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Payment Reconciliation Report - Detailed"
+							  description="The main objective of the reconciliation report is to highlight any discrepancies between the recording of contract payments in Contract Management and Great Plains. Each system is updated separately through manual processes and therefore, there is the chance that it may be entered differently in one of the systems. Report users must be presented with a convenient report for comparing contract payment records in both systems, highlighting any differences."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Payment Reconciliation Report -Detailed-New Format"
+							  description="The main objective of the reconciliation report is to highlight any discrepancies between the recording of contract payments in Contract Management and Great Plains. Each system is updated separately through manual processes and therefore, there is the chance that it may be entered differently in one of the systems. Report users must be presented with a convenient report for comparing contract payment records in both systems, highlighting any differences."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->							  
+						<FOLDER name="Other Reports"
+								description="Payment Management Reports"
+								isHidden="False"
+								isActive="True"
+								path="/Operations Division/Operations/Finance/Contract/Other Reports"
+								isDeleted="False"
+								inheritSecurity="true">							
+								<REPORT name="Contract Detail Report"
+									  description="Displays all of the contract information including a list of payments made."
+									  technicalDescription=""
+									  isHidden="True"
+									  isActive="True"
+									  isDeleted="False"
+									  datasourceName1="ContractManagement"
+									  datasourceName2=""/>
+							<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+							<SECURITY name="Authenticated Users" role="Browser" />
+							<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+							<SECURITY name="Administrators" role="Content Manager" />
+							<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+							<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->									  
+						</FOLDER>
+				</FOLDER>
+				<FOLDER name="Financial"
+						description="Financial Reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Finance/Financial"
+						isDeleted="False"
+						inheritSecurity="false">						
+						<REPORT name="Payment Reconciliation Summary"
+							description="Identify Unison payment data that needs to be reconciled with Great Plains."
+							technicalDescription=""
+							isHidden="False"
+							isActive="True"
+							isDeleted="False"
+							datasourceName1="Consumer"
+							datasourceName2=""/>
+						<REPORT name="Payment Reconciliation Summary - Excel"
+							description="Excel version to identify Unison payment data that needs to be reconciled with Great Plains."
+							technicalDescription=""
+							isHidden="True"
+							isActive="True"
+							isDeleted="False"
+							datasourceName1="Consumer"
+							datasourceName2=""/>
+						<REPORT name="Payment Reconciliation Detail"
+							description="A report used to view payment information between CRM and Great Plains grouped by GL Account Code with details at the payment level.  This report flags any discrepancies in red."
+							technicalDescription=""
+							isHidden="True"
+							isActive="True"
+							isDeleted="False"
+							datasourceName1="Consumer"
+							datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="App_Rpt_FnA_Finance" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+					<!--<SECURITY name="DG_DH2_Ops_restricted" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Finance_restricted" role="Browser" />-->							
+				</FOLDER>
+				<FOLDER name="990 Tax Reports"
+						description="All internal and external 990 Tax reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Finance/990 Tax Reports"
+						isDeleted="False"
+						inheritSecurity="false">						
+						<REPORT name="Opportunity Commitments"
+								description="Prepare for audit by identifying opportunities that have been countersigned and have an outstanding balance."
+								technicalDescription=""
+								isHidden="False"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Opportunity Commitments - Excel"
+								description="This Excel report in preparation for the audit. This Excel report shows Opportunities where the Approved Date is as of the specified date where the Outstanding Balance is positive.This Excel report displays amounts as of 12/31 for the specified year and payment amounts by year."
+								technicalDescription=""
+								isHidden="True"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Expenditure Responsibility"
+								description="Display information about Expenditure Responsibility opportunities for the 990-PF tax form."
+								technicalDescription=""
+								isHidden="False"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Expenditure Responsibility E-FILE"
+								description="Drill-Through reports such as &quot;Payments Recommended Date Past Due&quot; and &quot;Payments Upcomming&quot;. List of requirements associated to a given opportunity and payment. This report has been rationalized with the ability to override the report name to fit the parent report."
+								technicalDescription=""
+								isHidden="True"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Opportunities Approved for Future Payment"
+								description="Provide opportunity data needed for IRS form 990-PF."
+								technicalDescription=""
+								isHidden="False"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Opportunities Approved for Future Payment E-FILE"
+								description="This is an internal report used to send E-File version Opportunities Approved for Future Payment Report for tax filing activities. This report uses data captured at year-end in conjunction with current information to allow Finance to accurately capture amounts while allowing them to appropriately update information such as the Opportunity Description."
+								technicalDescription=""
+								isHidden="True"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Expenditure Responsibility Grantee Spend"
+								description="Subreport of Expenditure Responsibility. Displays Grantee Spend line items."
+								technicalDescription=""
+								isHidden="True"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Expenditure Responsibility Payment Detail"
+								description="Subreport of Expenditure Responsibility. Displays Grantee payment line items."
+								technicalDescription=""
+								isHidden="True"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Opportunities Paid"
+								description="List sum of payments by Opportunity and Package for IRS form 990-PF."
+								technicalDescription=""
+								isHidden="False"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+						<REPORT name="Opportunities Paid E-FILE"
+								description="This is an internal report used to send E-File version Opportunities Paid Report for tax filing activities."
+								technicalDescription=""
+								isHidden="True"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="App_Rpt_FnA_Finance" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+					<!--<SECURITY name="DG_DH2_Ops_restricted" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Finance_restricted" role="Browser" />-->								
+				</FOLDER>										
+			</FOLDER>
+			<FOLDER name="Financial Planning and Analysis"
+					description="Reports for the FPA Team."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Financial Planning and Analysis"
+					isDeleted="False"
+					inheritSecurity="true">					
+				<FOLDER name="Contract"
+						description="Contract Management reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Financial Planning and Analysis/Contract"
+						isDeleted="False"
+						inheritSecurity="true">					
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->							  
+						<FOLDER name="Other Reports"
+								description="Contract Management reports."
+								isHidden="False"
+								isActive="True"
+								path="/Operations Division/Operations/Financial Planning and Analysis/Contract/Other Reports"
+								isDeleted="False"
+								inheritSecurity="true">							
+								<REPORT name="Contract Data Export Report New - Confidential"
+									  description="Hidden Contract Data Export Report"
+									  technicalDescription=""
+									  isHidden="True"
+									  isActive="True"
+									  isDeleted="False"
+									  datasourceName1="ContractManagement"
+									  datasourceName2=""/>
+								<REPORT name="Contract Detail Report"
+									  description="Displays all of the contract information including a list of payments made."
+									  technicalDescription=""
+									  isHidden="True"
+									  isActive="True"
+									  isDeleted="False"
+									  datasourceName1="ContractManagement"
+									  datasourceName2=""/>
+								<REPORT name="Contract List Report - Confidential"
+									  description="Shows a list of contracts (includes confidential contracts).  Users can view details on a single contract or export the list to Excel."
+									  technicalDescription=""
+									  isHidden="False"
+									  isActive="True"
+									  isDeleted="False"
+									  datasourceName1="ContractManagement"
+									  datasourceName2=""/>
+							<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+							<SECURITY name="Authenticated Users" role="Browser" />
+							<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+							<SECURITY name="Administrators" role="Content Manager" />
+							<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+							<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->									  
+						</FOLDER>					
+				</FOLDER>
+				<FOLDER name="GFO"
+						description="Reports that support GatesFoundation.org website."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Financial Planning and Analysis/GFO"
+						isDeleted="False"
+						inheritSecurity="true">					
+						<REPORT name="Quick Facts" description="Provide data for the quarterly update of the Grants Overview page on gatesfoundation.org." technicalDescription=""
+								isHidden="False"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="Consumer"
+								datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_FnA_Finance" role="Browser" />-->
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+					<!--<SECURITY name="DG_DH2_Ops_restricted" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Finance_restricted" role="Browser" />-->									
+				</FOLDER>			
+			</FOLDER>
+			<FOLDER name="Human Resources"
+					description="Human Resources reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Human Resources"
+					isDeleted="False"
+					inheritSecurity="true">				
+				<FOLDER name="Contract"
+						description="Contract Management reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Human Resources/Contract"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->								  
+				</FOLDER>				
+			</FOLDER>
+			<FOLDER name="Information Technology"
+					description="Information Technology reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Information Technology"
+					isDeleted="False"
+					inheritSecurity="true">					
+				<FOLDER name="Contract"
+						description="Contract Management Reports"
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Information Technology/Contract"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->								  
+				</FOLDER>				
+			</FOLDER>
+			<FOLDER name="IRIS"
+					description="IRIS Team reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/IRIS"
+					isDeleted="False"
+					inheritSecurity="true">				
+				<FOLDER name="Contract"
+						description="Contract Management reports for the IRIS Team."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/IRIS/Contract"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->								  
+				</FOLDER>				
+			</FOLDER>			
+			<FOLDER name="Security"
+					description="Security department reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Security"
+					isDeleted="False"
+					inheritSecurity="true">
+				<FOLDER name="RDC"
+						description=""
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Security/RDC"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="OFAC Source System Details"
+								description=""
+								technicalDescription=""
+								isHidden="False"
+								isActive="True"
+								isDeleted="False"
+								datasourceName1="RDC"
+								datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="APP_RPT_RDC" role="Browser" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+					<!--<SECURITY name="DG_DH2_Ops_restricted" role="Browser" />-->								
+				</FOLDER>
+			</FOLDER>			
+			<FOLDER name="Site Operations"
+					description="Site Operations Department reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Site Operations"
+					isDeleted="False"
+					inheritSecurity="true">					
+				<FOLDER name="Contract"
+						description="Contract Management reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Site Operations/Contract"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->							  
+				</FOLDER>				
+			</FOLDER>
+			<FOLDER name="Travel"
+					description="Travel Department reports."
+					isHidden="False"
+					isActive="True"
+					path="/Operations Division/Operations/Travel"
+					isDeleted="False"
+					inheritSecurity="true">					
+				<FOLDER name="Contract"
+						description="Contract Management reports."
+						isHidden="False"
+						isActive="True"
+						path="/Operations Division/Operations/Travel/Contract"
+						isDeleted="False"
+						inheritSecurity="true">						
+						<REPORT name="Contract Data Export Report New"
+							  description="Export of all contract Data."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract Detail Report"
+							  description="Displays all of the contract information including a list of payments made."
+							  technicalDescription=""
+							  isHidden="True"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>					  
+						<REPORT name="Contract List Report"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+						<REPORT name="Contract List Report - Old Format"
+							  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>						  
+						<REPORT name="Contract Request List Report"
+							  description="Contract Request List Report"
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="ContractManagement"
+							  datasourceName2=""/>
+					<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+					<SECURITY name="Authenticated Users" role="Browser" />
+					<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+					<SECURITY name="Administrators" role="Content Manager" />
+					<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+					<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->							  
+				</FOLDER>				
+			</FOLDER>						
+		</FOLDER>	
+	</FOLDER>	
+	<FOLDER name="US Division"
+			description="Reports for US Division Program Areas."
+			isHidden="False"
+			isActive="True"
+			path="/US Division"
+			isDeleted="False"
+			inheritSecurity="true">
+		<FOLDER name="Contract"
+				description="Contract reports for the US Division."
+				isHidden="False"
+				isActive="True"
+				path="/US Division/Contract"
+				isDeleted="False"
+				inheritSecurity="true">				
+				<REPORT name="Contract Data Export Report New"
+					  description="Export of all contract Data."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+				<REPORT name="Contract Detail Report"
+					  description="Displays all of the contract information including a list of payments made."
+					  technicalDescription=""
+					  isHidden="True"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>					  
+				<REPORT name="Contract List Report"
+					  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+				<REPORT name="Contract List Report - Old Format"
+					  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>					  
+				<REPORT name="Contract Request List Report"
+					  description="Contract Request List Report"
+					  technicalDescription=""
+					  isHidden="False"
+					  isActive="True"
+					  isDeleted="False"
+					  datasourceName1="ContractManagement"
+					  datasourceName2=""/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->					  
+		</FOLDER>
+		<FOLDER name="Education"
+				description="Education reports."
+				isHidden="False"
+				isActive="True"
+				path="/US Division/Education"
+				isDeleted="False"
+				inheritSecurity="true">			
+			<FOLDER name="Contract"
+					description="Contract Management reports."
+					isHidden="False"
+					isActive="True"
+					path="/US Division/Education/Contract"
+					isDeleted="False"
+					inheritSecurity="true">				
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>		
+		</FOLDER>
+		<FOLDER name="Pacific Northwest"
+				description="Pacific Northwest reports."
+				isHidden="False"
+				isActive="True"
+				path="/US Division/Pacific Northwest"
+				isDeleted="False"
+				inheritSecurity="true">				
+			<FOLDER name="Contract"
+					description="Contract Management reports."
+					isHidden="False"
+					isActive="True"
+					path="/US Division/Pacific Northwest/Contract"
+					isDeleted="False"
+					inheritSecurity="true">				
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>		
+		</FOLDER>
+		<FOLDER name="US Libraries"
+				description="Global Library Program reports."
+				isHidden="False"
+				isActive="True"
+				path="/US Division/US Libraries"
+				isDeleted="False"
+				inheritSecurity="true">			
+			<FOLDER name="Contract"
+					description="Contract Management reports."
+					isHidden="False"
+					isActive="True"
+					path="/US Division/US Libraries/Contract"
+					isDeleted="False"
+					inheritSecurity="true">				
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>		
+		</FOLDER>
+		<FOLDER name="US Program Special Initiatives"
+				description="US Program Special Initiatives reports."
+				isHidden="False"
+				isActive="True"
+				path="/US Division/US Program Special Initiatives"
+				isDeleted="False"
+				inheritSecurity="true">				
+			<FOLDER name="Contract"
+					description="Contract reports."
+					isHidden="False"
+					isActive="True"
+					path="/US Division/US Program Special Initiatives/Contract"
+					isDeleted="False"
+					inheritSecurity="true">					
+					<REPORT name="Contract Data Export Report New"
+						  description="Export of all contract Data."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract Detail Report"
+						  description="Displays all of the contract information including a list of payments made."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract List Report"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+					<REPORT name="Contract List Report - Old Format"
+						  description="Shows a list of contracts that the user can navigate to the Contract Detail Report with."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>					  
+					<REPORT name="Contract Request List Report"
+						  description="Contract Request List Report"
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="ContractManagement"
+						  datasourceName2=""/>
+				<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+				<SECURITY name="Authenticated Users" role="Browser" />
+				<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+				<SECURITY name="Administrators" role="Content Manager" />
+				<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+				<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->						  
+			</FOLDER>		
+		</FOLDER>			
+	</FOLDER>		
+	<FOLDER name="Unison Reports"
+			description="Centralized repository for Unison Managed Reports"
+			isHidden="False"
+			isActive="True"
+			path="/Unison Reports"
+			isDeleted="False"
+			inheritSecurity="true">
+		<FOLDER name="Payment Management"
+					description="Payment Management Reports"
+					isHidden="False"
+					isActive="True"
+					path="/Unison Reports/Payment Management"
+					isDeleted="False"
+					inheritSecurity="true">
+			<REPORT name="Payments Recommended Date Past Due"
+						  description="Assess whether an amendment package is needed because a payment was moved past the payment's Recommended Date."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Requirement Detail"
+						  description="List of requirements associated to a given opportunity and payment."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Payments Upcoming"
+						  description="View a detailed list of upcoming payments, including whether or not there are related requirements for each payment."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+		</FOLDER>
+		<FOLDER name="Opportunity Management"
+					description="Opportunity Management Reports"
+					isHidden="False"
+					isActive="True"
+					path="/Unison Reports/Opportunity Management"
+					isDeleted="False"
+					inheritSecurity="true">
+			<REPORT name="Opportunities Approved"
+						  description="Identify all opportunities where the agreement package was approved (awarded) in a specified timeframe, grouped by Foundation Organization or Strategy."
+						  technicalDescription="Grand Total for Opportunity Total Amount is a sum of total amount for Distinct Opportunities. Sub-Total shows sum of total strategy amount by strategy or program and count of distinct opportunities associated with strategy or program"
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Opportunities Approved - Excel"
+						  description="Excel export version of Opportunities Approved"
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Opportunities Close Required"
+						  description="Identify opportunities that should be closed."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Requirement Detail"
+						  description="List of requirements associated to a given opportunity and payment."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+		</FOLDER>
+		<FOLDER name="Approval and Workload"
+				description="Approval and Workload Reports"
+				isHidden="False"
+				isActive="True"
+				path="/Unison Reports/Approval and Workload"
+				isDeleted="False"
+				inheritSecurity="true">
+			<REPORT name="Approvals Required by Approver"
+						  description="Manage payment and/or package approvals in order to plan workload for approvers."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Approvals Required by Approver - Excel"
+						  description="This Excel report provides users the ability to identify the number of grants, and their associated payout amounts that have upcoming approvals. Users may filter by Strategy, Foundation Organization, Approver, or Activity status. Report will returns approvals on packages, payments, or both. The report can be used to plan workload for Program Officers."
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Approvals Required by Approver Detail"
+						  description="This report is being used in meetings with Approvers to discuss upcoming approvals and to manage their workload"
+						  technicalDescription=""
+						  isHidden="True"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Approvals Required by Approver Detail - Excel"
+				description="This report is being used in meetings with Approvers to discuss upcoming approvals and to manage their workload"
+				technicalDescription=""
+				isHidden="True"
+				isActive="True"
+				isDeleted="False"
+				datasourceName1="Consumer"
+				datasourceName2=""/>
+			<REPORT name="Requirements By Owner"
+						  description="Identify upcoming grantee requirements and related payment information, organized by opportunity owner."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Requirements By Owner - Excel"
+					description="Excel Export Version of Requirements By Owner"
+					technicalDescription=""
+					isHidden="True"
+					isActive="True"
+					isDeleted="False"
+					datasourceName1="Consumer"
+					datasourceName2=""/>
+			<REPORT name="Workload Detail"
+						  description="The Workload Detail report lists out the detailed Approval Tasks, Review Tasks and Requirement information needed for an entire opportunity, broken out by row for each individual task."
+						  technicalDescription=""
+						  isHidden="False"
+						  isActive="True"
+						  isDeleted="False"
+						  datasourceName1="Consumer"
+						  datasourceName2=""/>
+			<REPORT name="Workload Summary"
+							  description="Manage package and/or payment approvals, reviews, and requirements for committed and potential opportunities with payments in current or future years, grouped by New Grants and Subsequent Payments."
+							  technicalDescription=""
+							  isHidden="False"
+							  isActive="True"
+							  isDeleted="False"
+							  datasourceName1="Consumer"
+							  datasourceName2=""/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+		</FOLDER>
+		<FOLDER name="Payout Forecast"
+				description="Payout Forecast Reports"
+				isHidden="False"
+				isActive="True"
+				path="/Unison Reports/Payout Forecast"
+				isDeleted="False"
+				inheritSecurity="true">
+			<REPORT name="Current Year Payout Forecast by Paid - Unpaid - Potential"
+					description="Compare existing and forecasted commitments to budgeted payout targets, grouping payment data by Paid, Unpaid, and Potential categories to help manage short-term grant payout."
+					technicalDescription=""
+					isHidden="False"
+					isActive="True"
+					isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Current Year Payout Forecast by New and Subsequent"
+							  description="Compare existing and forecasted commitments to budgeted payout targets, with amounts broken out by New Grants and Subsequent Payments categories, to help manage short- term grant payout."
+                technicalDescription=""
+							  isHidden="False" isActive="True" isDeleted="False"
+							  datasourceName1="Consumer"
+                datasourceName2="ReportServer2008"/>
+			<REPORT name="Initiative Monthly Payout by Paid - Unpaid - Potential"
+					description="For a specified year, view commitment details by month, grouped by Paid, Unpaid and Potential categories, for management of grant payout." technicalDescription=""
+					isHidden="False" isActive="True" isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Initiative Monthly Payout by New and Subsequent"
+					description="For a specified year, view commitment details by month, grouped by New Grants and Subsequent Payments categories, for management of grant payout." technicalDescription=""
+					isHidden="False" isActive="True" isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Quarterly Payout Targets by Paid - Unpaid - Potential"
+					description="View grant payout and budgeted targets in quarterly format, with payments grouped by Paid, Unpaid and Potential categories."
+					technicalDescription=""
+					isHidden="False"
+					isActive="True"
+					isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Quarterly Detail Report by New and Subsequent"
+					description="View grant payout by quarter against budgeted targets for New Grants, Subsequent Payments, or Total Grant payouts."
+					technicalDescription=""
+					isHidden="False"
+					isActive="True"
+					isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="4 Year Outlook - Excel Only"
+					description="Provide easy-to-export version of 4 Year Outlook."
+					technicalDescription=""
+					isHidden="False"
+					isActive="True"
+					isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Initiative Yearly Payout - 4 Year Outlook"
+					 description="View existing and forecasted commitment details for current year and next three years, for management of grant payout over multiple years. "
+					 technicalDescription="" isHidden="False" isActive="True" isDeleted="False"
+					 datasourceName1="Consumer"
+           datasourceName2="ReportServer2008"/>
+			<REPORT name="Initiative Monthly Payout by New and Subsequent - Excel Only"
+					description="Provide easy-to-export version of Initiative Monthly Payout by New and Subsequent."
+					technicalDescription="" isHidden="False" isActive="True" isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Initiative Monthly Payout by Paid - Unpaid - Potential - Excel Only"
+					description="Provide easy-to-export version of Initiative Monthly Payout  by Paid-Unpaid-Potential."
+					technicalDescription="" isHidden="False" isActive="True" isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="4 Year Outlook"
+					description="Compare existing and forecasted commitments to budgeted payout targets for current and future years, to help manage long-term grant payout."
+					technicalDescription="Budgeted Payout Target values displayed for future years include Grants and Direct Charitable Expense portions of Budget from the annual plan. Values included in Total Forecasted Payout include grant-related amounts only; contract-related amounts and forecasts for other DCE expenses such as convenings must be manually reconciled from ICS and other financial systems."
+					isHidden="False"
+					isActive="True"
+					isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<REPORT name="Initiative Yearly Payout"
+					description="View existing and forecasted commitment details, based on selected commitment year(s), for multi-year management of grant payout." technicalDescription=""
+					isHidden="False" isActive="True" isDeleted="False"
+					datasourceName1="Consumer"
+          datasourceName2="ReportServer2008"/>
+			<SECURITY name="App_Rpt_ServerAdmins" role="Content Manager" />
+			<SECURITY name="Authenticated Users" role="Browser" />
+			<SECURITY name="App_Rpt_ReportPowerUsers" role="Browser" />
+			<SECURITY name="Administrators" role="Content Manager" />
+			<!--<SECURITY name="App_Rpt_ReportUsers" role="Browser" />-->
+			<!--<SECURITY name="DG_DH2_Tester" role="Content Manager" />-->
+		</FOLDER>
+	</FOLDER>
+</ROOT>

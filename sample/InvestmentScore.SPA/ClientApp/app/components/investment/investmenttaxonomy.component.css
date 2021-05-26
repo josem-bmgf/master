@@ -1,0 +1,32 @@
+﻿.taxonomy-fields {
+    border-top-style: solid;
+    border-top-width: thin;
+    border-top-color: lightgray;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+.taxonomy-input-fields {
+    width: 50px;
+}
+
+.taxonomy-total-fields {
+    float: right;
+}
+
+.taxonomy-panel {
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.btn-light-blue {
+    color: #31b0d5;
+    background-color: transparent;
+    border-color: #31b0d5;
+}
+
+    .btn-light-blue:hover {
+        color: #fff;
+        background-color: #31b0d5;
+        border-color: #31b0d5;
+    }

@@ -1,0 +1,15 @@
+<div class="allButFooter">
+    <div class='container-fluid'>
+        <nav-menu></nav-menu>
+        <div class='body-content' [ngStyle]="bodyContentStyle()">
+            <!-- This Searchbox will hide if you are on the reports table -->
+            <div class='col-sm-3' *ngIf="hideShowSearchbox()">
+                <investment-search></investment-search>
+            </div>
+            <div class='col-sm-9' [ngStyle]="divContentStyle()">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>
+<footer-app></footer-app>

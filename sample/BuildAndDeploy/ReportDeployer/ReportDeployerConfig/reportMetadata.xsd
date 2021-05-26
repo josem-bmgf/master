@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ROOT" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FOLDER" msprop:Generator_TableClassName="FOLDERDataTable" msprop:Generator_TableVarName="tableFOLDER" msprop:Generator_TablePropName="FOLDER" msprop:Generator_RowDeletingName="FOLDERRowDeleting" msprop:Generator_UserTableName="FOLDER" msprop:Generator_RowChangingName="FOLDERRowChanging" msprop:Generator_RowEvHandlerName="FOLDERRowChangeEventHandler" msprop:Generator_RowDeletedName="FOLDERRowDeleted" msprop:Generator_RowEvArgName="FOLDERRowChangeEvent" msprop:Generator_RowChangedName="FOLDERRowChanged" msprop:Generator_RowClassName="FOLDERRow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="REPORT" msprop:Generator_TableClassName="REPORTDataTable" msprop:Generator_TableVarName="tableREPORT" msprop:Generator_TablePropName="REPORT" msprop:Generator_RowDeletingName="REPORTRowDeleting" msprop:Generator_UserTableName="REPORT" msprop:Generator_RowChangingName="REPORTRowChanging" msprop:Generator_RowEvHandlerName="REPORTRowChangeEventHandler" msprop:Generator_RowDeletedName="REPORTRowDeleted" msprop:Generator_RowEvArgName="REPORTRowChangeEvent" msprop:Generator_RowChangedName="REPORTRowChanged" msprop:Generator_RowClassName="REPORTRow" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" use="required" />
+            <xs:attribute name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" type="xs:string" use="required" />
+            <xs:attribute name="technicalDescription" msprop:Generator_ColumnVarNameInTable="columntechnicalDescription" msprop:Generator_ColumnPropNameInRow="technicalDescription" msprop:Generator_ColumnPropNameInTable="technicalDescriptionColumn" msprop:Generator_UserColumnName="technicalDescription" type="xs:string" use="required" />
+            <xs:attribute name="isHidden" msprop:Generator_ColumnVarNameInTable="columnisHidden" msprop:Generator_ColumnPropNameInRow="isHidden" msprop:Generator_ColumnPropNameInTable="isHiddenColumn" msprop:Generator_UserColumnName="isHidden" type="xs:string" use="required" />
+            <xs:attribute name="isActive" msprop:Generator_ColumnVarNameInTable="columnisActive" msprop:Generator_ColumnPropNameInRow="isActive" msprop:Generator_ColumnPropNameInTable="isActiveColumn" msprop:Generator_UserColumnName="isActive" type="xs:string" use="required" />
+            <xs:attribute name="isDeleted" msprop:Generator_ColumnVarNameInTable="columnisDeleted" msprop:Generator_ColumnPropNameInRow="isDeleted" msprop:Generator_ColumnPropNameInTable="isDeletedColumn" msprop:Generator_UserColumnName="isDeleted" type="xs:string" use="required" />
+            <xs:attribute name="datasourceName1" msprop:Generator_ColumnVarNameInTable="columndatasourceName1" msprop:Generator_ColumnPropNameInRow="datasourceName1" msprop:Generator_ColumnPropNameInTable="datasourceName1Column" msprop:Generator_UserColumnName="datasourceName1" type="xs:string" use="required" />
+            <xs:attribute name="datasourceName2" msprop:Generator_ColumnVarNameInTable="columndatasourceName2" msprop:Generator_ColumnPropNameInRow="datasourceName2" msprop:Generator_ColumnPropNameInTable="datasourceName2Column" msprop:Generator_UserColumnName="datasourceName2" type="xs:string" use="required" />
+            <xs:attribute name="FOLDER_Id" msprop:Generator_ColumnVarNameInTable="columnFOLDER_Id" msprop:Generator_ColumnPropNameInRow="FOLDER_Id" msprop:Generator_ColumnPropNameInTable="FOLDER_IdColumn" msprop:Generator_UserColumnName="FOLDER_Id" type="xs:int" use="prohibited" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SECURITY" msprop:Generator_TableClassName="SECURITYDataTable" msprop:Generator_TableVarName="tableSECURITY" msprop:Generator_TablePropName="SECURITY" msprop:Generator_RowDeletingName="SECURITYRowDeleting" msprop:Generator_UserTableName="SECURITY" msprop:Generator_RowChangingName="SECURITYRowChanging" msprop:Generator_RowEvHandlerName="SECURITYRowChangeEventHandler" msprop:Generator_RowDeletedName="SECURITYRowDeleted" msprop:Generator_RowEvArgName="SECURITYRowChangeEvent" msprop:Generator_RowChangedName="SECURITYRowChanged" msprop:Generator_RowClassName="SECURITYRow" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" use="required" />
+            <xs:attribute name="role" msprop:Generator_ColumnVarNameInTable="columnrole" msprop:Generator_ColumnPropNameInRow="role" msprop:Generator_ColumnPropNameInTable="roleColumn" msprop:Generator_UserColumnName="role" type="xs:string" use="required" />
+            <xs:attribute name="FOLDER_Id" msprop:Generator_ColumnVarNameInTable="columnFOLDER_Id" msprop:Generator_ColumnPropNameInRow="FOLDER_Id" msprop:Generator_ColumnPropNameInTable="FOLDER_IdColumn" msprop:Generator_UserColumnName="FOLDER_Id" type="xs:int" use="prohibited" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="FOLDER" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+      <xs:attribute name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" use="required" />
+      <xs:attribute name="description" msprop:Generator_ColumnVarNameInTable="columndescription" msprop:Generator_ColumnPropNameInRow="description" msprop:Generator_ColumnPropNameInTable="descriptionColumn" msprop:Generator_UserColumnName="description" type="xs:string" use="required" />
+      <xs:attribute name="isHidden" msprop:Generator_ColumnVarNameInTable="columnisHidden" msprop:Generator_ColumnPropNameInRow="isHidden" msprop:Generator_ColumnPropNameInTable="isHiddenColumn" msprop:Generator_UserColumnName="isHidden" type="xs:string" use="required" />
+      <xs:attribute name="isActive" msprop:Generator_ColumnVarNameInTable="columnisActive" msprop:Generator_ColumnPropNameInRow="isActive" msprop:Generator_ColumnPropNameInTable="isActiveColumn" msprop:Generator_UserColumnName="isActive" type="xs:string" use="required" />
+      <xs:attribute name="path" msprop:Generator_ColumnVarNameInTable="columnpath" msprop:Generator_ColumnPropNameInRow="path" msprop:Generator_ColumnPropNameInTable="pathColumn" msprop:Generator_UserColumnName="path" type="xs:string" use="required" />
+      <xs:attribute name="isDeleted" msprop:Generator_ColumnVarNameInTable="columnisDeleted" msprop:Generator_ColumnPropNameInRow="isDeleted" msprop:Generator_ColumnPropNameInTable="isDeletedColumn" msprop:Generator_UserColumnName="isDeleted" type="xs:string" use="required" />
+      <xs:attribute name="inheritSecurity" msprop:Generator_ColumnVarNameInTable="columninheritSecurity" msprop:Generator_ColumnPropNameInRow="inheritSecurity" msprop:Generator_ColumnPropNameInTable="inheritSecurityColumn" msprop:Generator_UserColumnName="inheritSecurity" type="xs:string" use="required" />
+      <xs:attribute name="FOLDER_Id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnFOLDER_Id" msprop:Generator_ColumnPropNameInRow="FOLDER_Id" msprop:Generator_ColumnPropNameInTable="FOLDER_IdColumn" msprop:Generator_UserColumnName="FOLDER_Id" type="xs:int" msdata:AllowDBNull="false" use="prohibited" />
+      <xs:attribute name="FOLDER_Id_0" msprop:Generator_ColumnVarNameInTable="columnFOLDER_Id_0" msprop:Generator_ColumnPropNameInRow="FOLDER_Id_0" msprop:Generator_ColumnPropNameInTable="FOLDER_Id_0Column" msprop:Generator_UserColumnName="FOLDER_Id_0" type="xs:int" use="prohibited" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ROOT" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="ROOT" msprop:Generator_UserDSName="ROOT">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="FOLDER" />
+        <xs:element name="DATASOURCE" msprop:Generator_TableClassName="DATASOURCEDataTable" msprop:Generator_TableVarName="tableDATASOURCE" msprop:Generator_TablePropName="DATASOURCE" msprop:Generator_RowDeletingName="DATASOURCERowDeleting" msprop:Generator_UserTableName="DATASOURCE" msprop:Generator_RowChangingName="DATASOURCERowChanging" msprop:Generator_RowEvHandlerName="DATASOURCERowChangeEventHandler" msprop:Generator_RowDeletedName="DATASOURCERowDeleted" msprop:Generator_RowEvArgName="DATASOURCERowChangeEvent" msprop:Generator_RowChangedName="DATASOURCERowChanged" msprop:Generator_RowClassName="DATASOURCERow">
+          <xs:complexType>
+            <xs:attribute name="name" msprop:Generator_ColumnVarNameInTable="columnname" msprop:Generator_ColumnPropNameInRow="name" msprop:Generator_ColumnPropNameInTable="nameColumn" msprop:Generator_UserColumnName="name" type="xs:string" use="required" />
+            <xs:attribute name="connection" msprop:Generator_ColumnVarNameInTable="columnconnection" msprop:Generator_ColumnPropNameInRow="connection" msprop:Generator_ColumnPropNameInTable="connectionColumn" msprop:Generator_UserColumnName="connection" type="xs:string" use="required" />
+            <xs:attribute name="datasourceFolderPath" msprop:Generator_ColumnVarNameInTable="columndatasourceFolderPath" msprop:Generator_ColumnPropNameInRow="datasourceFolderPath" msprop:Generator_ColumnPropNameInTable="datasourceFolderPathColumn" msprop:Generator_UserColumnName="datasourceFolderPath" type="xs:string" use="required" />
+            <xs:attribute name="isHidden" msprop:Generator_ColumnVarNameInTable="columnisHidden" msprop:Generator_ColumnPropNameInRow="isHidden" msprop:Generator_ColumnPropNameInTable="isHiddenColumn" msprop:Generator_UserColumnName="isHidden" type="xs:string" use="required" />
+            <xs:attribute name="isActive" msprop:Generator_ColumnVarNameInTable="columnisActive" msprop:Generator_ColumnPropNameInRow="isActive" msprop:Generator_ColumnPropNameInTable="isActiveColumn" msprop:Generator_UserColumnName="isActive" type="xs:string" use="required" />
+            <xs:attribute name="isDeleted" msprop:Generator_ColumnVarNameInTable="columnisDeleted" msprop:Generator_ColumnPropNameInRow="isDeleted" msprop:Generator_ColumnPropNameInTable="isDeletedColumn" msprop:Generator_UserColumnName="isDeleted" type="xs:string" use="required" />
+            <xs:attribute name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" use="required" />
+            <xs:attribute name="UserPass" msprop:Generator_ColumnVarNameInTable="columnUserPass" msprop:Generator_ColumnPropNameInRow="UserPass" msprop:Generator_ColumnPropNameInTable="UserPassColumn" msprop:Generator_UserColumnName="UserPass" type="xs:string" use="required" />
+            <xs:attribute name="isWinCredential" msprop:Generator_ColumnVarNameInTable="columnisWinCredential" msprop:Generator_ColumnPropNameInRow="isWinCredential" msprop:Generator_ColumnPropNameInTable="isWinCredentialColumn" msprop:Generator_UserColumnName="isWinCredential" type="xs:string" use="required" />
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//FOLDER" />
+      <xs:field xpath="@FOLDER_Id" />
+    </xs:unique>
+    <xs:keyref name="FOLDER_FOLDER" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="FOLDER" msprop:rel_Generator_ChildPropName="GetFOLDERRows" msprop:rel_Generator_UserParentTable="FOLDER" msprop:rel_Generator_UserRelationName="FOLDER_FOLDER" msprop:rel_Generator_RelationVarName="relationFOLDER_FOLDER" msprop:rel_Generator_ParentPropName="FOLDERRowParent">
+      <xs:selector xpath=".//FOLDER" />
+      <xs:field xpath="@FOLDER_Id_0" />
+    </xs:keyref>
+    <xs:keyref name="FOLDER_SECURITY" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="SECURITY" msprop:rel_Generator_ChildPropName="GetSECURITYRows" msprop:rel_Generator_ParentPropName="FOLDERRow" msprop:rel_Generator_UserRelationName="FOLDER_SECURITY" msprop:rel_Generator_RelationVarName="relationFOLDER_SECURITY" msprop:rel_Generator_UserParentTable="FOLDER">
+      <xs:selector xpath=".//SECURITY" />
+      <xs:field xpath="@FOLDER_Id" />
+    </xs:keyref>
+    <xs:keyref name="FOLDER_REPORT" refer="Constraint1" msdata:IsNested="true" msprop:rel_Generator_UserChildTable="REPORT" msprop:rel_Generator_ChildPropName="GetREPORTRows" msprop:rel_Generator_ParentPropName="FOLDERRow" msprop:rel_Generator_UserRelationName="FOLDER_REPORT" msprop:rel_Generator_RelationVarName="relationFOLDER_REPORT" msprop:rel_Generator_UserParentTable="FOLDER">
+      <xs:selector xpath=".//REPORT" />
+      <xs:field xpath="@FOLDER_Id" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>

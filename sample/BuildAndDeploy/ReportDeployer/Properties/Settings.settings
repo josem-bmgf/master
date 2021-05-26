@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ReportDeployer.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ReportMetadata" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ReportDeployerConfig\ReportMetadata.xml</Value>
+    </Setting>
+    <Setting Name="Domain" Type="System.String" Scope="User">
+      <Value Profile="(Default)">dev</Value>
+    </Setting>
+    <Setting Name="ReportMetadataSchema" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ReportDeployerConfig\ReportMetadata.xsd</Value>
+    </Setting>
+    <Setting Name="ReportService" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://devrptwebv01:80/ReportServer/ReportService2005.asmx</Value>
+    </Setting>
+    <Setting Name="RdlPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\work\Reporting\ManagedReports</Value>
+    </Setting>
+    <Setting Name="BmgfReportServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">DEVDWSQLv05</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,24 @@
+﻿<div class="input-group">
+    <span class="input-group-btn">
+        <button type="button" (click)="onSearch()" class="btn btn-default">Search</button>
+    </span>
+    <input type="text" class="form-control" (keyup)="onSearch()" (change)="onSearch()" placeholder="Search for..." [(ngModel)]="term" name="term">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default" (click)="onSearch()"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+    </span>
+</div>
+
+<div *ngIf="showSearchOptions" class="fa-border">
+    <p-checkbox [(ngModel)]="overFiveMillion" (click)="onSearch()" binary="true"></p-checkbox> Only > $5M
+</div>
+<div class="col-md-12 search-results">
+    <a class="list-group-item"
+       *ngFor="let value of values | async"
+       [class.active]="value.id === selectedInvestmentId"
+       (click)="selectInvestmentId(value.id)"
+       [routerLink]="['/investment-detail', value.id]">
+        <span class="badge">{{value.idCombined}}</span>
+        <b>{{value.invGranteeVendorName}}</b> <br />
+        <i>{{value.invTitle}}</i>
+    </a>
+</div>

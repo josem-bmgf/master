@@ -1,0 +1,86 @@
+﻿<!-- Modal -->
+<div *ngIf="showScoringModalDelete" id="scoringModalDelete" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Score</h4>
+            </div>
+            <div class="modal-body">
+                <div *ngIf="selectedScore" style="align-content:center;">
+                    <div class="row">
+                        <div class="col-md-7"><label>Do you want to delete this Score?</label></div>
+                    </div>
+                    <div class="row">
+                        <br />
+                        <div class="col-md-6">
+                            <label>Created/Modified By :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                {{selectedScore.user}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <br />
+                        <div class="col-md-6">
+                            <label>Year :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                {{selectedScore.scoreYear}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <br />
+                        <div class="col-md-6">
+                            <label>Performance Against Milestones :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                {{selectedScore.performanceAgainstMilestones}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <br />
+                        <div class="col-md-6">
+                            <label>Performance Against Strategy :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                {{selectedScore.performanceAgainstStrategy}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <br />
+                        <div class="col-md-6">
+                            <label>Reinvestment Prospects :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                {{selectedScore.reinvestmentProspects}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="btn-group">
+                    <div class="col-md-7">
+                        <button type="button" class="btn btn-primary" (click)="onDelete(selectedScore.id)" data-dismiss="modal">Yes</button>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <div class="col-md-7">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

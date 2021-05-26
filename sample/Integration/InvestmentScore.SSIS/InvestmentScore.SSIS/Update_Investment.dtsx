@@ -1,0 +1,1173 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="9/8/2016 1:50:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DEVWSMARCPV01"
+  DTS:CreatorName="DEV\marcp"
+  DTS:DTSID="{59782BE0-1A21-4927-9451-5F2AFE54B17C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="12.0.2430.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Update_Investment"
+  DTS:PackageType="5"
+  DTS:VersionBuild="114"
+  DTS:VersionGUID="{8F9410AE-B673-49AC-883D-970BED97AD05}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[bmgfdevsqlc05.database.windows.net,1433.bmgfdevinvestmentscore.DEV_svc_InvestmentScore_SQL]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C3B8FAD0-7CF7-46A0-A318-EA8BB3AFFD91}"
+      DTS:ObjectName="bmgfdevsqlc05.database.windows.net,1433.bmgfdevinvestmentscore.DEV_svc_InvestmentScore_SQL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=bmgfdevsqlc05.database.windows.net,1433;User ID=DEV_svc_InvestmentScore_SQL;Initial Catalog=bmgfdevinvestmentscore;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFjhwXy1deU6QJyN/sAc7dAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADiGgTYJDGEaBQ/gbUG9Wp5AAAAAASAAACgAAAAEAAAADdhP79fnbgv0S2Su3FbLpFIAAAAxx48mmqd3+jLZeEbuRjE908uCgviYGRNKeb6xY3Uh6h/Qte7PMuFkVL0N1iAtS8gullWwdTMT3oZEVJh200FonaSwLmIyqggFAAAANjeWHIdjWHh7sKl4tib3hJtIAdC</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[enhancementpubdb.database.windows.net.InvestmentScore.Database.azureenhancementadmin]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5EF066E7-1394-43F1-8196-3FED7FE59A81}"
+      DTS:ObjectName="enhancementpubdb.database.windows.net.InvestmentScore.Database.azureenhancementadmin">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=enhancementpubdb.database.windows.net;User ID=azureenhancementadmin;Initial Catalog=InvestmentScore.Database;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFjhwXy1deU6QJyN/sAc7dAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACAlC+LQBCqhmu0kQub2SgFAAAAAASAAACgAAAAEAAAAHhgQHG5E8Mvoq69sZJg6eQoAAAA5bXMc6Iem3G4cZnWz4zAZNdCEImRhbm4NlyNK1KpkQUZK/+hFQODIBQAAAAaGg77ky+aLW3QPz+lG59DMMHw/Q</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[enhancementpubdb.database.windows.net.InvestmentScore.Database.azureenhancementadmin 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C61C150C-3652-412E-BE33-05F32859E3B7}"
+      DTS:ObjectName="enhancementpubdb.database.windows.net.InvestmentScore.Database.azureenhancementadmin 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=enhancementpubdb.database.windows.net;User ID=azureenhancementadmin;Initial Catalog=InvestmentScore.Database;Provider=SQLNCLI11.1;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAFjhwXy1deU6QJyN/sAc7dAAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACNqZIQgt2vahnzvEyclqRoAAAAAASAAACgAAAAEAAAAF2ciiGEYwEFw154s0nrWRIoAAAAQIYbHpmp+H04j/MjRm9JlNsi0XDGbh217X/RLH7xdmGFMH/thbGQvRQAAACxXCce1xlU6/ogG5moj5eu7aOdDw</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clear INV Descriptions"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{67488c3b-61cb-45f6-a3f5-f0e11116ffc3}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear INV Descriptions"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C3B8FAD0-7CF7-46A0-A318-EA8BB3AFFD91}"
+          SQLTask:SqlStatementSource="Update [dbo].[Investment] set [INV_Description] = null" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute usp_RefreshInvestmentData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8c3617d4-bf94-4e04-8d02-6f28a02d50d8}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute usp_RefreshInvestmentData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C3B8FAD0-7CF7-46A0-A318-EA8BB3AFFD91}"
+          SQLTask:SqlStatementSource="execute [dbo].[usp_RefreshInvestmentData]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Populate Investment_STG"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3fadf79d-5ce9-4930-9fef-b201a8583696}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Populate Investment_STG"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Populate Investment_STG\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">ROWS_PER_BATCH = 250</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Investment_STG\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[bmgfdevsqlc05.database.windows.net,1433.bmgfdevinvestmentscore.DEV_svc_InvestmentScore_SQL]"
+                  connectionManagerRefId="Package.ConnectionManagers[bmgfdevsqlc05.database.windows.net,1433.bmgfdevinvestmentscore.DEV_svc_InvestmentScore_SQL]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_End_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="INV_End_Date"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_End_Date]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_End_Date]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Grantee_Vendor_Name]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV_Grantee_Vendor_Name"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Grantee_Vendor_Name]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Grantee_Vendor_Name]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Manager]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV_Manager"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Manager]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Manager]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Owner]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="INV_Owner"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Owner]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Owner]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Start_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="INV_Start_Date"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Start_Date]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Start_Date]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV_Status"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Status]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Status]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Title]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV_Title"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Title]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Title]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Type]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="INV_Type"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Type]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Type]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PMT_Expenditure_Type]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="PMT_Expenditure_Type"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PMT_Expenditure_Type]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[PMT_Expenditure_Type]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="300"
+                      cachedName="INV_ID"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Combined]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_ID]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OPP Description]"
+                      cachedDataType="nText"
+                      cachedName="OPP Description"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Description]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[OPP Description]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Level_of_Engagement]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="INV_Level_of_Engagement"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Level_of_Engagement]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Level_of_Engagement]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Total_Payout_Amt]"
+                      cachedDataType="cy"
+                      cachedName="INV_Total_Payout_Amt"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total_Investment_Amount]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Total_Payout_Amt]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV Amt Paid to Date]"
+                      cachedDataType="cy"
+                      cachedName="INV Amt Paid to Date"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amt_Paid_To_Date]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Amt Paid to Date]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV Managing Team Level 1]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV Managing Team Level 1"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_1]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Managing Team Level 1]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV Managing Team Level 2]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="INV Managing Team Level 2"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_2]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Managing Team Level 2]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Managing_Team_Level_3]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV_Managing_Team_Level_3"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_3]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Managing_Team_Level_3]" />
+                    <inputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[INV_Managing_Team_Level_4]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="INV_Managing_Team_Level_4"
+                      externalMetadataColumnId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_4]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Managing_Team_Level_4]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      dataType="i4"
+                      name="ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Description]"
+                      dataType="nText"
+                      name="INV_Description" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_End_Date]"
+                      dataType="dbTimeStamp"
+                      name="INV_End_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Grantee_Vendor_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV_Grantee_Vendor_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Manager]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV_Manager" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Owner]"
+                      dataType="nText"
+                      name="INV_Owner" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Start_Date]"
+                      dataType="dbTimeStamp"
+                      name="INV_Start_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Status]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Title]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV_Title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Type]"
+                      dataType="wstr"
+                      length="100"
+                      name="INV_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PMT_Expenditure_Type]"
+                      dataType="wstr"
+                      length="100"
+                      name="PMT_Expenditure_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Combined]"
+                      dataType="wstr"
+                      length="255"
+                      name="ID_Combined" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[INV_Level_of_Engagement]"
+                      dataType="wstr"
+                      length="100"
+                      name="INV_Level_of_Engagement" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Total_Investment_Amount]"
+                      dataType="numeric"
+                      name="Total_Investment_Amount"
+                      precision="28"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Amt_Paid_To_Date]"
+                      dataType="numeric"
+                      name="Amt_Paid_To_Date"
+                      precision="28"
+                      scale="6" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_1]"
+                      dataType="wstr"
+                      length="255"
+                      name="Managing_Team_Level_1" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_2]"
+                      dataType="wstr"
+                      length="255"
+                      name="Managing_Team_Level_2" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_3]"
+                      dataType="wstr"
+                      length="255"
+                      name="Managing_Team_Level_3" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Managing_Team_Level_4]"
+                      dataType="wstr"
+                      length="255"
+                      name="Managing_Team_Level_4" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Funding_Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Funding_Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Old_Investment_ID]"
+                      dataType="i4"
+                      name="Old_Investment_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Old_Investment_ID_MNF]"
+                      dataType="i4"
+                      name="Old_Investment_ID_MNF" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Populate Investment_STG\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Investment_STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Investment_STG\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="vInvestmentPaymentByStrategyCurrent"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[toolkit].[vInvestmentPaymentByStrategyCurrent]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+	 [INV ID]
+	,i.[INV Title]
+	,i.[INV Type]
+	,i.[INV Comments]
+	,i.[INV Start Date]
+	,i.[INV End Date]
+	,i.[INV Status]
+	,i.[INV Grantee/Vendor Name] AS INV_Grantee_Vendor_Name
+	,i.[INV Level of Engagement]
+	,i.[INV Owner]
+	,i.[INV Manager]
+	,[INV Managing Team Level 1] = ISNULL(NULLIF(i.[INV Managing Sub-Team],''),i.[INV Supporting Team Level 1])
+	,[INV Managing Team Level 2] = ISNULL(NULLIF(i.[INV Managing Team],''),i.[INV Supporting Team Level 2])
+	,[INV Managing Team Level 3] =  ISNULL(NULLIF(i.[INV Managing Team Level 3],''),i.[INV Supporting Team Level 1])
+	,[INV Managing Team Level 4] =  ISNULL(NULLIF(i.[INV Managing Team Level 4],''),i.[INV Supporting Team Level 1])
+	,i.[PMT Expenditure Type]
+	,ISNULL(MAX([INV Total Payout Amt]),0)  as [INV Total Payout Amt]
+	,ISNULL(SUM(i.[PMT Strategy Allocation Amt]),0) as [INV Amt Paid to Date]
+	,g.[OPP Description]
+FROM [toolkit].[vInvestmentPaymentByStrategyCurrent] i
+LEFT JOIN [toolkit].[vGrantCurrent] g on i.[INV ID] = g.[OPP Opportunity ID] AND g.[OPP Source] = 'Unison'
+WHERE [PMT Expenditure Type] = 'DCE'
+	AND ([INV Status] ='Active' OR
+	(	[INV Status] in ('Closed','Cancelled', 'Inactive') AND 
+		(DATEPART(YEAR,GETDATE()) BETWEEN DATEPART(Year, i.[INV Start Date]) AND DATEPART(Year, i.[INV End Date]))
+	) )
+	AND i.[PMT Status] = 'Paid'
+
+GROUP BY	
+	[INV ID]
+	,i.[INV Title]
+	,i.[INV Type]
+	,i.[INV Comments]
+	,i.[INV Start Date]
+	,i.[INV End Date]
+	,i.[INV Status]
+	,i.[INV Grantee/Vendor Name]
+	,i.[INV Level of Engagement]
+	,i.[INV Owner]
+	,i.[INV Manager]
+	,i.[INV Managing Sub-Team]
+	,i.[INV Managing Team]
+	,i.[INV Managing Team Level 3]
+	,i.[INV Managing Team Level 4]
+    ,i.[INV Supporting Team Level 1]
+	,i.[INV Supporting Team Level 2]
+	,i.[PMT Expenditure Type]
+	,g.[OPP Description]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Connections[OleDbConnection]"
+                  connectionManagerID="{747B465E-CA8A-44BF-8E5E-B91DC4958964}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[devdwsqlv05.FinancialDashboard]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Comments]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Comments]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Comments]"
+                      name="INV_Comments"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_End_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV End Date]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_End_Date]"
+                      name="INV_End_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_ID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV ID]"
+                      length="300"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_ID]"
+                      name="INV_ID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Level_of_Engagement]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Level of Engagement]"
+                      length="100"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Level_of_Engagement]"
+                      name="INV_Level_of_Engagement"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Manager]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Manager]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Manager]"
+                      name="INV_Manager"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Managing_Team_Level_3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 3]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Managing_Team_Level_3]"
+                      name="INV_Managing_Team_Level_3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Managing_Team_Level_4]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 4]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Managing_Team_Level_4]"
+                      name="INV_Managing_Team_Level_4"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Owner]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Owner]"
+                      length="4000"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Owner]"
+                      name="INV_Owner"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Start_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Start Date]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Start_Date]"
+                      name="INV_Start_Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Status]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Status]"
+                      name="INV_Status"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Title]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Title]"
+                      name="INV_Title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Total_Payout_Amt]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Total Payout Amt]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Total_Payout_Amt]"
+                      name="INV_Total_Payout_Amt"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Type]"
+                      length="100"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Type]"
+                      name="INV_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[PMT_Expenditure_Type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[PMT Expenditure Type]"
+                      length="100"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[PMT_Expenditure_Type]"
+                      name="PMT_Expenditure_Type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Grantee_Vendor_Name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV_Grantee_Vendor_Name]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV_Grantee_Vendor_Name]"
+                      name="INV_Grantee_Vendor_Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Managing Team Level 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 1]"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Managing Team Level 1]"
+                      name="INV Managing Team Level 1"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Managing Team Level 2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 2]"
+                      length="50"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Managing Team Level 2]"
+                      name="INV Managing Team Level 2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Amt Paid to Date]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Amt Paid to Date]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[INV Amt Paid to Date]"
+                      name="INV Amt Paid to Date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[OPP Description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[OPP Description]"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].Columns[OPP Description]"
+                      name="OPP Description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Comments]"
+                      dataType="nText"
+                      name="INV Comments" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV End Date]"
+                      dataType="dbTimeStamp"
+                      name="INV End Date" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV ID]"
+                      dataType="wstr"
+                      length="300"
+                      name="INV ID" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Level of Engagement]"
+                      dataType="wstr"
+                      length="100"
+                      name="INV Level of Engagement" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Manager]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV Manager" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 3]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV Managing Team Level 3" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 4]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV Managing Team Level 4" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Owner]"
+                      dataType="wstr"
+                      length="4000"
+                      name="INV Owner" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Start Date]"
+                      dataType="dbTimeStamp"
+                      name="INV Start Date" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Status]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV Status" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Title]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV Title" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Total Payout Amt]"
+                      dataType="cy"
+                      name="INV Total Payout Amt" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Type]"
+                      dataType="wstr"
+                      length="100"
+                      name="INV Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[PMT Expenditure Type]"
+                      dataType="wstr"
+                      length="100"
+                      name="PMT Expenditure Type" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV_Grantee_Vendor_Name]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV_Grantee_Vendor_Name" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 1]"
+                      dataType="wstr"
+                      length="255"
+                      name="INV Managing Team Level 1" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Managing Team Level 2]"
+                      dataType="wstr"
+                      length="50"
+                      name="INV Managing Team Level 2" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[INV Amt Paid to Date]"
+                      dataType="cy"
+                      name="INV Amt Paid to Date" />
+                    <externalMetadataColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output].ExternalColumns[OPP Description]"
+                      dataType="nText"
+                      name="OPP Description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Comments]"
+                      dataType="nText"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Comments]"
+                      name="INV Comments" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV End Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV End Date]"
+                      name="INV End Date" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV ID]"
+                      dataType="wstr"
+                      length="300"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV ID]"
+                      name="INV ID" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Level of Engagement]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Level of Engagement]"
+                      name="INV Level of Engagement" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Manager]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Manager]"
+                      name="INV Manager" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 3]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 3]"
+                      name="INV Managing Team Level 3" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 4]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 4]"
+                      name="INV Managing Team Level 4" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV_Grantee_Vendor_Name]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV_Grantee_Vendor_Name]"
+                      name="INV_Grantee_Vendor_Name" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Owner]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Owner]"
+                      name="INV Owner" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Start Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Start Date]"
+                      name="INV Start Date" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Status]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Status]"
+                      name="INV Status" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 1]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 1]"
+                      name="INV Managing Team Level 1" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Managing Team Level 2]"
+                      name="INV Managing Team Level 2" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Title]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Title]"
+                      name="INV Title" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Total Payout Amt]"
+                      dataType="cy"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Total Payout Amt]"
+                      name="INV Total Payout Amt" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Type]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Type]"
+                      name="INV Type" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[PMT Expenditure Type]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[PMT Expenditure Type]"
+                      name="PMT Expenditure Type" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Amt Paid to Date]"
+                      dataType="cy"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[INV Amt Paid to Date]"
+                      name="INV Amt Paid to Date" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[OPP Description]"
+                      dataType="nText"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[OPP Description]"
+                      name="OPP Description" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Populate Investment_STG.Paths[OLE DB Source Output]"
+              endId="Package\Populate Investment_STG\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Investment_STG"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3AB6F9FF-233D-42E7-BC71-B677F09AF671}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Investment_STG"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2014; © 2014 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{C3B8FAD0-7CF7-46A0-A318-EA8BB3AFFD91}"
+          SQLTask:SqlStatementSource="truncate table [Investment_STG]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{1F929FCB-EF74-44ED-AD2E-5B414CF71262}"
+      DTS:From="Package\Truncate Investment_STG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Populate Investment_STG" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{68FA5115-F8BF-45A7-9621-099D456FEAD5}"
+      DTS:From="Package\Populate Investment_STG"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Clear INV Descriptions" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1D9F49D6-CDA6-4223-84D2-38CB37233F84}"
+      DTS:From="Package\Clear INV Descriptions"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute usp_RefreshInvestmentData" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql12">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\Truncate Investment_STG"
+          TopLeft="326,31" />
+        <NodeLayout
+          Size="201,42"
+          Id="Package\Populate Investment_STG"
+          TopLeft="323,112" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="421.25,73">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39"
+              Start="0,0"
+              End="0,31.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="253,42"
+          Id="Package\Execute usp_RefreshInvestmentData"
+          TopLeft="293,259" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Clear INV Descriptions"
+          TopLeft="328,185" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="421.75,154">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="419.75,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Populate Investment_STG">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Populate Investment_STG\OLE DB Destination"
+          TopLeft="330.5,106.5" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent"
+          TopLeft="283,13.5" />
+        <EdgeLayout
+          Id="Package\Populate Investment_STG.Paths[OLE DB Source Output]"
+          TopLeft="415.75,55.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate Investment_STG\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Populate Investment_STG\vInvestmentPaymentByStrategyCurrent">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
