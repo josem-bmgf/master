@@ -12,7 +12,8 @@ steps:
  
 - name: Run Package Manager
   image: node:latest  #   mcr.microsoft.com/dotnet/core/sdk:3.1
-  commands:    
+  commands:
+  - cd sample/InvestmentScore.SPA/
   - npm intall
  
 - name: Clean Project
