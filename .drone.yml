@@ -26,11 +26,8 @@ steps:
   commands:
   - dotnet --list-sdks
   - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
+  - ls sample/InvestmentScore.SPA/obj/
   
-- name: List Folder
-  commands:
-  - dir sample/InvestmentScore.SPA/obj/
-
 trigger:
   branch:
       - gitlearning
