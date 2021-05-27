@@ -28,17 +28,18 @@ steps:
   - ls sample/InvestmentScore.SPA/obj/Debug
  
 - name: Publish
-  image: node:latest    #mcr.microsoft.com/dotnet/core/sdk:3.1
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
   - apt-get update -y
   - apt-get upgrade -y
   - apt-get install zip unzip -y
+  - apt-get install -yq nodejs build-essential
   - dotnet publish --configuration Release sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj --output /drone/src/web/
   - cd /drone/src/web
   - zip -r webfile.zip *
   - cp -r webfile.zip /drone/src
   
-- name: deploy
+- name: Deploy
   image: mcr.microsoft.com/azure-cli
  # environment:
    # id:
