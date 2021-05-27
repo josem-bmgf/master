@@ -14,7 +14,7 @@ steps:
   image: node:latest  #   mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
   - cd sample/InvestmentScore.SPA/
-  - npm intall
+  - npm install
  
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
