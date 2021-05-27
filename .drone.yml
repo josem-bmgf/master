@@ -26,6 +26,10 @@ steps:
   commands:
   - dotnet --list-sdks
   - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
+  
+- name: List Folder
+  commands:
+  - dir sample/InvestmentScore.SPA/obj/
 
 trigger:
   branch:
