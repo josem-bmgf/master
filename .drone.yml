@@ -30,7 +30,7 @@ steps:
   - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
   - ls sample/InvestmentScore.SPA/obj/Debug
  
-- name: Publish
+- name: Publish Web
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
   - apt-get update -y
@@ -42,7 +42,7 @@ steps:
   - zip -r webfile.zip *
   - cp -r webfile.zip /drone/src
   
-- name: Deploy
+- name: Deploy Web
   image: mcr.microsoft.com/azure-cli
   environment:
     spn:
