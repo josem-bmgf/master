@@ -34,7 +34,7 @@ steps:
   - apt-get update -y
   - apt-get upgrade -y
   - apt-get install zip unzip -y
-  - dotnet publish --configuration Release InvestmentScore.Spa.csproj --output /drone/src/web/
+  - dotnet publish --configuration Release InvestmentScore.Spa.sln --output /drone/src/web/
   - cd /drone/src/web
   - zip -r webfile.zip *
   - cp -r webfile.zip /drone/src
