@@ -33,7 +33,7 @@ steps:
   - apt-get update -y
   - apt-get upgrade -y
   - apt-get install zip unzip -y
-  - apt-get install nodejs
+  - apt-get install nodejs -y
   - dotnet publish --configuration Debug sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj --output /drone/src/web/
   - cd /drone/src/web
   - zip -r webfile.zip *
