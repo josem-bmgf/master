@@ -13,7 +13,8 @@ steps:
 - name: Run Package Manager
   image: mcr.microsoft.com/dotnet/core/sdk:3.1   #node:latest  
   commands:
-  - apt-get install nodejs -y
+  - apt-get update
+  - apt-get -y install nodejs
   - cd sample/InvestmentScore.SPA/
   - npm install
   
