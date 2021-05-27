@@ -11,7 +11,7 @@ steps:
   # - export PATH="$PATH:/root/.dotnet/tools"
  
 - name: Run Package Manager
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1  #node:latest  
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1   #node:latest  
   commands:
   - apt-get install nodejs -y
   - cd sample/InvestmentScore.SPA/
