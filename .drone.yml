@@ -15,8 +15,7 @@ steps:
   commands:
   - cd sample/InvestmentScore.SPA/
   - npm install
-  - npm audit fix --force
- 
+  
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
