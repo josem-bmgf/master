@@ -41,7 +41,7 @@ steps:
   
 - name: deploy
   image: mcr.microsoft.com/azure-cli
-  # environment:
+  environment:
    # id:
     # from_secret: client_id
    # pass:
