@@ -24,9 +24,8 @@ steps:
 - name: Build Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
-  - dotnet --list-sdks
   - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
-  - ls sample/InvestmentScore.SPA/obj/
+  - ls sample/InvestmentScore.SPA/obj/Debug
  
 - name: Publish
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
@@ -34,7 +33,7 @@ steps:
   - apt-get update -y
   - apt-get upgrade -y
   - apt-get install zip unzip -y
-  - dotnet publish --configuration Release InvestmentScore.Spa.sln --output /drone/src/web/
+  - dotnet publish --configuration Release sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj --output /drone/src/web/
   - cd /drone/src/web
   - zip -r webfile.zip *
   - cp -r webfile.zip /drone/src
