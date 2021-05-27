@@ -11,8 +11,9 @@ steps:
   # - export PATH="$PATH:/root/.dotnet/tools"
  
 - name: Run Package Manager
-  image: node:latest  #   mcr.microsoft.com/dotnet/core/sdk:3.1
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1  #node:latest  
   commands:
+  - apt-get install nodejs -y
   - cd sample/InvestmentScore.SPA/
   - npm install
   
@@ -33,7 +34,6 @@ steps:
   - apt-get update -y
   - apt-get upgrade -y
   - apt-get install zip unzip -y
-  - apt-get install nodejs -y
   - dotnet publish --configuration Debug sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj --output /drone/src/web/
   - cd /drone/src/web
   - zip -r webfile.zip *
