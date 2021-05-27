@@ -41,7 +41,7 @@ steps:
   
 - name: deploy
   image: mcr.microsoft.com/azure-cli
-  environment:
+ # environment:
    # id:
     # from_secret: client_id
    # pass:
@@ -52,14 +52,9 @@ steps:
     # from_secret: app_web_name
    # app_web_rg:
     # from_secret: app_web_rg
-    - $id = "dedc9ec9-0d1f-46b2-bf3e-5cc525a34254"
-    - $key = "xS-sR.k4v0-S7ZhItCN4HW6o20_JDR9nr_"
-    - $tenant = "365fdb25-c77e-4884-b5fa-6c38cc236c83"
-    - $app_web_name = "nostradini"
-    - $app_web_rg = "Default-Web-SoutheastAsia"
-  commands:
-  - az login --service-principal -u $id -p $key --tenant $tenant
-  - az webapp deployment source config-zip --src /drone/src/webfile.zip -n $app_web_name -g $app_web_rg
+   commands:
+  - az login --service-principal -u "dedc9ec9-0d1f-46b2-bf3e-5cc525a34254" -p "xS-sR.k4v0-S7ZhItCN4HW6o20_JDR9nr_" --tenant "365fdb25-c77e-4884-b5fa-6c38cc236c83"
+  - az webapp deployment source config-zip --src /drone/src/webfile.zip -n "nostradini" -g "Default-Web-SoutheastAsia"
  
 trigger:
   branch:
