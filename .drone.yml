@@ -39,7 +39,7 @@ steps:
   - zip -r webfile.zip *
   - cp -r webfile.zip /drone/src
   
- - name: deploy
+- name: deploy
   image: mcr.microsoft.com/azure-cli
   # environment:
    # id:
