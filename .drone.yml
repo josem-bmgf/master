@@ -15,17 +15,18 @@ steps:
   commands:
   - cd sample/InvestmentScore.SPA/
   - npm install
+  - npm audit fix --force
  
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
-   - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.sln
+   - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
 
 - name: Build Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   commands:
   - dotnet --list-sdks
-  - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.sln
+  - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
 
 trigger:
   branch:
