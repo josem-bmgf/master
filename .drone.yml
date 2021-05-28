@@ -4,20 +4,33 @@ type: docker
 name: Pull Request Checker
 
 steps:
-
-# - name: Get Web Build Tools
-  # image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  # commands:
-  # - export PATH="$PATH:/root/.dotnet/tools"
  
 - name: Run Package Manager
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1   #node:latest  
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1 
   commands:
   - apt-get update
   - apt-get -y install nodejs
   - apt-get -y install npm
   - cd sample/InvestmentScore.SPA/
   - npm install
+  
+- name: Update App Settings
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  environment:
+    spn:
+     from_secret: client_id
+    tenant:
+     from_secret: client_tenant
+    conn_str:
+     from_secret: conn_string
+  commands:
+    - apt-get -y update 
+  #  - apt-get upgrade -y
+    - apt-get -y install jq 
+    - touch temp.json
+    - cp sample/InvestmentScore.SPA/appsettings.json temp.json
+    - jq --arg id $spn --arg conn_string "$conn_str" --arg tenant $tenant '.AzureAd.TenantId = $tenant | .AzureAd.ClientId = $id | .ConnectionStrings.InvestmentScoreDatabase = $conn_str' temp.json > sample/InvestmentScore.SPA/appsettings.json
+    - rm temp.json
   
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
