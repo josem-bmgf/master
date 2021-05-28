@@ -25,7 +25,7 @@ steps:
      from_secret: conn_string
   commands:
     - apt-get -y update 
-  #  - apt-get upgrade -y
+    - apt-get upgrade -y
     - apt-get -y install jq 
     - touch temp.json
     - cp sample/InvestmentScore.SPA/appsettings.json temp.json
