@@ -28,47 +28,47 @@ steps:
     - apt-get -y install jq 
     - touch temp.json
     - cp sample/InvestmentScore.SPA/appsettings.json temp.json
-    - jq --arg spn $spn  '.Authentication.AzureAd.ClientId = $spn' temp.json > sample/InvestmentScore.SPA/appsettings.json
+    - jq --arg spn $spn --arg conn_string "$conn_str" '.Authentication.AzureAd.ClientId = $spn | .ConnectionStrings.InvestmentScoreDatabase = $conn_str' temp.json > sample/InvestmentScore.SPA/appsettings.json
     - rm temp.json
   
-- name: Clean Project
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  commands:
-   - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
+# - name: Clean Project
+  # image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  # commands:
+   # - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
 
-- name: Build Project
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  commands:
-  - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
+# - name: Build Project
+  # image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  # commands:
+  # - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
  
-- name: Publish Web
-  image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  commands:
-  - apt-get update -y
-  - apt-get upgrade -y
-  - apt-get install zip unzip -y
-  - apt-get -y install npm
-  - dotnet publish --configuration Debug sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj --output /drone/src/web/
-  - cd /drone/src/web
-  - zip -r webfile.zip *
-  - cp -r webfile.zip /drone/src
+# - name: Publish Web
+  # image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  # commands:
+  # - apt-get update -y
+  # - apt-get upgrade -y
+  # - apt-get install zip unzip -y
+  # - apt-get -y install npm
+  # - dotnet publish --configuration Debug sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj --output /drone/src/web/
+  # - cd /drone/src/web
+  # - zip -r webfile.zip *
+  # - cp -r webfile.zip /drone/src
   
-- name: Deploy Web
-  image: mcr.microsoft.com/azure-cli
-  environment:
-    spn:
-     from_secret: client_id
-    pass:
-     from_secret: client_password
-    tenant:
-     from_secret: client_tenant
-    app_web:
-     from_secret: app_web_name
-    web_rg:
-     from_secret: app_web_rg
-  commands:
-  - az login --service-principal -u $spn -p $pass --tenant $tenant
-  - az webapp deployment source config-zip --src /drone/src/webfile.zip -n $app_web -g $web_rg
+# - name: Deploy Web
+  # image: mcr.microsoft.com/azure-cli
+  # environment:
+    # spn:
+     # from_secret: client_id
+    # pass:
+     # from_secret: client_password
+    # tenant:
+     # from_secret: client_tenant
+    # app_web:
+     # from_secret: app_web_name
+    # web_rg:
+     # from_secret: app_web_rg
+  # commands:
+  # - az login --service-principal -u $spn -p $pass --tenant $tenant
+  # - az webapp deployment source config-zip --src /drone/src/webfile.zip -n $app_web -g $web_rg
  
 trigger:
   branch:
