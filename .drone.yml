@@ -28,7 +28,7 @@ steps:
     - apt-get -y install jq 
     - touch temp.json
     - cp sample/InvestmentScore.SPA/appsettings.json temp.json
-    - jq --arg spn $spn --arg conn_string "$conn_string" '.Authentication.AzureAd.ClientId = $spn | .ConnectionStrings.InvestmentScoreDatabase = $conn_string' temp.json > sample/InvestmentScore.SPA/appsettings.json
+    - jq --arg spn $spn --arg conn_string "$conn_string" --arg tenant $tenant '.Authentication.AzureAd.ClientId = $spn | .Authentication.AzureAd.TenantId = $tenant | .ConnectionStrings.InvestmentScoreDatabase = $conn_string' temp.json > sample/InvestmentScore.SPA/appsettings.json
     - rm temp.json
   
 # - name: Clean Project
