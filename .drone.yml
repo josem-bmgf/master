@@ -14,7 +14,7 @@ steps:
   - cd sample/InvestmentScore.SPA/
   - npm install
   
-- name: Update App Settings
+- name: Update Settings
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
   environment:
     spn:
@@ -30,6 +30,7 @@ steps:
     - cp sample/InvestmentScore.SPA/appsettings.json temp.json
     - jq --arg spn $spn --arg conn_string "$conn_string" --arg tenant $tenant '.Authentication.AzureAd.ClientId = $spn | .Authentication.AzureAd.TenantId = $tenant | .ConnectionStrings.InvestmentScoreDatabase = $conn_string' temp.json > sample/InvestmentScore.SPA/appsettings.json
     - rm temp.json
+    - sed -i 's/value="Development"/value="Production"/g' sample/InvestmentScore.SPA/web.config
   
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
