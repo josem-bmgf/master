@@ -21,14 +21,14 @@ steps:
      from_secret: client_id
     tenant:
      from_secret: client_tenant
-    conn_str:
+    conn_string:
      from_secret: conn_string
   commands:
     - apt-get -y update 
     - apt-get -y install jq 
     - touch temp.json
     - cp sample/InvestmentScore.SPA/appsettings.json temp.json
-    - jq --arg spn $spn --arg conn_string "$conn_str" '.Authentication.AzureAd.ClientId = $spn | .ConnectionStrings.InvestmentScoreDatabase = $conn_str' temp.json > sample/InvestmentScore.SPA/appsettings.json
+    - jq --arg spn $spn --arg conn_string "$conn_string" '.Authentication.AzureAd.ClientId = $spn | .ConnectionStrings.InvestmentScoreDatabase = $conn_string' temp.json > sample/InvestmentScore.SPA/appsettings.json
     - rm temp.json
   
 # - name: Clean Project
