@@ -8,8 +8,8 @@ steps:
 - name: Run Package Manager
   image: mcr.microsoft.com/dotnet/core/sdk:3.1 
   commands:
+  - apt-get update
   - apt-get install xmlstarlet
-  # - apt-get update
   # - apt-get -y install nodejs
   # - apt-get -y install npm
   # - cd sample/InvestmentScore.SPA/
