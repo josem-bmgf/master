@@ -15,23 +15,23 @@ steps:
   - cd sample/InvestmentScore.SPA/
   - npm install
   
-# - name: Update Configurations
-  # image: mcr.microsoft.com/dotnet/core/sdk:3.1
-  # environment:
-    # spn:
-     # from_secret: client_id
-    # tenant:
-     # from_secret: client_tenant
-    # conn_string:
-     # from_secret: conn_string
-  # commands:
-    # - apt-get -y update 
-    # - apt-get -y install jq 
-    # - touch temp.json
-    # - cp sample/InvestmentScore.SPA/appsettings.json temp.json
-    # - jq --arg spn $spn --arg conn_string "$conn_string" --arg tenant $tenant '.Authentication.AzureAd.ClientId = $spn | .Authentication.AzureAd.TenantId = $tenant | .ConnectionStrings.InvestmentScoreDatabase = $conn_string' temp.json > sample/InvestmentScore.SPA/appsettings.json
-    # - rm temp.json
-    # - sed -i 's/value="Development"/value="Production"/g' sample/InvestmentScore.SPA/Web.config
+- name: Update Configurations
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  environment:
+    spn:
+     from_secret: client_id
+    tenant:
+     from_secret: client_tenant
+    conn_string:
+     from_secret: conn_string
+  commands:
+    - apt-get -y update 
+    - apt-get -y install jq 
+    - touch temp.json
+    - cp sample/InvestmentScore.SPA/appsettings.json temp.json
+    - jq --arg spn $spn --arg conn_string "$conn_string" --arg tenant $tenant '.Authentication.AzureAd.ClientId = $spn | .Authentication.AzureAd.TenantId = $tenant | .ConnectionStrings.InvestmentScoreDatabase = $conn_string' temp.json > sample/InvestmentScore.SPA/appsettings.json
+    - rm temp.json
+    - sed -i 's/value="Development"/value="Production"/g' sample/InvestmentScore.SPA/Web_test.config
   
 - name: Clean Project
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
