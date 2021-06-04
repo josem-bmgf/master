@@ -32,7 +32,7 @@ trigger:
     include:
       - pull_request
       
------------------
+---
 
 kind: pipeline
 type: docker
