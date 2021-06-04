@@ -27,7 +27,7 @@ steps:
 
 trigger:
   branch:
-      - gitlearning
+      - test
   event:
     include:
       - pull_request
