@@ -1,7 +1,7 @@
 
 kind: pipeline
 type: docker
-name: Pull Request Checker
+name: Pull Request Check
 
 steps:
  
@@ -27,10 +27,10 @@ steps:
 
 trigger:
   branch:
-      - 
+      - gitlearning
   event:
     include:
-      - gitlearning
+      - pull_request
       
 -----------------
 
