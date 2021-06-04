@@ -18,11 +18,12 @@ steps:
    - dotnet --version
    - dotnet restore myWeb/myWeb.csproj
    - dotnet build myWeb/myWeb.csproj
+   - echo ${DRONE_BUILD_NUMBER}
  
 trigger:
   branch:
     include:
-      - master
+      - master
   event:
     include:
       - push
