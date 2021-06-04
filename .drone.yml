@@ -27,10 +27,10 @@ steps:
 
 trigger:
   branch:
-      - test
+      - 
   event:
     include:
-      - pull_request
+      - gitlearning
       
 -----------------
 
