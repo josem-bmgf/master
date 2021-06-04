@@ -19,6 +19,7 @@ steps:
    # - dotnet restore myWeb/myWeb.csproj
    # - dotnet build myWeb/myWeb.csproj
    - echo ${DRONE_BUILD_NUMBER}
+   - echo ${VERSION_TAG}
  
 trigger:
   branch:
