@@ -14,6 +14,41 @@ steps:
   - apt-get -y install npm
   - cd sample/InvestmentScore.SPA/
   - npm install
+ 
+- name: Clean Project
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  commands:
+   - dotnet clean sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
+
+- name: Build Project
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1
+  commands:
+  - dotnet build sample/InvestmentScore.SPA/InvestmentScore.Spa.csproj
+
+trigger:
+  branch:
+      - gitlearning
+  event:
+    include:
+      - pull_request
+      
+-----------------
+
+kind: pipeline
+type: docker
+name: Build and Deploy
+
+steps:
+ 
+- name: Run Package Manager
+  image: mcr.microsoft.com/dotnet/core/sdk:3.1 
+  commands:
+  - apt-get update
+  # - apt-get -y install xmlstarlet
+  - apt-get -y install nodejs
+  - apt-get -y install npm
+  - cd sample/InvestmentScore.SPA/
+  - npm install
   
 - name: Update Configurations
   image: mcr.microsoft.com/dotnet/core/sdk:3.1
