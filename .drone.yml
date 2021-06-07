@@ -27,4 +27,4 @@ trigger:
       - master
   event:
     include:
-      - push
+      - tag
