@@ -1,18 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFirst", "WebFirst\WebFirst.csproj", "{13B33F95-2E1A-4347-9D57-BAB7F9D84EAF}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RecordPool", "RecordPool\RecordPool.sqlproj", "{973CA872-DCDF-4F43-ADA6-B7755EB72D05}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 2
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://nostradini.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = WebFirst\\WebFirst.csproj
-		SccProjectName1 = WebFirst
-		SccLocalPath1 = WebFirst
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -22,8 +17,17 @@ Global
 		{13B33F95-2E1A-4347-9D57-BAB7F9D84EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13B33F95-2E1A-4347-9D57-BAB7F9D84EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13B33F95-2E1A-4347-9D57-BAB7F9D84EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973CA872-DCDF-4F43-ADA6-B7755EB72D05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{973CA872-DCDF-4F43-ADA6-B7755EB72D05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{973CA872-DCDF-4F43-ADA6-B7755EB72D05}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{973CA872-DCDF-4F43-ADA6-B7755EB72D05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{973CA872-DCDF-4F43-ADA6-B7755EB72D05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{973CA872-DCDF-4F43-ADA6-B7755EB72D05}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {614194BB-FAEC-42AB-A796-9149A7FE2E6F}
 	EndGlobalSection
 EndGlobal

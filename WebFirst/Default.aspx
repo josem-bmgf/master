@@ -26,6 +26,6 @@
         Font-Name="Verdana"
         Font-Size="8pt"
         HeaderStyle-BackColor="#aaaadd"
-        EnableViewState="false" ></asp:GridView>
+        EnableViewState="false" OnSelectedIndexChanged="GrdView_SelectedIndexChanged" ></asp:GridView>
     </h3>
     </asp:Content>

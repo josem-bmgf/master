@@ -1,0 +1,5 @@
+D:\Repos\master\RecordPool\bin\Debug\RecordPool.dacpac
+D:\Repos\master\RecordPool\bin\Debug\RecordPool.dll
+D:\Repos\master\RecordPool\bin\Debug\RecordPool.pdb
+D:\Repos\master\RecordPool\obj\Debug\RecordPool.dll
+D:\Repos\master\RecordPool\obj\Debug\RecordPool.pdb
