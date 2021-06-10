@@ -112,4 +112,4 @@ trigger:
       - gitlearning
   event:
     include:
-      - push
+      - tag
