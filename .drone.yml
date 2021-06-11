@@ -109,7 +109,7 @@ steps:
  
 trigger:
   branch:
-      - gitlearning
+      - again
   event:
     include:
-      - push
+      - tag
