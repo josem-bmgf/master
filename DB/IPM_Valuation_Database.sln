@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IPM_Valuation_Database", "IPM_Valuation_Database\IPM_Valuation_Database.sqlproj", "{AE93403F-9A9F-4C99-9832-6A12CB06961D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPM_Valuation_Database.build", "IPM_Valuation_Database.build\IPM_Valuation_Database.build.csproj", "{147848A7-C824-4F5A-BA69-63CDC1F34B82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +19,10 @@ Global
 		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{147848A7-C824-4F5A-BA69-63CDC1F34B82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{147848A7-C824-4F5A-BA69-63CDC1F34B82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{147848A7-C824-4F5A-BA69-63CDC1F34B82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{147848A7-C824-4F5A-BA69-63CDC1F34B82}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
