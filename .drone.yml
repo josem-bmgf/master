@@ -4,7 +4,8 @@ kind: pipeline
 type: docker
 name: Project Build Pull Request Checker
 
-steps:    
+steps:
+  
  - name: clean
    image: mcr.microsoft.com/dotnet/sdk:latest
    commands:
