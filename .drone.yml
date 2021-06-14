@@ -3,23 +3,23 @@ type: docker
 name: Project Build Pull Request Checker
 
 steps:    
-   - name: clean
-    image: mcr.microsoft.com/dotnet/sdk:latest
-    commands:
-    - dotnet clean DB/IPM_Valuation_Database.sln
+ - name: clean
+   image: mcr.microsoft.com/dotnet/sdk:latest
+   commands:
+   - dotnet clean DB/IPM_Valuation_Database.sln
 
-   - name: build
-    image: mcr.microsoft.com/dotnet/core/sdk:latest
-    commands:
-    - dotnet build DB/IPM_Valuation_Database.sln
+ - name: build
+   image: mcr.microsoft.com/dotnet/core/sdk:latest
+   commands:
+   - dotnet build DB/IPM_Valuation_Database.sln
 
 trigger:
-    branch:
-    include:
-        - again
-    event:
-    include:
-        - push
+ branch:
+ include:
+ - again
+ event:
+ include:
+ - push
 
 ---
 
