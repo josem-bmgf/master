@@ -5,4 +5,16 @@
   <ItemGroup>
     <Content Include="..\IPM_Valuation_Database\**\*.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Remove="..\IPM_Valuation_Database\DACPAC\Scripts\**" />
+    <Content Remove="..\IPM_Valuation_Database\dbo\Tables\**" />
+    <Content Remove="..\IPM_Valuation_Database\gdx\**" />
+    <Content Remove="..\IPM_Valuation_Database\obj\Debug\**" />
+    <Content Remove="..\IPM_Valuation_Database\Scripts\**" />
+    <Content Remove="..\IPM_Valuation_Database\Security\**" />
+    <Content Remove="..\IPM_Valuation_Database\staging\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="..\IPM_Valuation_Database\Script.PostDeployment1.sql" />
+  </ItemGroup>
 </Project>
