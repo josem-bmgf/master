@@ -6,14 +6,16 @@ name: Project Build Pull Request Checker
 
 steps:
   
- # - name: clean
-   # image: mcr.microsoft.com/dotnet/sdk:latest
-   # commands:
-   # - dotnet clean DB/IPM_Valuation_Database.sln
+ - name: clean
+   image: mcr.microsoft.com/dotnet/sdk:latest
+   commands:
+   - cp DB/IPM_Valuation_Database.build/Microsoft.Data.Tools.Schema.SqlTasks.targets /usr/share/dotnet/sdk/3.1.410/Microsoft/VisualStudio/v11.0/SSDT/
+   - dotnet clean DB/IPM_Valuation_Database.sln
 
  - name: build
-   image: mcr.microsoft.com/dotnet/core/sdk:latest
+   image: mcr.microsoft.com/dotnet/sdk:latest
    commands:
+   - cp DB/IPM_Valuation_Database.build/Microsoft.Data.Tools.Schema.SqlTasks.targets /usr/share/dotnet/sdk/3.1.410/Microsoft/VisualStudio/v11.0/SSDT/
    - dotnet build DB/IPM_Valuation_Database.sln
 
 trigger:
