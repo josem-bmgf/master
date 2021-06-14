@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[_TransactionIndex_8b1c32d5-4ef6-48d4-942b-d5675865b243] (
+    [Id] UNIQUEIDENTIFIER NOT NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+

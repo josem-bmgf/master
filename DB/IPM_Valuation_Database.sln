@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.852
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IPM_Valuation_Database", "IPM_Valuation_Database\IPM_Valuation_Database.sqlproj", "{AE93403F-9A9F-4C99-9832-6A12CB06961D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AA6378AA-B4DA-4439-A973-9F6D0985B1CF}
+	EndGlobalSection
+EndGlobal

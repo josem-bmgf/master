@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>IPM_Valuation_Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{ae93403f-9a9f-4c99-9832-6a12cb06961d}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>IPM_Valuation_Database</RootNamespace>
+    <AssemblyName>IPM_Valuation_Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\DACPAC</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\DACPAC</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="gcat\" />
+    <Folder Include="gcat\Tables\" />
+    <Folder Include="staging\" />
+    <Folder Include="staging\Tables\" />
+    <Folder Include="Security\" />
+    <Folder Include="gdx" />
+    <Folder Include="gdx\Tables" />
+    <Folder Include="gdx\Views" />
+    <Folder Include="staging\Views" />
+    <Folder Include="Scripts\" />
+    <Folder Include="gdx\Procedures" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Security\gcat.sql" />
+    <Build Include="Security\gdx.sql" />
+    <Build Include="Security\staging.sql" />
+    <Build Include="gdx\Tables\gdx.country_income_classifications.Table.sql" />
+    <Build Include="gdx\Tables\gdx.country_reference_data_avail.Table.sql" />
+    <Build Include="gdx\Tables\gdx.country_scope.Table.sql" />
+    <Build Include="gdx\Tables\gdx.disease_duration.Table.sql" />
+    <Build Include="gdx\Tables\gdx.fully_vaccinated_persons_vaccine_coverage.Table.sql" />
+    <Build Include="gdx\Tables\gdx.gates_data_exchange_metadata.Table.sql" />
+    <Build Include="gdx\Tables\gdx.gavi_country_status.Table.sql" />
+    <Build Include="gdx\Tables\gdx.health_adjusted_life_expectancy.Table.sql" />
+    <Build Include="gdx\Tables\gdx.ihme_disability_weight.Table.sql" />
+    <Build Include="gdx\Tables\gdx.ihme_location_hierarchy.Table.sql" />
+    <Build Include="gdx\Tables\gdx.linksbridge_fully_vaccinated_persons_coverage.Table.sql" />
+    <Build Include="gdx\Tables\gdx.linksbridge_vaccine_demand_forecast.Table.sql" />
+    <Build Include="gdx\Tables\gdx.mortality_rate.Table.sql" />
+    <Build Include="gdx\Tables\gdx.united_nations_pregnant_population.Table.sql" />
+    <Build Include="staging\Views\RemoveMeLater.sql" />
+    <Build Include="gdx\Views\gdx.vw_country_dimension.View.sql" />
+    <Build Include="gdx\Views\gdx.vw_ihme_population.View.sql" />
+    <Build Include="gdx\Views\gdx.vw_united_nations_population.View.sql" />
+    <Build Include="gdx\Views\gdx.vw_ihme_disease_burden.View.sql" />
+    <Build Include="staging\Tables\staging.united_nations_population.Table.sql" />
+    <Build Include="staging\Tables\staging.country_dimension.Table.sql" />
+    <Build Include="staging\Tables\staging.ihme_population.Table.sql" />
+    <Build Include="staging\Tables\staging.ihme_disease_burden.Table.sql" />
+    <Build Include="gdx\Tables\gdx.country_dimension.Table.sql" />
+    <Build Include="gdx\Tables\gdx.ihme_population.Table.sql" />
+    <Build Include="gdx\Tables\gdx.measure_dimension.Table.sql" />
+    <Build Include="gdx\Tables\gdx.united_nations_population.Table.sql" />
+    <Build Include="gdx\Tables\gdx.ihme_disease_burden.Table.sql" />
+    <Build Include="staging\Tables\staging.gates_data_exchange_metadata.Table.sql" />
+    <Build Include="staging\Tables\staging.measure_dimension.sql" />
+    <Build Include="gdx\Tables\gdx.measure_format_dimension.Table.sql" />
+    <Build Include="staging\Tables\staging.measure_format_dimension.sql" />
+    <Build Include="staging\Tables\staging.cause_dimension.Table.sql" />
+    <Build Include="gdx\Tables\gdx.cause_dimension.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_cause_dimension.View.sql" />
+    <Build Include="gdx\Views\gdx.vw_dropdown_scope.View.sql" />
+    <Build Include="gdx\Procedures\gdx.usp_populate_metadata_columns.Procedure.sql" />
+    <Build Include="gdx\Tables\gdx.metadata_tables.Table.sql" />
+    <Build Include="gdx\Tables\gdx.metadata_columns.Table.sql" />
+    <Build Include="gdx\Procedures\gdx.usp_merge_from_stg_to_gdx.Procedure.sql" />
+    <None Include="Scripts\metadata_population_scripts.Script.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\metadata_tables.Script.sql" />
+    <None Include="Scripts\metadata_columns.Script.sql" />
+    <None Include="Scripts\generate_population_scripts.sql" />
+    <Build Include="staging\Tables\staging.ihme_attributable_fraction.Table.sql" />
+    <Build Include="gdx\Tables\gdx.ihme_attributable_fraction.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_ihme_disease_burden_attributable.View.sql" />
+    <Build Include="staging\Tables\staging.ihme_vaccine_coverage.Table.sql" />
+    <Build Include="staging\Tables\staging.health_adjusted_life_expectancy.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_ihme_vaccine_coverage.View.sql" />
+    <Build Include="gdx\Tables\gdx.ihme_vaccine_coverage.Table.sql" />
+    <Build Include="staging\Tables\staging.who_vaccine_coverage.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_who_vaccine_coverage.View.sql" />
+    <Build Include="gdx\Tables\gdx.who_vaccine_coverage.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_health_adjusted_life_expectancy.View.sql" />
+    <Build Include="gdx\Tables\gdx.dropdown_scope.Table.sql" />
+    <Build Include="staging\Tables\staging.united_nations_birth_rates.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_united_nations_birth_rates.View.sql" />
+    <Build Include="gdx\Tables\gdx.united_nations_birth_rates.Table.sql" />
+    <Build Include="staging\Tables\staging.united_nations_pregnant_population.Table.sql" />
+    <Build Include="gdx\Views\gdx.vw_united_nations_pregnant_population.sql" />
+    <Build Include="dbo\Tables\_TransactionIndex_8b1c32d5-4ef6-48d4-942b-d5675865b243.sql" />
+    <Build Include="Security\RoleMemberships.sql" />
+    <Build Include="Security\svc_ipm_python.sql" />
+    <Build Include="Security\Romesh.Abeysuriya%40gatesfoundation.org.sql" />
+    <Build Include="Security\jessica.chung%40gatesfoundation.org.sql" />
+    <Build Include="Security\gcat_staging.sql" />
+    <Build Include="Security\gcat_gdx.sql" />
+    <Build Include="Security\app-sql-priv-it-dm-ipm-adAdministrators.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="IPM_Valuation_Database.publish.xml" />
+    <None Include="IPM_Valuation_Database_1.publish.xml" />
+    <None Include="Scripts\populate_gdx_schema_from_staging.Script.sql" />
+    <None Include="Scripts\staging.gates_data_exchange_metadata.Script.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Scripts\staging.measure_format_dimension.Script.sql" />
+    <None Include="IPM_Valuation_Database_2.publish.xml" />
+    <None Include="UAT_IPM_Valuation_Database.publish.xml" />
+    <None Include="IPM_Valuation_Database_DEV.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Script.PostDeployment1.sql" />
+    <None Include="Scripts\staging.measure_dimension.Script.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="IPM_Valuation_Database.refactorlog" />
+  </ItemGroup>
+</Project>

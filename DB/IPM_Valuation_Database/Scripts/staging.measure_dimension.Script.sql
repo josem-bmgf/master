@@ -1,0 +1,15 @@
+﻿TRUNCATE TABLE staging.measure_dimension;
+GO
+
+INSERT INTO staging.measure_dimension
+SELECT 'Deaths' AS measure_nm UNION ALL
+SELECT 'Incidence' UNION ALL
+SELECT 'Prevalence' UNION ALL
+SELECT 'DALYs' UNION ALL
+SELECT 'YLLs' UNION ALL
+SELECT 'YLDs' UNION ALL
+SELECT 'Population' UNION ALL
+SELECT 'Coverage' UNION ALL
+SELECT 'HALE' UNION ALL
+SELECT 'Births' 
+GO

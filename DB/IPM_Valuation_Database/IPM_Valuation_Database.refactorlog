@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="5b44f0e4-6cfa-4f2d-b6a5-85cf32afc8d9" ChangeDateTime="01/27/2020 20:55:47">
+    <Property Name="ElementName" Value="[gdx].[gdx_version_dimension].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[gdx_version_dimension]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="gdx_version_dimension_id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ae3959ed-d637-4b39-8539-ad43d7b96d92" ChangeDateTime="01/30/2020 15:55:55">
+    <Property Name="ElementName" Value="[gdx].[country_dimension].[country_dimension_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[country_dimension]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4c10acb2-a938-431a-bcc8-91c69450b8a3" ChangeDateTime="01/30/2020 16:55:57">
+    <Property Name="ElementName" Value="[staging].[country_dimension].[country_dimension_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[country_dimension]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3661f0f9-daf4-41b9-9a6c-28646c036a4a" ChangeDateTime="01/30/2020 16:56:09">
+    <Property Name="ElementName" Value="[staging].[gates_data_exchange_metadata].[gdx_metadata_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[gates_data_exchange_metadata]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d59992b6-96aa-4737-986a-cb6cd983c358" ChangeDateTime="01/30/2020 16:56:26">
+    <Property Name="ElementName" Value="[staging].[ihme_disease_burden].[disease_burden_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[ihme_disease_burden]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96d88c0f-e6cd-410b-bd87-d0d4bd970006" ChangeDateTime="01/30/2020 16:56:34">
+    <Property Name="ElementName" Value="[staging].[ihme_population].[ihme_population_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[ihme_population]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7453ace5-6e10-4b47-89d1-edf763482d07" ChangeDateTime="01/30/2020 16:56:43">
+    <Property Name="ElementName" Value="[staging].[united_nations_population].[united_nations_population_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[united_nations_population]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="61580841-f4ee-4c22-94b4-4ce6db684d2b" ChangeDateTime="01/30/2020 16:57:08">
+    <Property Name="ElementName" Value="[gdx].[ihme_disease_burden].[ihme_disease_burden_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[ihme_disease_burden]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e58f6714-1e48-4b59-81ea-416319afb283" ChangeDateTime="01/30/2020 16:57:17">
+    <Property Name="ElementName" Value="[gdx].[ihme_population].[ihme_population_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[ihme_population]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e20f0887-e688-4bda-8c5c-ecb30ef8e9e1" ChangeDateTime="01/30/2020 16:57:41">
+    <Property Name="ElementName" Value="[gdx].[united_nations_population].[united_nations_population_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[united_nations_population]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="533ae970-219a-43fb-a8b6-b2449b7a5ac6" ChangeDateTime="01/30/2020 16:58:04">
+    <Property Name="ElementName" Value="[gdx].[measures_dimension].[measures_dimension_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[measures_dimension]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dc9c78f7-096f-4554-ac62-90d965dd810d" ChangeDateTime="01/30/2020 16:58:46">
+    <Property Name="ElementName" Value="[gdx].[disease_duration].[disease_duration_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[disease_duration]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3e5cc119-f5a0-4e7a-a1ff-0ab18642a907" ChangeDateTime="01/30/2020 16:58:57">
+    <Property Name="ElementName" Value="[gdx].[fully_vaccinated_persons_vaccine_coverage].[fvp_vaccine_coverage_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[fully_vaccinated_persons_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5e3d1381-f37a-44ff-9642-20808dd5e75f" ChangeDateTime="01/30/2020 16:59:10">
+    <Property Name="ElementName" Value="[gdx].[country_income_classifications].[country_income_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[country_income_classifications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="24ea9711-e2c1-4690-8827-601281d007a5" ChangeDateTime="01/30/2020 16:59:20">
+    <Property Name="ElementName" Value="[gdx].[gates_data_exchange_metadata].[gdx_metadata_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[gates_data_exchange_metadata]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bd46f3b5-a1aa-4762-afc2-37bdf3feedbd" ChangeDateTime="01/30/2020 16:59:45">
+    <Property Name="ElementName" Value="[gdx].[gavi_country_status].[gavi_country_status_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[gavi_country_status]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="4b0a70ac-2219-458b-9e30-cc59f8ec8794" ChangeDateTime="01/30/2020 17:00:02">
+    <Property Name="ElementName" Value="[gdx].[health_and_life_expectancy].[hale_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[health_and_life_expectancy]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="424e19d1-4fc7-48e8-80fe-f8727e56d3cd" ChangeDateTime="01/30/2020 17:00:22">
+    <Property Name="ElementName" Value="[gdx].[ihme_disability_weight].[disability_weight_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[ihme_disability_weight]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1fb39863-9292-4171-915b-769d0a85c670" ChangeDateTime="01/30/2020 17:00:38">
+    <Property Name="ElementName" Value="[gdx].[ihme_location_hierarchy].[ihme_location_hierarchy_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[ihme_location_hierarchy]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2f7522b2-a2dc-46a2-9bbe-ea8f1e9b7e2b" ChangeDateTime="01/30/2020 17:00:55">
+    <Property Name="ElementName" Value="[gdx].[linksbridge_fully_vaccinated_persons_coverage].[linksbridge_fully_vaccinated_persons_coverage_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[linksbridge_fully_vaccinated_persons_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e6834137-ec13-4ca6-b18b-4dc058dce4e6" ChangeDateTime="01/30/2020 17:01:04">
+    <Property Name="ElementName" Value="[gdx].[linksbridge_vaccine_demand_forecast].[linksbridge_vaccine_demand_forecast_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[linksbridge_vaccine_demand_forecast]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e43675d1-b5b4-4055-8304-2410793952c4" ChangeDateTime="01/30/2020 17:01:32">
+    <Property Name="ElementName" Value="[gdx].[united_nations_pregnant_population].[united_nations_pregnant_population_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[united_nations_pregnant_population]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="eef6cc0b-acae-4202-8323-0a40debbfba8" ChangeDateTime="01/30/2020 17:01:45">
+    <Property Name="ElementName" Value="[gdx].[who_vaccine_coverage].[who_vaccine_coverage_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[who_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="488bb0f3-2642-4fc2-9477-2637e7c8b6a0" ChangeDateTime="03/20/2020 18:29:44">
+    <Property Name="ElementName" Value="[staging].[ihme_vaccine_coverage].[ihme_location_id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[ihme_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="iso_code_nm" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="714bc0af-efcf-4411-a01f-91f2bbeb1b7a" ChangeDateTime="03/20/2020 18:29:51">
+    <Property Name="ElementName" Value="[staging].[ihme_vaccine_coverage].[vaccine_coverage_reference_qty]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[ihme_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="scenario_nm" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="669b76de-873c-41fc-bc43-6662df59fc30" ChangeDateTime="03/20/2020 18:29:58">
+    <Property Name="ElementName" Value="[staging].[ihme_vaccine_coverage].[vaccine_coverage_better_qty]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[ihme_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="vaccine_coverage_qty" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6a983687-4148-4dd5-98dd-8dd239d323ab" ChangeDateTime="03/20/2020 18:37:00">
+    <Property Name="ElementName" Value="[staging].[ihme_vaccine_coverage].[iso_code_nm]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[staging].[ihme_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="iso_country_cd" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="361894ca-6d85-47e4-8304-62bd54cd93e2" ChangeDateTime="05/08/2020 15:55:02">
+    <Property Name="ElementName" Value="[gdx].[ihme_vaccine_coverage].[vaccine_nm]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[ihme_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="proxy_nm" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3ee4244a-7ace-4688-938d-bc1b78629b1b" ChangeDateTime="05/08/2020 15:55:10">
+    <Property Name="ElementName" Value="[gdx].[who_vaccine_coverage].[vaccine_nm]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[gdx].[who_vaccine_coverage]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="proxy_nm" />
+  </Operation>
+</Operations>

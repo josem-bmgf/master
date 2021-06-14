@@ -1,0 +1,17 @@
+﻿INSERT INTO #metadata_tables VALUES
+('gdx',		'gdx',	'vw_country_dimension',				'country_dimension',			2),
+('staging', 'gdx',	'measure_dimension',				'measure_dimension',			2),
+('staging', 'gdx',	'measure_format_dimension',			'measure_format_dimension',		2),
+('gdx',		'gdx',	'vw_cause_dimension',				'cause_dimension',				2),
+('staging', 'gdx',	'gates_data_exchange_metadata',		'gates_data_exchange_metadata', 2),
+('gdx',		'gdx',	'vw_ihme_population',				'ihme_population',				2),
+('gdx',		'gdx',	'vw_united_nations_population',		'united_nations_population',	2),
+('gdx',		'gdx',	'vw_ihme_disease_burden',			'ihme_disease_burden',			2),
+('staging', 'gdx',  'ihme_attributable_fraction',       'ihme_attributable_fraction',   2),
+('gdx',		'gdx',  'vw_ihme_disease_burden_attributable',            'ihme_disease_burden',        2),
+('gdx',		'gdx',  'vw_ihme_vaccine_coverage',			'ihme_vaccine_coverage',        2),
+('gdx',		'gdx',  'vw_who_vaccine_coverage',			'who_vaccine_coverage',        2),
+('gdx',		'gdx',	'vw_health_adjusted_life_expectancy',	'health_adjusted_life_expectancy',	2),
+('gdx',		'gdx',	'vw_dropdown_scope',				'dropdown_scope',	2),
+('gdx',		'gdx',	'vw_united_nations_birth_rates',	'united_nations_birth_rates',	2),
+('gdx',		'gdx',	'vw_united_nations_pregnant_population',	'united_nations_pregnant_population',	2)

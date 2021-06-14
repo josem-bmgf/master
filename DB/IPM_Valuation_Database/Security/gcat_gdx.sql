@@ -1,0 +1,2 @@
+﻿CREATE USER [gcat_gdx] WITHOUT LOGIN;
+
