@@ -18,6 +18,7 @@ steps:
    commands:
    - mkdir -p /usr/share/dotnet/sdk/5.0.301/Microsoft/VisualStudio/v11.0/SSDT
    - cp DB/IPM_Valuation_Database.build/Microsoft.Data.Tools.Schema.SqlTasks.targets /usr/share/dotnet/sdk/5.0.301/Microsoft/VisualStudio/v11.0/SSDT/
+   - cp DB/IPM_Valuation_Database.build/dotnet.dll /usr/share/dotnet/sdk/5.0.301/
    - dotnet build DB/IPM_Valuation_Database.sln
 
 trigger:
