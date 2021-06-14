@@ -17,12 +17,12 @@ steps:
    - dotnet build DB/IPM_Valuation_Database.sln
 
 trigger:
- branch:
- include:
- - again
- event:
- include:
- - push
+    branch:
+    include:
+    - again
+    event:
+    include:
+    - push
 
 ---
 
