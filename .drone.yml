@@ -12,7 +12,6 @@ steps:
     image: mcr.microsoft.com/dotnet/core/sdk:latest
     commands:
       - dotnet build DB/IPM_Valuation_Database.sln
-     
 
 trigger:
   branch:
@@ -20,7 +19,7 @@ trigger:
       - again
   event:
     include:
-      - tag
+      - push
 
 ---
 
