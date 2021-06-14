@@ -18,12 +18,13 @@ steps:
 
 trigger:
     branch:
+    include:
     - again
     event:
     include:
     - push
 
----
+# ---
 
 # kind: pipeline
 # type: docker
