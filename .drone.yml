@@ -14,11 +14,11 @@ steps:
    - dotnet clean DB/IPM_Valuation_Database.sln
 
  - name: build
-   image: mcr.microsoft.com/dotnet/sdk:latest
+   image: mcr.microsoft.com/dotnet/core/sdk:latest
    commands:
-   - mkdir -p /usr/share/dotnet/sdk/5.0.301/Microsoft/VisualStudio/v11.0/SSDT
-   - cp DB/IPM_Valuation_Database.build/Microsoft.Data.Tools.Schema.SqlTasks.targets /usr/share/dotnet/sdk/5.0.301/Microsoft/VisualStudio/v11.0/SSDT/
-   - cp DB/IPM_Valuation_Database.build/dotnet.dll /usr/share/dotnet/sdk/5.0.301/
+   # - mkdir -p /usr/share/dotnet/sdk/5.0.301/Microsoft/VisualStudio/v11.0/SSDT
+   # - cp DB/IPM_Valuation_Database.build/Microsoft.Data.Tools.Schema.SqlTasks.targets /usr/share/dotnet/sdk/5.0.301/Microsoft/VisualStudio/v11.0/SSDT/
+   # - cp DB/IPM_Valuation_Database.build/dotnet.dll /usr/share/dotnet/sdk/5.0.301/
    - dotnet build DB/IPM_Valuation_Database.sln
 
 trigger:
