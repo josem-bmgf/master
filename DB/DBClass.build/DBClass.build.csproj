@@ -2,6 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <ItemGroup>
+    <Content Include="..\IPM_Valuation_Database\**\*.sql" />
+  </ItemGroup>
   </PropertyGroup>
 
 </Project>
