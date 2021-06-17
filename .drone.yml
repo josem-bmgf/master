@@ -20,6 +20,20 @@ steps:
    # - cp DB/IPM_Valuation_Database.build/Microsoft.Data.Tools.Schema.SqlTasks.targets /usr/share/dotnet/sdk/3.1.410/Microsoft/VisualStudio/v11.0/SSDT/
    # - cp DB/IPM_Valuation_Database.build/dotnet.dll /usr/share/dotnet/sdk/5.0.301/
    - dotnet build DB/IPM_Valuation_Database.sln
+   
+ - name: Deploy to Azure SQL Database 
+   image: nostradini/practice:sqlCMD
+   environment:
+     SERVER_NAME:
+       from_secret: db_server
+     DB_NAME:
+       from_secret: db_server_dbname
+     USERNAME:
+       from_secret: db_server_user
+     PASSWORD:
+       from_secret: db_server_pass
+   commands:
+   - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/DB/DBClass.build/bin/Debug/netcoreapp3.1/DBClass.build.dacpac
 
 trigger:
     branch:
