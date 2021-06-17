@@ -33,7 +33,7 @@ steps:
      PASSWORD:
        from_secret: db_server_pass
    commands:
-   - ls /drone/src/DB/IPM_Valuation_Database/DACPAC
+   - ls DB/IPM_Valuation_Database/DACPAC
    # - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/DB/DBClass.build/bin/Debug/netcoreapp3.1/DBClass.build.dacpac
 
 trigger:
