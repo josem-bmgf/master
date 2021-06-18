@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31129.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "IPM_Valuation_Database", "IPM_Valuation_Database\IPM_Valuation_Database.sqlproj", "{AE93403F-9A9F-4C99-9832-6A12CB06961D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBClass.build", "DBClass.build\DBClass.build.csproj", "{2A9B8C37-A543-496F-B127-A83D51AB1FA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IPM_Valuation_Database.build", "IPM_Valuation_Database.build\IPM_Valuation_Database.build.csproj", "{FC1113B7-29D2-443E-844D-E564339E5982}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,10 +18,10 @@ Global
 		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AE93403F-9A9F-4C99-9832-6A12CB06961D}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{2A9B8C37-A543-496F-B127-A83D51AB1FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A9B8C37-A543-496F-B127-A83D51AB1FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A9B8C37-A543-496F-B127-A83D51AB1FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A9B8C37-A543-496F-B127-A83D51AB1FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC1113B7-29D2-443E-844D-E564339E5982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC1113B7-29D2-443E-844D-E564339E5982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC1113B7-29D2-443E-844D-E564339E5982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC1113B7-29D2-443E-844D-E564339E5982}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-  </PropertyGroup>
-	<ItemGroup>
-      <Content Include="..\IPM_Valuation_Database\**\*.sql" />
-    </ItemGroup>
-</Project>
