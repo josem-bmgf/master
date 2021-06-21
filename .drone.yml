@@ -34,7 +34,7 @@ steps:
        from_secret: db_server_pass
    commands:
    - ls -l /drone/src/DB/IPM_Valuation_Database.build/bin/Debug/netstandard2.0
-   # - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/DB/IPM_Valuation_Database.build/bin/Debug/netstandard2.0/IPM_Valuation_Database.build.dacpac
+   - sqlpackage /a:Publish /p:VerifyDeployment=True /p:CommandTimeout=0 /p:DatabaseServiceObjective=P2 /p:AllowIncompatiblePlatform=True /tsn:tcp:$SERVER_NAME /tdn:$DB_NAME /tu:$USERNAME /tp:$PASSWORD /sf:/drone/src/DB/IPM_Valuation_Database.build/bin/Debug/netstandard2.0/IPM_Valuation_Database.build.dacpac
 
 trigger:
     branch:
