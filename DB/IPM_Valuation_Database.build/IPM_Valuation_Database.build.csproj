@@ -6,4 +6,10 @@
   <ItemGroup>
     <Content Include="..\IPM_Valuation_Database\**\*.sql" />
   </ItemGroup>
+  <!-- <ItemGroup> -->
+    <!-- <Content Remove="..\IPM_Valuation_Database\gdx\Views\gdx.vw_who_vaccine_coverage.View.sql" /> -->
+  <!-- </ItemGroup> -->
+  <!-- <ItemGroup> -->
+    <!-- <None Include="..\IPM_Valuation_Database\gdx\Views\gdx.vw_who_vaccine_coverage.View.sql" /> -->
+  <!-- </ItemGroup> -->
 </Project>
