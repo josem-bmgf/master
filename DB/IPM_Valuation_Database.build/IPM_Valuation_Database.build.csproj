@@ -9,7 +9,7 @@
   <ItemGroup>
     <Content Remove="..\IPM_Valuation_Database\DACPAC\**\*.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Script.PostDeployment1.sql" />
-	<Content Remove="..\IPM_Valuation_Database\Script\generate_population_scripts.sql />
+	<Content Remove="..\IPM_Valuation_Database\Script\generate_population_scripts.sql" />
   </ItemGroup>
   <!-- <ItemGroup> -->
     <!-- <None Include="..\IPM_Valuation_Database\gdx\Views\gdx.vw_who_vaccine_coverage.View.sql" /> -->
