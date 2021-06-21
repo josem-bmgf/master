@@ -2,13 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+	<SuppressTSqlWarnings>71006</SuppressTSqlWarnings>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="..\IPM_Valuation_Database\**\*.sql" />
   </ItemGroup>
-  <!-- <ItemGroup> -->
-    <!-- <Content Remove="..\IPM_Valuation_Database\gdx\Views\gdx.vw_who_vaccine_coverage.View.sql" /> -->
-  <!-- </ItemGroup> -->
+  <ItemGroup>
+    <Content Remove="..\IPM_Valuation_Database\DACPAC\*.sql" />
+  </ItemGroup>
   <!-- <ItemGroup> -->
     <!-- <None Include="..\IPM_Valuation_Database\gdx\Views\gdx.vw_who_vaccine_coverage.View.sql" /> -->
   <!-- </ItemGroup> -->
