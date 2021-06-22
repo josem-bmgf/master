@@ -10,6 +10,7 @@
     <Content Remove="..\IPM_Valuation_Database\DACPAC\**\*.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Script.PostDeployment1.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Scripts\*.sql" />
+	<Content Remove="..\IPM_Valuation_Database\Security\*.sql" />
 	<!-- <Content Remove="..\IPM_Valuation_Database\Scripts\generate_population_scripts.sql" /> -->
   </ItemGroup>
   <!-- <ItemGroup> -->
