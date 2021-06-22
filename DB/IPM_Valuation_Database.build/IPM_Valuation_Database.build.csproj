@@ -9,7 +9,7 @@
   <ItemGroup>
     <Content Remove="..\IPM_Valuation_Database\DACPAC\**\*.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Script.PostDeployment1.sql" />
-	<Content Remove="..\IPM_Valuation_Database\Scripts\.sql" />
+	<Content Remove="..\IPM_Valuation_Database\Scripts\*.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Security\app-sql-priv-it-dm-ipm-adAdministrators.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Security\jessica.chung@gatesfoundation.org.sql" />
 	<Content Remove="..\IPM_Valuation_Database\Security\RoleMemberships.sql" />
