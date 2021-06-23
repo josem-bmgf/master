@@ -1,4 +1,7 @@
 ﻿CREATE TABLE [dbo].[TestTable]
 (
-	[Id] INT NOT NULL PRIMARY KEY
+	[Id] INT NOT NULL PRIMARY KEY,
+	[name] VARCHAR (100) NOT NULL,
+	[nickname] VARCHAR (100) NOT NULL,
+	[alias] VARCHAR (100) NOT NULL
 )
