@@ -148,6 +148,7 @@
     <Build Include="Security\gcat_staging.sql" />
     <Build Include="Security\gcat_gdx.sql" />
     <Build Include="Security\app-sql-priv-it-dm-ipm-adAdministrators.sql" />
+    <Build Include="gdx\Tables\myTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="IPM_Valuation_Database.publish.xml" />
